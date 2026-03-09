@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import FTLogo from "@/components/FTLogo";
+import ftIcon from "@/assets/ft-icon.png";
 
 const navItems = [
   { label: "Inicio", path: "/" },
@@ -33,7 +33,9 @@ const SiteHeader = () => {
           }}
         />
         <Link to="/" className="relative z-10 hover:opacity-80 transition-opacity">
-          <FTLogo className="h-5 text-foreground" />
+          <div className="h-6 w-8 overflow-hidden flex items-center justify-center">
+            <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert scale-[1.8]" />
+          </div>
         </Link>
 
         {/* Desktop nav */}

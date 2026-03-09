@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram } from "lucide-react";
-import FTLogo from "@/components/FTLogo";
+import ftIcon from "@/assets/ft-icon.png";
 
 const navLinks = [
   { label: "Inicio", path: "/" },
@@ -17,7 +17,9 @@ const SiteFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <FTLogo className="h-5 text-muted-foreground/50" />
+            <div className="h-6 w-8 overflow-hidden flex items-center justify-center">
+              <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert opacity-50 scale-[1.8]" />
+            </div>
             <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
               Cinematógrafo uruguayo. Publicidad, documental y contenido audiovisual para marcas globales.
             </p>
