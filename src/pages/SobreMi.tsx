@@ -29,7 +29,7 @@ const platforms = [
   { name: "VIX", logo: vixLogo, url: "https://www.vix.com", bigger: true },
 ];
 
-type LogoItemType = { name: string; logo: string | null; url: string };
+type LogoItemType = { name: string; logo: string | null; url: string; bigger?: boolean };
 
 const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
