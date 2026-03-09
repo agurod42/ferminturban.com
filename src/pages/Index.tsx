@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
@@ -7,6 +8,8 @@ import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
 import Filmstrip from "@/components/Filmstrip";
 import { getFeaturedProjects } from "@/data/projects";
+import { getRandomHeroVideo } from "@/data/heroVideos";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const featured = getFeaturedProjects();
