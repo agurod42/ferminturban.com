@@ -41,7 +41,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="font-display text-7xl md:text-9xl tracking-[0.15em] text-foreground"
+              className="font-display text-5xl sm:text-5xl sm:text-7xl md:text-9xl tracking-[0.15em] text-foreground"
             >
               FERMIN TURBAN
             </motion.h1>
@@ -57,17 +57,17 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="flex items-center justify-center gap-6 mt-10"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10"
             >
               <Link
                 to="/publicidad"
-                className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors"
+                className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors w-full sm:w-auto text-center"
               >
                 Publicidad
               </Link>
               <Link
                 to="/documental"
-                className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors"
+                className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors w-full sm:w-auto text-center"
               >
                 Documental
               </Link>
