@@ -94,7 +94,7 @@ const SobreMi = () => {
               </div>
 
               {/* Contact */}
-    flex-wrap items-center gap-4 sm:lex-wrap items-center gap-4 sm:lex-wrap items-center gap-4 sm:tems-center gap-6">
+    <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
                 <a
                   href="https://www.instagram.com/ferminturban"
                   target="_blank"

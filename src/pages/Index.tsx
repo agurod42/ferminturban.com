@@ -57,7 +57,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              clasflex-col sm:flex-row items-center justify-center gap-4 sm:tify-center gap-6 mt-10"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10"
             >
               <Link
                 to="/publicidad"
