@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ftIcon from "@/assets/ft-icon.png";
@@ -7,8 +7,16 @@ import { getRouteSegment } from "@/hooks/useLanguage";
 
 const SiteHeader = () => {
   const { t, lang } = useLanguage();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const normalizedPath = location.pathname.replace(/\/+$/, "") || "/";
+  const isLandingPage = normalizedPath === `/${lang}`;
+  const backgroundGradient =
+    isLandingPage && !scrolled
+      ? "linear-gradient(to bottom, hsl(var(--background) / 0.85) 0%, hsl(var(--background) / 0.55) 32%, hsl(var(--background) / 0.18) 58%, transparent 100%)"
+      : "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 40%, transparent 100%)";
+  const backgroundOpacity = isLandingPage && !scrolled ? 1 : scrolled ? 1 : 0.5;
 
   const navItems = [
     { label: t("nav.home"), path: `/${lang}` },
@@ -19,6 +27,7 @@ const SiteHeader = () => {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,8 +37,8 @@ const SiteHeader = () => {
       <div
         className="absolute inset-0 pointer-events-none transition-opacity duration-500"
         style={{
-          background: "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 40%, transparent 100%)",
-          opacity: scrolled ? 1 : 0.5,
+          background: backgroundGradient,
+          opacity: backgroundOpacity,
         }}
       />
       <div className="container relative z-10 flex items-center justify-between py-6 px-6 md:px-12">
