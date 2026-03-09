@@ -68,7 +68,7 @@ const SobreMi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-5xl md:text-7xl tracking-wide text-foreground mb-8">
+              <h1 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-wide text-foreground mb-8">
                 SOBRE MÍ
               </h1>
               <div className="space-y-6 font-body text-secondary-foreground leading-relaxed">
