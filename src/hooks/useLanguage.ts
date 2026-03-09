@@ -66,7 +66,7 @@ export const useLanguage = () => {
 
   /** Build a project detail path */
   const projectPath = useCallback(
-    (project: { slug: string; slugEn?: string; title: string; category: string }) => {
+    (project: Project) => {
       const segment = getRouteSegment(lang, "project");
       const slug = getProjectSlug(project, lang);
       return `/${lang}/${segment}/${slug}`;
