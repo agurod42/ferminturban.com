@@ -12,6 +12,12 @@ const ProjectDetail = () => {
   const project = getProjectBySlug(slug || "");
   const [videoPlaying, setVideoPlaying] = useState(false);
 
+  // Reset state when navigating between projects
+  useEffect(() => {
+    setVideoPlaying(false);
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   if (!project) {
     return (
       <PageLayout>
