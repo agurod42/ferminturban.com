@@ -93,6 +93,33 @@ const SobreMi = () => {
                 </p>
               </div>
 
+              {/* Contact */}
+              <div className="mt-8 flex items-center gap-6">
+                <a
+                  href="https://www.instagram.com/ferminturban"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} />
+                </a>
+                <a
+                  href="https://www.imdb.com/es-es/name/nm14037227/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm font-semibold text-muted-foreground hover:text-primary transition-colors tracking-wider"
+                >
+                  IMDb
+                </a>
+                <a
+                  href="mailto:ferminturban@gmail.com"
+                  className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider"
+                >
+                  ferminturban@gmail.com
+                </a>
+              </div>
+
               {/* Brands */}
               <div className="mt-16 border-t border-border/50 pt-10">
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
