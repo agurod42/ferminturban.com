@@ -98,21 +98,21 @@ const SobreMi = () => {
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   Marcas
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {brands.map((brand, i) => (
-                    <LogoItem key={brand.name} item={brand} index={i} />
+                    <LogoTile key={brand.name} item={brand} index={i} />
                   ))}
                 </div>
               </div>
 
               {/* Platforms */}
-              <div className="mt-12 border-t border-border/50 pt-10">
+              <div className="mt-10 border-t border-border/50 pt-10">
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   Plataformas
                 </h3>
-                <div className="grid grid-cols-3 gap-x-8 gap-y-2">
+                <div className="grid grid-cols-3 gap-3">
                   {platforms.map((platform, i) => (
-                    <LogoItem key={platform.name} item={platform} index={i} />
+                    <LogoTile key={platform.name} item={platform} index={i} />
                   ))}
                 </div>
               </div>
