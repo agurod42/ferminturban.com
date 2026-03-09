@@ -12,6 +12,14 @@ import { getRandomHeroVideo } from "@/data/heroVideos";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  const isTablet = typeof window !== "undefined" && window.innerWidth >= 768 && window.innerWidth < 1024;
+
+  const heroVideoId = useMemo(() => {
+    const type = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
+    return getRandomHeroVideo(type);
+  }, [isMobile, isTablet]);
+
   const featured = getFeaturedProjects();
   const commercialFeatured = featured.filter((p) => p.category === "publicidad");
   const docFeatured = featured.filter((p) => p.category === "documental");
