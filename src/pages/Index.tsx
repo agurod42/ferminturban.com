@@ -1,12 +1,181 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Instagram } from "lucide-react";
+import heroTexture from "@/assets/hero-texture.jpg";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import ProjectCard from "@/components/ProjectCard";
+import { getFeaturedProjects } from "@/data/projects";
 
 const Index = () => {
+  const featured = getFeaturedProjects();
+  const commercialFeatured = featured.filter((p) => p.category === "publicidad");
+  const docFeatured = featured.filter((p) => p.category === "documental");
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="grain-overlay min-h-screen">
+      <SiteHeader />
+
+      {/* HERO */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroTexture})` }}
+        />
+        <div className="absolute inset-0 bg-background/60" />
+
+        {/* Vimeo reel background */}
+        <div className="absolute inset-0 overflow-hidden opacity-30">
+          <iframe
+            src="https://player.vimeo.com/video/1119567207?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[110vw] min-h-[110vh]"
+            allow="autoplay; fullscreen"
+            title="Fermin Turban Reel"
+          />
+        </div>
+
+        <div className="relative z-10 text-center px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="font-display text-7xl md:text-9xl tracking-[0.15em] text-foreground"
+          >
+            FERMIN TURBAN
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="font-body text-sm md:text-base tracking-[0.4em] uppercase text-muted-foreground mt-4"
+          >
+            Cinematógrafo
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="flex items-center justify-center gap-6 mt-10"
+          >
+            <Link
+              to="/publicidad"
+              className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors"
+            >
+              Publicidad
+            </Link>
+            <Link
+              to="/documental"
+              className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors"
+            >
+              Documental
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <div className="w-px h-12 bg-gradient-to-b from-foreground/50 to-transparent" />
+        </motion.div>
+      </section>
+
+      {/* FEATURED COMMERCIAL */}
+      <section className="py-24 md:py-32">
+        <div className="container px-6 md:px-12">
+          <div className="flex items-end justify-between mb-12">
+            <h2 className="font-display text-4xl md:text-5xl tracking-wide text-foreground">
+              PUBLICIDAD
+            </h2>
+            <Link
+              to="/publicidad"
+              className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors"
+            >
+              Ver todo →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {commercialFeatured.map((project, i) => (
+              <ProjectCard key={project.slug} project={project} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED DOCUMENTARY */}
+      <section className="py-24 md:py-32 border-t border-border">
+        <div className="container px-6 md:px-12">
+          <div className="flex items-end justify-between mb-12">
+            <h2 className="font-display text-4xl md:text-5xl tracking-wide text-foreground">
+              DOCUMENTAL
+            </h2>
+            <Link
+              to="/documental"
+              className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors"
+            >
+              Ver todo →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {docFeatured.map((project, i) => (
+              <ProjectCard key={project.slug} project={project} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BIO STRIP */}
+      <section className="py-24 md:py-32 border-t border-border">
+        <div className="container px-6 md:px-12 max-w-3xl mx-auto text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="font-body text-lg md:text-xl leading-relaxed text-secondary-foreground"
+          >
+            Cineasta uruguayo nacido en Guichón. Trabaja entre la publicidad y el
+            documental, combinando sensibilidad documental con un lenguaje visual
+            cinematográfico y una búsqueda constante de autenticidad.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex items-center justify-center gap-6 mt-8"
+          >
+            <a
+              href="https://www.instagram.com/ferminturban"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="https://www.imdb.com/es-es/name/nm14037227/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body text-sm font-semibold text-muted-foreground hover:text-primary transition-colors tracking-wider"
+            >
+              IMDb
+            </a>
+            <a
+              href="mailto:ferminturban@gmail.com"
+              className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider"
+            >
+              Contacto
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      <SiteFooter />
     </div>
   );
 };
