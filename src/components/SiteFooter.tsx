@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Instagram } from "lucide-react";
+import { Instagram, Globe } from "lucide-react";
 import ftIcon from "@/assets/ft-icon.png";
 import { useLanguage, getRouteSegment } from "@/hooks/useLanguage";
 
