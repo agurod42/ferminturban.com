@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
@@ -7,8 +8,18 @@ import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
 import Filmstrip from "@/components/Filmstrip";
 import { getFeaturedProjects } from "@/data/projects";
+import { getRandomHeroVideo } from "@/data/heroVideos";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  const isTablet = typeof window !== "undefined" && window.innerWidth >= 768 && window.innerWidth < 1024;
+
+  const heroVideoId = useMemo(() => {
+    const type = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
+    return getRandomHeroVideo(type);
+  }, [isMobile, isTablet]);
+
   const featured = getFeaturedProjects();
   const commercialFeatured = featured.filter((p) => p.category === "publicidad");
   const docFeatured = featured.filter((p) => p.category === "documental");
@@ -29,8 +40,8 @@ const Index = () => {
           {/* Vimeo reel background */}
           <div className="absolute inset-0 overflow-hidden opacity-30">
             <iframe
-              src="https://player.vimeo.com/video/1119567207?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[110vw] min-h-[110vh]"
+              src={`https://player.vimeo.com/video/${heroVideoId}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] sm:w-auto sm:h-auto sm:min-w-[110vw] sm:min-h-[110vh] object-cover"
               allow="autoplay; fullscreen"
               title="Fermin Turban Reel"
             />
