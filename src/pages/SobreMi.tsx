@@ -27,6 +27,34 @@ const platforms = [
 
 type LogoItemType = { name: string; logo: string | null; url: string };
 
+const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
+  <motion.a
+    href={item.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: index * 0.05 }}
+    className="group flex items-center justify-center aspect-[3/2] border border-border/30 rounded-sm bg-secondary/20 hover:bg-secondary/50 hover:border-border/60 transition-all duration-400"
+    title={item.name}
+  >
+    {item.logo ? (
+      <img
+        src={item.logo}
+        alt={item.name}
+        className="max-h-10 max-w-[80px] object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert"
+      />
+    ) : (
+      <span className="font-display text-lg md:text-xl tracking-widest text-muted-foreground/30 group-hover:text-foreground/80 transition-colors duration-300">
+        {item.name.toUpperCase()}
+      </span>
+    )}
+  </motion.a>
+);
+
+type LogoItemType = { name: string; logo: string | null; url: string };
+
 const LogoItem = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
     href={item.url}
