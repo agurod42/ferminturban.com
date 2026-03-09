@@ -252,7 +252,7 @@ const ProjectDetail = () => {
                 <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
               </div>
-              <p className="font-display text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors">
+              <p className="font-display text-base sm:text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors line-clamp-2">
                 {categoryLabel.toUpperCase()}
               </p>
             </Link>
