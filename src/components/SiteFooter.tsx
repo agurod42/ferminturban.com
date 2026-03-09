@@ -17,7 +17,7 @@ const SiteFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert opacity-60 object-contain" />
+            <img src={ftIcon} alt="FT" className="h-14 -my-3 brightness-0 invert opacity-60" style={{ clipPath: 'inset(15% 10% 20% 10%)' }} />
             <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
               Cinematógrafo uruguayo. Publicidad, documental y contenido audiovisual para marcas globales.
             </p>
