@@ -155,7 +155,67 @@ const ProjectDetail = () => {
         </section>
       )}
 
-      {/* ——— NAVIGATION ——— */}
+      {/* ——— GALLERY ——— */}
+      <section className="py-16 md:py-24">
+        <div className="container px-6 md:px-12 max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
+          >
+            Galería
+          </motion.h2>
+
+          {project.gallery && project.gallery.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+              {project.gallery.map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className={`overflow-hidden rounded-sm ${
+                    i === 0 ? "col-span-2 row-span-2" : ""
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title} – foto ${i + 1}`}
+                    className="w-full h-full object-cover aspect-video hover:scale-105 transition-transform duration-700"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className={`overflow-hidden rounded-sm ${
+                    i === 0 ? "col-span-2 row-span-2" : ""
+                  }`}
+                >
+                  <div
+                    className="w-full h-full min-h-[160px] md:min-h-[200px] bg-cover bg-center opacity-60"
+                    style={{
+                      backgroundImage: thumbnail ? `url(${thumbnail})` : `url(${pageTexture})`,
+                      filter: `brightness(${0.5 + i * 0.1}) contrast(1.1)`,
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+
       <section className="border-t border-border/50">
         <div className="grid grid-cols-2">
           {prevProject ? (
