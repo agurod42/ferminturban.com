@@ -23,7 +23,7 @@ const SiteHeader = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="container flex items-center justify-between py-6 px-6 md:px-12">
+      <div className="container relative z-10 flex items-center justify-between py-6 px-6 md:px-12">
         {/* Header gradient backdrop — intensifies on scroll */}
         <div
           className="absolute inset-0 pointer-events-none transition-opacity duration-500"
@@ -58,7 +58,7 @@ const SiteHeader = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-[7px] p-2 relative z-10"
+          className="md:hidden flex flex-col justify-center gap-[7px] h-6 p-0 relative z-10"
           aria-label="Menu"
         >
           <span className={`block w-6 h-px bg-foreground transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[4px]" : ""}`} />
