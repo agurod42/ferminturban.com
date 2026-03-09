@@ -1,11 +1,24 @@
+import { useEffect, useMemo } from "react";
 import PageLayout from "@/components/PageLayout";
 import ProjectCard from "@/components/ProjectCard";
 import { getProjectsByCategory } from "@/data/projects";
 import { useLanguage } from "@/hooks/useLanguage";
+import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
 
 const Documental = () => {
-  const projects = getProjectsByCategory("documental");
+  const projects = useMemo(() => getProjectsByCategory("documental"), []);
   const { t } = useLanguage();
+
+  useEffect(() => {
+    scheduleIdle(() => {
+      projects.slice(0, 7).forEach((project, index) => {
+        preloadProjectMedia(project, {
+          includeGallery: false,
+          priority: index < 2 ? "high" : "low",
+        });
+      });
+    });
+  }, [projects]);
 
   return (
     <PageLayout>

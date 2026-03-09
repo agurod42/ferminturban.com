@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
+import { preloadProjectMedia } from "@/lib/media-preload";
 
 interface ProjectCardProps {
   project: Project;
@@ -15,6 +16,13 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
   const { t, projectPath } = useLanguage();
   const isFilmstrip = variant === "filmstrip";
   const aspectRatio = project.thumbnailAspectRatio || 16 / 9;
+  const prioritizeImage = isFilmstrip ? index < 2 : index < 6;
+  const warmProject = () => {
+    preloadProjectMedia(project, {
+      includeGallery: false,
+      priority: prioritizeImage ? "high" : "low",
+    });
+  };
 
   const categoryLabel = project.category === "publicidad"
     ? t("project.advertising")
@@ -31,6 +39,9 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
       <Link
         to={projectPath(project)}
         className="group block"
+        onMouseEnter={warmProject}
+        onFocus={warmProject}
+        onTouchStart={warmProject}
       >
         <div
           className="relative overflow-hidden rounded bg-secondary mb-3"
@@ -42,7 +53,9 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
                 src={thumbnail}
                 alt={project.thumbnailAlt || project.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
+                loading={prioritizeImage ? "eager" : "lazy"}
+                fetchPriority={prioritizeImage ? "high" : "auto"}
+                decoding="async"
               />
               <div className="absolute inset-0 bg-background/40 group-hover:bg-background/10 transition-all duration-700" />
             </>

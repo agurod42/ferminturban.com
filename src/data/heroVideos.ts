@@ -1,36 +1,46 @@
+export type HeroVideo = {
+  id: string;
+  projectSlug: string;
+};
+
 // Hero background videos by device type.
 // Mobile uses the only portrait Vimeo assets we scraped.
 // Tablet favors less panoramic frames.
 // Desktop stays on clean landscape / widescreen shots.
 
-export const heroVideosMobile: string[] = [
-  "1111397503", // mercado-libre-bicho
-  "844032084", // pilsen
+export const heroVideosMobile: HeroVideo[] = [
+  { id: "1111397503", projectSlug: "mercado-libre-bicho" },
+  { id: "844032084", projectSlug: "pilsen" },
 ];
 
-export const heroVideosTablet: string[] = [
-  "1111395985", // stadium
-  "1120210224", // jack-backspring-summer
-  "844034498", // natalia-oreiro
-  "884446816", // higuita
+export const heroVideosTablet: HeroVideo[] = [
+  { id: "1111395985", projectSlug: "stadium" },
+  { id: "1120210224", projectSlug: "jack-backspring-summer" },
+  { id: "844034498", projectSlug: "natalia-oreiro" },
+  { id: "884446816", projectSlug: "higuita" },
 ];
 
-export const heroVideosDesktop: string[] = [
-  "1048141828", // jack-stay-true
-  "992797912", // audi
-  "1120206992", // mercado-pago
-  "1150093961", // farmashop-navidad
-  "960540239", // colombia
+export const heroVideosDesktop: HeroVideo[] = [
+  { id: "1048141828", projectSlug: "jack-stay-true" },
+  { id: "992797912", projectSlug: "audi" },
+  { id: "1120206992", projectSlug: "mercado-pago" },
+  { id: "1150093961", projectSlug: "farmashop-navidad" },
+  { id: "960540239", projectSlug: "colombia" },
 ];
+
+export function getHeroVideoPool(
+  type: "mobile" | "tablet" | "desktop"
+): HeroVideo[] {
+  return type === "mobile"
+    ? heroVideosMobile
+    : type === "tablet"
+      ? heroVideosTablet
+      : heroVideosDesktop;
+}
 
 export function getRandomHeroVideo(
   type: "mobile" | "tablet" | "desktop"
-): string {
-  const list =
-    type === "mobile"
-      ? heroVideosMobile
-      : type === "tablet"
-        ? heroVideosTablet
-        : heroVideosDesktop;
+): HeroVideo {
+  const list = getHeroVideoPool(type);
   return list[Math.floor(Math.random() * list.length)];
 }

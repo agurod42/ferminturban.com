@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
@@ -6,24 +6,77 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
 import Filmstrip from "@/components/Filmstrip";
-import { getFeaturedProjects } from "@/data/projects";
-import { getRandomHeroVideo } from "@/data/heroVideos";
+import { getFeaturedProjects, getProjectBySlug } from "@/data/projects";
+import { getHeroVideoPool, getRandomHeroVideo } from "@/data/heroVideos";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLanguage } from "@/hooks/useLanguage";
+import {
+  canAggressivelyPreload,
+  preconnectOrigins,
+  preloadImage,
+  preloadProjectMedia,
+  prefetchDocument,
+  scheduleIdle,
+} from "@/lib/media-preload";
 
 const Index = () => {
   const isMobile = useIsMobile();
   const isTablet = typeof window !== "undefined" && window.innerWidth >= 768 && window.innerWidth < 1024;
-  const { t, lang, categoryPath } = useLanguage();
+  const { t, categoryPath } = useLanguage();
+  const [heroVideoReady, setHeroVideoReady] = useState(false);
+  const deviceType = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
 
-  const heroVideoId = useMemo(() => {
-    const type = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
-    return getRandomHeroVideo(type);
-  }, [isMobile, isTablet]);
+  const heroVideo = useMemo(() => getRandomHeroVideo(deviceType), [deviceType]);
 
-  const featured = getFeaturedProjects();
-  const commercialFeatured = featured.filter((p) => p.category === "publicidad");
-  const docFeatured = featured.filter((p) => p.category === "documental");
+  const featured = useMemo(() => getFeaturedProjects(), []);
+  const commercialFeatured = useMemo(
+    () => featured.filter((project) => project.category === "publicidad"),
+    [featured],
+  );
+  const docFeatured = useMemo(
+    () => featured.filter((project) => project.category === "documental"),
+    [featured],
+  );
+  const heroProject = getProjectBySlug(heroVideo.projectSlug);
+  const heroPoster = heroProject?.thumbnailUrl;
+  const heroVideoUrl = `https://player.vimeo.com/video/${heroVideo.id}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1`;
+
+  useEffect(() => {
+    setHeroVideoReady(false);
+  }, [heroVideo.id]);
+
+  useEffect(() => {
+    preconnectOrigins([
+      "https://player.vimeo.com",
+      "https://i.vimeocdn.com",
+      "https://f.vimeocdn.com",
+      "https://assets.zyrosite.com",
+    ]);
+
+    preloadImage(heroPoster, "high");
+    prefetchDocument(heroVideoUrl);
+
+    scheduleIdle(() => {
+      getHeroVideoPool(deviceType).forEach((candidate) => {
+        const project = getProjectBySlug(candidate.projectSlug);
+        preloadImage(project?.thumbnailUrl, "low");
+      });
+
+      const visibleProjects = [...commercialFeatured.slice(0, 4), ...docFeatured.slice(0, 3)];
+      visibleProjects.forEach((project, index) => {
+        preloadProjectMedia(project, {
+          includeGallery: false,
+          priority: index < 2 ? "high" : "low",
+        });
+      });
+
+      if (canAggressivelyPreload()) {
+        [...commercialFeatured, ...docFeatured].forEach((project) => {
+          preloadProjectMedia(project, { includeGallery: false, priority: "low" });
+        });
+      }
+    });
+  }, [commercialFeatured, deviceType, docFeatured, heroPoster, heroVideo.projectSlug, heroVideoUrl]);
 
   return (
     <PageTransition>
@@ -32,15 +85,34 @@ const Index = () => {
 
         {/* HERO */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          {heroPoster && (
+            <motion.img
+              key={heroPoster}
+              src={heroPoster}
+              alt={heroProject?.thumbnailAlt || heroProject?.title || "Fermin Turban reel"}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              initial={{ scale: 1.06 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-background/60" />
 
           {/* Vimeo reel background */}
-          <div className="absolute inset-0 overflow-hidden opacity-30">
+          <div
+            className="absolute inset-0 overflow-hidden transition-opacity duration-700"
+            style={{ opacity: heroVideoReady ? 0.3 : 0 }}
+          >
             <iframe
-              src={`https://player.vimeo.com/video/${heroVideoId}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
+              src={heroVideoUrl}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] sm:w-auto sm:h-auto sm:min-w-[110vw] sm:min-h-[110vh] object-cover"
               allow="autoplay; fullscreen"
+              loading="eager"
               title="Fermin Turban Reel"
+              onLoad={() => setHeroVideoReady(true)}
             />
           </div>
 

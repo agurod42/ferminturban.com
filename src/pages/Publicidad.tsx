@@ -1,11 +1,24 @@
+import { useEffect, useMemo } from "react";
 import PageLayout from "@/components/PageLayout";
 import ProjectCard from "@/components/ProjectCard";
 import { getProjectsByCategory } from "@/data/projects";
 import { useLanguage } from "@/hooks/useLanguage";
+import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
 
 const Publicidad = () => {
-  const projects = getProjectsByCategory("publicidad");
+  const projects = useMemo(() => getProjectsByCategory("publicidad"), []);
   const { t } = useLanguage();
+
+  useEffect(() => {
+    scheduleIdle(() => {
+      projects.slice(0, 8).forEach((project, index) => {
+        preloadProjectMedia(project, {
+          includeGallery: false,
+          priority: index < 3 ? "high" : "low",
+        });
+      });
+    });
+  }, [projects]);
 
   return (
     <PageLayout>

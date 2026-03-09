@@ -6,6 +6,7 @@ import PageLayout from "@/components/PageLayout";
 import { getProjectByLocalizedSlug, projects, getProjectSlug } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
+import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
 import pageTexture from "@/assets/page-texture.jpg";
 
 const ProjectDetail = () => {
@@ -51,6 +52,22 @@ const ProjectDetail = () => {
 
   const hasGallery = project.gallery && project.gallery.length > 0;
 
+  useEffect(() => {
+    preloadProjectMedia(project, {
+      includeGallery: true,
+      priority: "high",
+    });
+
+    scheduleIdle(() => {
+      [prevProject, nextProject].forEach((candidate) => {
+        preloadProjectMedia(candidate, {
+          includeGallery: false,
+          priority: "low",
+        });
+      });
+    });
+  }, [nextProject, prevProject, project]);
+
   return (
     <PageLayout showTexture={false}>
       {/* ——— VIDEO HERO ——— */}
@@ -63,21 +80,33 @@ const ProjectDetail = () => {
               allowFullScreen
               title={project.title}
               className="absolute inset-0 w-full h-full border-0"
+              loading="eager"
             />
           ) : project.mediaType === "image" && heroBackground ? (
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroBackground})` }}
-            />
+            <>
+              <img
+                src={heroBackground}
+                alt={project.thumbnailAlt || project.title}
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+            </>
           ) : (
             <>
               {heroBackground ? (
-                <motion.div
+                <motion.img
+                  src={heroBackground}
+                  alt={project.thumbnailAlt || project.title}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   initial={{ scale: 1.08 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${heroBackground})` }}
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               ) : (
                 <div
@@ -202,7 +231,9 @@ const ProjectDetail = () => {
                       src={img}
                       alt={`${project.title} – ${i + 1}`}
                       className="w-full h-full object-cover aspect-video hover:scale-[1.03] transition-transform duration-700"
-                      loading="lazy"
+                      loading={i < 2 ? "eager" : "lazy"}
+                      fetchPriority={i === 0 ? "high" : "auto"}
+                      decoding="async"
                     />
                   </motion.div>
                 );
