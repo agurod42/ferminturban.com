@@ -14,14 +14,16 @@ const SiteHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <div className="container flex items-center justify-between py-6 px-6 md:px-12">
-        <Link to="/" className="font-display text-2xl tracking-widest text-foreground hover:text-primary transition-colors">
+        {/* Header gradient backdrop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent pointer-events-none" />
+        <Link to="/" className="relative z-10 font-display text-2xl tracking-widest text-foreground hover:text-primary transition-colors">
           FERMIN TURBAN
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden md:flex gap-8 relative z-10">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -40,7 +42,7 @@ const SiteHeader = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 relative z-10"
           aria-label="Menu"
         >
           <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />

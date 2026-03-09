@@ -40,10 +40,15 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
               <div className="absolute inset-0 bg-background/40 group-hover:bg-background/10 transition-all duration-700" />
             </>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-secondary to-muted">
-              <span className="font-display text-6xl text-muted-foreground/20">
+            <div className="absolute inset-0 flex items-center justify-center bg-secondary">
+              <span className="font-display text-5xl text-muted-foreground/40">
                 {project.title.charAt(0)}
               </span>
+              <div className="absolute bottom-3 left-3">
+                <span className="font-body text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  {project.category === "publicidad" ? "Publicidad" : "Documental"}
+                </span>
+              </div>
             </div>
           )}
 
