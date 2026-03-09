@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram } from "lucide-react";
-import FTLogo from "@/components/FTLogo";
+import ftIcon from "@/assets/ft-icon.png";
 
 const navLinks = [
   { label: "Inicio", path: "/" },
