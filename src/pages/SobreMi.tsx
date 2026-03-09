@@ -8,21 +8,25 @@ import mcdonaldsLogo from "@/assets/logos/mcdonalds.png";
 import mercadolibreLogo from "@/assets/logos/mercadolibre.png";
 import netflixLogo from "@/assets/logos/netflix.png";
 import natgeoLogo from "@/assets/logos/natgeo.png";
+import lorealLogo from "@/assets/logos/loreal.png";
+import pilsenLogo from "@/assets/logos/pilsen.png";
+import farmashopLogo from "@/assets/logos/farmashop.png";
+import vixLogo from "@/assets/logos/vix.png";
 
 const brands = [
-  { name: "L'Oréal", logo: null, url: "https://www.loreal.com" },
+  { name: "L'Oréal", logo: lorealLogo, url: "https://www.loreal.com" },
   { name: "Audi", logo: audiLogo, url: "https://www.audi.com" },
   { name: "McDonald's", logo: mcdonaldsLogo, url: "https://www.mcdonalds.com" },
   { name: "Mercado Libre", logo: mercadolibreLogo, url: "https://www.mercadolibre.com" },
   { name: "Jeep", logo: null, url: "https://www.jeep.com" },
-  { name: "Pilsen", logo: null, url: "https://www.pilsen.com.uy" },
-  { name: "Farmashop", logo: null, url: "https://www.farmashop.com.uy" },
+  { name: "Pilsen", logo: pilsenLogo, url: "https://www.pilsen.com.uy" },
+  { name: "Farmashop", logo: farmashopLogo, url: "https://www.farmashop.com.uy" },
 ];
 
 const platforms = [
   { name: "Netflix", logo: netflixLogo, url: "https://www.netflix.com" },
-  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com" },
-  { name: "VIX", logo: null, url: "https://www.vix.com" },
+  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com", bigger: true },
+  { name: "VIX", logo: vixLogo, url: "https://www.vix.com", bigger: true },
 ];
 
 type LogoItemType = { name: string; logo: string | null; url: string };
