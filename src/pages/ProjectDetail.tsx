@@ -109,7 +109,7 @@ const ProjectDetail = () => {
                     <span className="text-foreground/50"> — {project.client}</span>
                   )}
                 </p>
-                <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide text-foreground leading-[0.95]">
+                <h1 className="font-display text-4xl sm:text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide text-foreground leading-[0.95]">
                   {project.title.toUpperCase()}
                 </h1>
               </motion.div>
@@ -129,7 +129,7 @@ const ProjectDetail = () => {
               transition={{ duration: 0.6 }}
               className="border-t border-border/30 pt-10"
             >
-              <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
+              <div className="flex flex-wrap justify-c8 sm:gap-x-12 md:gap-x-enter gap-x-16 gap-y-6">
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
