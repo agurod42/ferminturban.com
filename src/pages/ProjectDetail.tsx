@@ -129,7 +129,7 @@ const ProjectDetail = () => {
               transition={{ duration: 0.6 }}
               className="border-t border-border/30 pt-10"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+              <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
