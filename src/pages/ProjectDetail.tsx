@@ -129,14 +129,15 @@ const ProjectDetail = () => {
               transition={{ duration: 0.6 }}
               className="border-t border-border/30 pt-10"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+              <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="text-center"
                   >
                     <span className="font-body text-[10px] uppercase tracking-[0.25em] text-muted-foreground block mb-1">
                       {credit.label}
