@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -12,12 +12,25 @@ const navItems = [
 const SiteHeader = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="container flex items-center justify-between py-6 px-6 md:px-12">
-        {/* Header gradient backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent pointer-events-none" />
+        {/* Header gradient backdrop — intensifies on scroll */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+          style={{
+            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 40%, transparent 100%)",
+            opacity: scrolled ? 1 : 0.5,
+          }}
+        />
         <Link to="/" className="relative z-10 font-display text-2xl tracking-widest text-foreground hover:text-primary transition-colors">
           FERMIN TURBAN
         </Link>
