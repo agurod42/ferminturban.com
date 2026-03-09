@@ -101,9 +101,11 @@ const SiteFooter = () => {
             <span className="text-muted-foreground/20">·</span>
             <button
               onClick={handleSwitchLang}
-              className="font-body text-xs text-muted-foreground/50 hover:text-primary transition-colors tracking-wider uppercase"
+              className="text-muted-foreground/50 hover:text-primary transition-colors"
+              aria-label={lang === "es" ? "Switch to English" : "Cambiar a Español"}
+              title={lang === "es" ? "Switch to English" : "Cambiar a Español"}
             >
-              {lang === "es" ? "EN" : "ES"}
+              <Globe size={14} />
             </button>
           </div>
         </div>
