@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
-import { getProjectByLocalizedSlug, projects } from "@/data/projects";
+import { getProjectByLocalizedSlug, projects, sharedThumbnailAspectRatio } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getOptimizedImageUrl, getResponsiveImageSet } from "@/lib/imgproxy";
@@ -43,15 +43,17 @@ const ProjectDetail = () => {
   const thumbnail = getThumbnail(project.slug);
   const heroBackground = thumbnail || project.backgroundUrl || pageTexture;
   const canPlayVideo = project.mediaType === "video" && Boolean(project.videoUrl);
+  const heroAspectRatio = project.thumbnailAspectRatio ?? sharedThumbnailAspectRatio;
+  const galleryAspectRatio = project.galleryAspectRatio ?? heroAspectRatio;
   const heroImage = getResponsiveImageSet(heroBackground, {
-    aspectRatio: project.thumbnailAspectRatio || 16 / 9,
+    aspectRatio: heroAspectRatio,
     widths: [960, 1280, 1600, 1920],
     sizes: "100vw",
     mode: "fill",
   });
   const fallbackGalleryBackground = getOptimizedImageUrl(heroBackground, {
     width: 1280,
-    height: 720,
+    height: Math.round(1280 / galleryAspectRatio),
     mode: "fill",
   }) ?? heroBackground;
 
@@ -239,7 +241,7 @@ const ProjectDetail = () => {
                   "col-span-12 md:col-span-6",
                 ];
                 const galleryImage = getResponsiveImageSet(img, {
-                  aspectRatio: 16 / 9,
+                  aspectRatio: galleryAspectRatio,
                   widths: [480, 720, 960, 1280, 1600],
                   sizes: "(max-width: 767px) 100vw, (max-width: 1023px) 66vw, 50vw",
                   mode: "fill",
@@ -251,7 +253,8 @@ const ProjectDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.07 }}
-                    className={`overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i % spans.length]}`}
+                    className={`relative overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i % spans.length]}`}
+                    style={{ aspectRatio: galleryAspectRatio }}
                   >
                     <img
                       src={galleryImage?.src ?? img}
@@ -260,7 +263,7 @@ const ProjectDetail = () => {
                       width={galleryImage?.width}
                       height={galleryImage?.height}
                       alt={`${project.title} – ${i + 1}`}
-                      className="w-full h-full object-cover aspect-video hover:scale-[1.03] transition-transform duration-700 gpu-layer"
+                      className="absolute inset-0 w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700 gpu-layer"
                       loading={i < 2 ? "eager" : "lazy"}
                       fetchPriority={i === 0 ? "high" : "auto"}
                       decoding="async"
@@ -285,10 +288,11 @@ const ProjectDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.07 }}
-                    className={`overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i]}`}
+                    className={`relative overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i]}`}
+                    style={{ aspectRatio: galleryAspectRatio }}
                   >
                     <div
-                      className="w-full aspect-video bg-cover bg-center opacity-50 hover:opacity-70 transition-opacity duration-500"
+                      className="absolute inset-0 bg-cover bg-center opacity-50 hover:opacity-70 transition-opacity duration-500"
                       style={{
                         backgroundImage: heroBackground ? `url(${fallbackGalleryBackground})` : `url(${pageTexture})`,
                         filter: `brightness(${0.4 + i * 0.08}) saturate(${0.6 + i * 0.1})`,

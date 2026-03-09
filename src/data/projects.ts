@@ -3,6 +3,7 @@ import documentalSource from "@/data/scraped/documental_enriched.json";
 import type { Lang } from "@/hooks/useLanguage";
 
 export type ProjectCategory = "publicidad" | "documental";
+export const DEFAULT_ASPECT_RATIO = 16 / 9;
 
 export type Project = {
   slug: string;
@@ -21,6 +22,7 @@ export type Project = {
   thumbnailUrl?: string;
   thumbnailAlt?: string;
   thumbnailAspectRatio?: number;
+  galleryAspectRatio?: number;
   backgroundUrl?: string;
   canonicalUrl?: string;
   sourceUrl?: string;
@@ -33,6 +35,11 @@ type RawRenderedSize = {
 
 type RawGalleryImage = {
   url?: string | null;
+  full_resolution_aspect_ratio?: number | null;
+  rendered_size?: {
+    desktop?: RawRenderedSize | null;
+    mobile?: RawRenderedSize | null;
+  } | null;
 };
 
 type RawCredits = {
@@ -52,6 +59,7 @@ type RawMedia = {
   source_url?: string | null;
   thumbnail?: {
     url?: string | null;
+    aspect_ratio?: number | null;
   } | null;
 };
 
@@ -111,9 +119,51 @@ const projectCollator = new Intl.Collator("es", {
   sensitivity: "base",
   numeric: true,
 });
+const ASPECT_RATIO_BUCKET_SIZE = 0.05;
 
 const pickFirst = (...values: Array<string | null | undefined>) =>
   values.find((value) => typeof value === "string" && value.trim().length > 0);
+
+const isValidAspectRatio = (value: number | null | undefined): value is number =>
+  typeof value === "number" && Number.isFinite(value) && value > 0;
+
+const pickAspectRatio = (...values: Array<number | null | undefined>) =>
+  values.find(isValidAspectRatio);
+
+const bucketAspectRatio = (value: number) =>
+  Number(
+    (Math.round(value / ASPECT_RATIO_BUCKET_SIZE) * ASPECT_RATIO_BUCKET_SIZE).toFixed(4),
+  );
+
+const getDominantAspectRatio = (
+  values: Array<number | null | undefined>,
+  fallback?: number,
+) => {
+  const ratios = values.filter(isValidAspectRatio);
+
+  if (!ratios.length) {
+    return fallback;
+  }
+
+  const counts = new Map<number, number>();
+
+  ratios.forEach((ratio) => {
+    const bucket = bucketAspectRatio(ratio);
+    counts.set(bucket, (counts.get(bucket) || 0) + 1);
+  });
+
+  let bestBucket = fallback;
+  let bestCount = -1;
+
+  counts.forEach((count, bucket) => {
+    if (count > bestCount) {
+      bestBucket = bucket;
+      bestCount = count;
+    }
+  });
+
+  return bestBucket;
+};
 
 const buildPlayableVideoUrl = (
   provider: string | null | undefined,
@@ -143,9 +193,23 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
   const detail = item.detail ?? {};
   const credits = detail.credits ?? {};
   const media = detail.media ?? {};
-  const galleryImages = (detail.gallery_images ?? [])
+  const rawGalleryImages = detail.gallery_images ?? [];
+  const galleryImages = rawGalleryImages
     .map((image) => image.url || undefined)
     .filter((url): url is string => Boolean(url));
+  const galleryAspectRatio = getDominantAspectRatio(
+    rawGalleryImages.map((image) => pickAspectRatio(
+      image.full_resolution_aspect_ratio,
+      image.rendered_size?.desktop?.aspect_ratio,
+      image.rendered_size?.mobile?.aspect_ratio,
+    )),
+  );
+  const thumbnailAspectRatio = pickAspectRatio(
+    media.thumbnail?.aspect_ratio,
+    item.gallery?.rendered_size?.desktop?.aspect_ratio,
+    item.gallery?.rendered_size?.mobile?.aspect_ratio,
+    galleryAspectRatio,
+  );
 
   return {
     slug: item.slug,
@@ -165,16 +229,14 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
       ? advertisingFeatured.has(item.slug)
       : documentaryFeatured.has(item.slug),
     gallery: galleryImages,
+    galleryAspectRatio,
     thumbnailUrl: pickFirst(
       item.gallery?.thumbnail_url,
       media.thumbnail?.url,
       detail.detail_page_background?.url,
     ),
     thumbnailAlt: pickFirst(item.gallery?.thumbnail_alt, detail.campaign_title, item.name),
-    thumbnailAspectRatio:
-      item.gallery?.rendered_size?.desktop?.aspect_ratio ??
-      item.gallery?.rendered_size?.mobile?.aspect_ratio ??
-      undefined,
+    thumbnailAspectRatio,
     backgroundUrl: pickFirst(detail.detail_page_background?.url),
     canonicalUrl: pickFirst(detail.canonical),
     sourceUrl: pickFirst(detail.url),
@@ -194,6 +256,11 @@ const documentaryProjects = sortProjectsAlphabetically(
 );
 
 export const projects: Project[] = [...advertisingProjects, ...documentaryProjects];
+export const sharedThumbnailAspectRatio =
+  getDominantAspectRatio(
+    projects.map((project) => project.thumbnailAspectRatio),
+    DEFAULT_ASPECT_RATIO,
+  ) ?? DEFAULT_ASPECT_RATIO;
 
 export const getProjectsByCategory = (category: ProjectCategory) =>
   projects.filter((project) => project.category === category);

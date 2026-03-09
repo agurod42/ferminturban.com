@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import type { Project } from "@/data/projects";
+import { sharedThumbnailAspectRatio, type Project } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getResponsiveImageSet } from "@/lib/imgproxy";
@@ -16,7 +16,7 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
   const thumbnail = getThumbnail(project.slug);
   const { t, projectPath } = useLanguage();
   const isFilmstrip = variant === "filmstrip";
-  const aspectRatio = project.thumbnailAspectRatio || 16 / 9;
+  const aspectRatio = sharedThumbnailAspectRatio;
   const prioritizeImage = isFilmstrip ? index < 2 : index < 6;
   const image = getResponsiveImageSet(thumbnail, {
     aspectRatio,

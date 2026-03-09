@@ -1,4 +1,4 @@
-import type { Project } from "@/data/projects";
+import { sharedThumbnailAspectRatio, type Project } from "@/data/projects";
 import { getOptimizedImageUrl } from "@/lib/imgproxy";
 
 type FetchPriority = "high" | "low" | "auto";
@@ -164,7 +164,9 @@ export const preloadProjectMedia = (
 
   const includeGallery = options.includeGallery ?? false;
   const priority = options.priority ?? "low";
-  const thumbnailAspectRatio = project.thumbnailAspectRatio ?? 16 / 9;
+  const thumbnailAspectRatio = sharedThumbnailAspectRatio;
+  const backgroundAspectRatio = project.thumbnailAspectRatio ?? sharedThumbnailAspectRatio;
+  const galleryAspectRatio = project.galleryAspectRatio ?? backgroundAspectRatio;
 
   preconnectOrigins([
     "https://assets.zyrosite.com",
@@ -184,7 +186,7 @@ export const preloadProjectMedia = (
     preloadImage(
       getOptimizedImageUrl(project.backgroundUrl, {
         width: 1600,
-        height: Math.round(1600 / thumbnailAspectRatio),
+        height: Math.round(1600 / backgroundAspectRatio),
         mode: "fill",
       }) ?? project.backgroundUrl,
       priority,
@@ -202,7 +204,7 @@ export const preloadProjectMedia = (
     preloadImage(
       getOptimizedImageUrl(imageUrl, {
         width: 1280,
-        height: 720,
+        height: Math.round(1280 / galleryAspectRatio),
         mode: "fill",
       }) ?? imageUrl,
       index === 0 ? priority : "low",
