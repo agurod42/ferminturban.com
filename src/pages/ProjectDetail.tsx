@@ -109,7 +109,7 @@ const ProjectDetail = () => {
                     <span className="text-foreground/50"> — {project.client}</span>
                   )}
                 </p>
-                <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-wide text-foreground leading-[0.95]">
+                <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide text-foreground leading-[0.95]">
                   {project.title.toUpperCase()}
                 </h1>
               </motion.div>
