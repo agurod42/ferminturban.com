@@ -84,21 +84,7 @@ const ProjectDetail = () => {
         <div className="absolute inset-0 bg-background/30" />
 
 
-        {/* Back link — top left */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute top-28 left-6 md:left-12 z-20"
-        >
-          <Link
-            to={backPath}
-            className="inline-flex items-center gap-2 font-body text-xs uppercase tracking-[0.2em] text-foreground/70 hover:text-primary transition-colors"
-          >
-            <ArrowLeft size={14} />
-            {categoryLabel}
-          </Link>
-        </motion.div>
+
 
         {/* Hero content — bottom of hero */}
         <div className="relative z-10 container px-6 md:px-12 pb-16 md:pb-24">
