@@ -61,7 +61,7 @@ const Index = () => {
             >
               <Link
                 to="/publicidad"
-                className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors"
+                className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors w-full sm:w-auto text-center"
               >
                 Publicidad
               </Link>
