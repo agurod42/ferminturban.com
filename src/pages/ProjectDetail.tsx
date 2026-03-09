@@ -205,11 +205,11 @@ const ProjectDetail = () => {
 
       {/* ——— NEXT / PREV NAVIGATION ——— */}
       <section className="border-t border-border/50">
-        <div className="grid grid-cols-2">
-          {prevProject ? (
+        <div className={`grid ${prevProject && nextProject ? "grid-cols-2" : "grid-cols-1"}`}>
+          {prevProject && (
             <Link
               to={`/proyecto/${prevProject.slug}`}
-              className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500"
+              className={`group relative py-16 md:py-24 px-6 md:px-12 hover:bg-secondary/30 transition-colors duration-500 ${nextProject ? "border-r border-border/50" : ""}`}
             >
               <div className="flex items-center gap-3 mb-3">
                 <ArrowLeft
@@ -224,14 +224,12 @@ const ProjectDetail = () => {
                 {prevProject.title.toUpperCase()}
               </p>
             </Link>
-          ) : (
-            <div className="border-r border-border/50" />
           )}
 
-          {nextProject ? (
+          {nextProject && (
             <Link
               to={`/proyecto/${nextProject.slug}`}
-              className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500"
+              className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500 ml-auto w-full"
             >
               <div className="flex items-center justify-end gap-3 mb-3">
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
@@ -246,8 +244,6 @@ const ProjectDetail = () => {
                 {nextProject.title.toUpperCase()}
               </p>
             </Link>
-          ) : (
-            <div />
           )}
         </div>
       </section>
