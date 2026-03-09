@@ -157,7 +157,8 @@ const ProjectDetail = () => {
 
       {/* ——— NAVIGATION ——— */}
       <section className="border-t border-border/50">
-        <div className="grid grid-cols-2">
+        <div className="container px-6 md:px-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2">
           {prevProject ? (
             <Link to={`/proyecto/${prevProject.slug}`} className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500">
               <div className="flex items-center gap-3 mb-3">
@@ -193,6 +194,7 @@ const ProjectDetail = () => {
               <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">{categoryLabel.toUpperCase()}</p>
             </Link>
           )}
+        </div>
         </div>
       </section>
     </PageLayout>
