@@ -133,10 +133,11 @@ const ProjectDetail = () => {
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="text-center"
                   >
                     <span className="font-body text-[10px] uppercase tracking-[0.25em] text-muted-foreground block mb-1">
                       {credit.label}
