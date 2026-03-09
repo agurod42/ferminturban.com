@@ -40,8 +40,8 @@ const Index = () => {
           {/* Vimeo reel background */}
           <div className="absolute inset-0 overflow-hidden opacity-30">
             <iframe
-              src="https://player.vimeo.com/video/1119567207?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[110vw] min-h-[110vh]"
+              src={`https://player.vimeo.com/video/${heroVideoId}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] sm:w-auto sm:h-auto sm:min-w-[110vw] sm:min-h-[110vh] object-cover"
               allow="autoplay; fullscreen"
               title="Fermin Turban Reel"
             />
