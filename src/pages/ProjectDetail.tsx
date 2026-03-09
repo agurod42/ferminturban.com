@@ -15,7 +15,6 @@ const ProjectDetail = () => {
   // Reset state when navigating between projects
   useEffect(() => {
     setVideoPlaying(false);
-    window.scrollTo(0, 0);
   }, [slug]);
 
   if (!project) {
@@ -25,10 +24,7 @@ const ProjectDetail = () => {
           <h1 className="font-display text-4xl text-foreground">
             Proyecto no encontrado
           </h1>
-          <Link
-            to="/"
-            className="font-body text-primary mt-4 inline-block"
-          >
+          <Link to="/" className="font-body text-primary mt-4 inline-block">
             Volver al inicio
           </Link>
         </div>
@@ -36,10 +32,7 @@ const ProjectDetail = () => {
     );
   }
 
-  // Next / previous project within the same category
-  const siblings = projects.filter(
-    (p) => p.category === project.category
-  );
+  const siblings = projects.filter((p) => p.category === project.category);
   const currentIndex = siblings.findIndex((p) => p.slug === project.slug);
   const prevProject = currentIndex > 0 ? siblings[currentIndex - 1] : null;
   const nextProject =
@@ -61,44 +54,36 @@ const ProjectDetail = () => {
 
   return (
     <PageLayout showTexture={false}>
-      {/* ——— FULL-BLEED HERO ——— */}
-      <section className="relative h-[70vh] md:h-[85vh] overflow-hidden flex items-end">
-        {/* Background image */}
+      {/* ——— HERO with title ——— */}
+      <section className="relative pt-32 md:pt-40 pb-12 md:pb-16 overflow-hidden">
+        {/* Background image — subtle, not full bleed */}
         {thumbnail ? (
           <motion.div
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.25 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${thumbnail})` }}
           />
         ) : (
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center opacity-15"
             style={{ backgroundImage: `url(${pageTexture})` }}
           />
         )}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
 
-        {/* Gradient overlays for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        <div className="absolute inset-0 bg-background/30" />
-
-
-
-
-        {/* Hero content — bottom of hero */}
-        <div className="relative z-10 container px-6 md:px-12 pb-16 md:pb-24">
+        <div className="relative z-10 container px-6 md:px-12 max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4">
               {categoryLabel}
               {project.client && (
                 <span className="text-muted-foreground">
-                  {" "}
-                  — {project.client}
+                  {" "}— {project.client}
                 </span>
               )}
             </p>
@@ -109,16 +94,15 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* ——— VIDEO SECTION ——— */}
-      <section className="relative bg-background">
-        <div className="container px-6 md:px-12 max-w-6xl mx-auto -mt-12 md:-mt-20 relative z-20">
+      {/* ——— VIDEO ——— */}
+      <section className="pb-16 md:pb-24">
+        <div className="container px-6 md:px-12 max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="relative"
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="video-container bg-secondary/50 backdrop-blur-sm border border-border/30 overflow-hidden rounded-sm">
+            <div className="video-container bg-secondary/50 border border-border/30 overflow-hidden rounded-sm">
               {videoPlaying ? (
                 <iframe
                   src={`${project.videoUrl || "https://player.vimeo.com/video/1119567207"}?autoplay=1&byline=0&title=0`}
@@ -129,19 +113,11 @@ const ProjectDetail = () => {
               ) : (
                 <button
                   onClick={() => setVideoPlaying(true)}
-                  className="absolute inset-0 flex items-center justify-center group cursor-pointer"
+                  className="absolute inset-0 flex items-center justify-center group cursor-pointer bg-secondary"
                 >
-                  {/* Thumbnail behind play button */}
-                  {thumbnail && (
-                    <div
-                      className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-                      style={{ backgroundImage: `url(${thumbnail})` }}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-background/40 group-hover:bg-background/20 transition-colors duration-500" />
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="relative z-10 w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-foreground/40 flex items-center justify-center bg-background/30 backdrop-blur-sm group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
+                    className="relative z-10 w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-foreground/30 flex items-center justify-center bg-background/50 backdrop-blur-sm group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
                   >
                     <Play
                       size={32}
@@ -157,7 +133,7 @@ const ProjectDetail = () => {
 
       {/* ——— CREDITS ——— */}
       {credits.length > 0 && (
-        <section className="py-20 md:py-28">
+        <section className="pb-20 md:pb-28">
           <div className="container px-6 md:px-12 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -192,20 +168,14 @@ const ProjectDetail = () => {
       {/* ——— NAVIGATION ——— */}
       <section className="border-t border-border/50">
         <div className="grid grid-cols-2">
-          {/* Left: Previous project OR back to category */}
           {prevProject ? (
             <Link
               to={`/proyecto/${prevProject.slug}`}
               className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500"
             >
               <div className="flex items-center gap-3 mb-3">
-                <ArrowLeft
-                  size={14}
-                  className="text-muted-foreground group-hover:text-primary transition-colors"
-                />
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  Anterior
-                </span>
+                <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Anterior</span>
               </div>
               <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
                 {prevProject.title.toUpperCase()}
@@ -217,13 +187,8 @@ const ProjectDetail = () => {
               className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500"
             >
               <div className="flex items-center gap-3 mb-3">
-                <ArrowLeft
-                  size={14}
-                  className="text-muted-foreground group-hover:text-primary transition-colors"
-                />
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  Volver
-                </span>
+                <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
               </div>
               <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
                 {categoryLabel.toUpperCase()}
@@ -231,20 +196,14 @@ const ProjectDetail = () => {
             </Link>
           )}
 
-          {/* Right: Next project OR back to category */}
           {nextProject ? (
             <Link
               to={`/proyecto/${nextProject.slug}`}
               className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500"
             >
               <div className="flex items-center justify-end gap-3 mb-3">
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  Siguiente
-                </span>
-                <ArrowRight
-                  size={14}
-                  className="text-muted-foreground group-hover:text-primary transition-colors"
-                />
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Siguiente</span>
+                <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
                 {nextProject.title.toUpperCase()}
@@ -256,13 +215,8 @@ const ProjectDetail = () => {
               className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500"
             >
               <div className="flex items-center justify-end gap-3 mb-3">
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  Volver
-                </span>
-                <ArrowRight
-                  size={14}
-                  className="text-muted-foreground group-hover:text-primary transition-colors"
-                />
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
+                <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
                 {categoryLabel.toUpperCase()}
