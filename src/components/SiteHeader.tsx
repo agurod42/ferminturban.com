@@ -1,19 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ftIcon from "@/assets/ft-icon.png";
-
-const navItems = [
-  { label: "Inicio", path: "/" },
-  { label: "Publicidad", path: "/publicidad" },
-  { label: "Documental", path: "/documental" },
-  { label: "Sobre mí", path: "/sobre-mi" },
-];
+import { useLanguage } from "@/hooks/useLanguage";
+import { getRouteSegment } from "@/hooks/useLanguage";
 
 const SiteHeader = () => {
-  const location = useLocation();
+  const { t, lang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navItems = [
+    { label: t("nav.home"), path: `/${lang}` },
+    { label: t("nav.advertising"), path: `/${lang}/${getRouteSegment(lang, "advertising")}` },
+    { label: t("nav.documentary"), path: `/${lang}/${getRouteSegment(lang, "documentary")}` },
+    { label: t("nav.about"), path: `/${lang}/${getRouteSegment(lang, "about")}` },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -24,7 +26,6 @@ const SiteHeader = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="container relative z-10 flex items-center justify-between py-6 px-6 md:px-12">
-        {/* Header gradient backdrop — intensifies on scroll */}
         <div
           className="absolute inset-0 pointer-events-none transition-opacity duration-500"
           style={{
@@ -32,7 +33,7 @@ const SiteHeader = () => {
             opacity: scrolled ? 1 : 0.5,
           }}
         />
-        <Link to="/" className="relative z-10 hover:opacity-80 transition-opacity">
+        <Link to={`/${lang}`} className="relative z-10 hover:opacity-80 transition-opacity">
           <div className="h-6 w-8 overflow-hidden flex items-center justify-center">
             <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert scale-[1.8]" />
           </div>

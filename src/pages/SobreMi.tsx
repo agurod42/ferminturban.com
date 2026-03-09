@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import { useLanguage } from "@/hooks/useLanguage";
 
 // Logo imports
 import audiLogo from "@/assets/logos/audi.png";
@@ -61,10 +62,9 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   </motion.a>
 );
 
-
-
-
 const SobreMi = () => {
+  const { t } = useLanguage();
+
   return (
     <PageLayout>
       <div className="pt-32 pb-24">
@@ -76,33 +76,18 @@ const SobreMi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-4xl sm:text-4xl sm:text-4xl sm:text-4xl sm:text-5xl md:text-7xl tracking-wide text-foreground mb-8">
-                SOBRE MÍ
+              <h1 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-wide text-foreground mb-8">
+                {t("aboutPage.title")}
               </h1>
               <div className="space-y-6 font-body text-secondary-foreground leading-relaxed">
-                <p>
-                  Fermin Turban es un cineasta uruguayo nacido en Guichón que trabaja entre
-                  la publicidad y el documental.
-                </p>
-                <p>
-                  Ha filmado y dirigido campañas para marcas como L'Oréal, Audi, McDonald's,
-                  Mercado Libre y Jeep, siempre buscando combinar sensibilidad documental
-                  con un lenguaje visual cinematográfico.
-                </p>
-                <p>
-                  En el terreno documental, cuenta con siete largometrajes estrenados en
-                  plataformas como Netflix, NatGeo y VIX, y tiene cuatro proyectos
-                  adicionales en desarrollo.
-                </p>
-                <p>
-                  Su búsqueda creativa se centra en la autenticidad: encontrar la verdad en
-                  cada imagen, ya sea en un set publicitario o en un documental de largo
-                  aliento.
-                </p>
+                <p>{t("aboutPage.bio1")}</p>
+                <p>{t("aboutPage.bio2")}</p>
+                <p>{t("aboutPage.bio3")}</p>
+                <p>{t("aboutPage.bio4")}</p>
               </div>
 
               {/* Contact */}
-    <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
+              <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
                 <a
                   href="https://www.instagram.com/ferminturban"
                   target="_blank"
@@ -121,7 +106,8 @@ const SobreMi = () => {
                   IMDb
                 </a>
                 <a
-                  href="mailto:ferminxs sm:text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider break-all sm:break-normalt-primary transition-colors tracking-wider break-all sm:break-normalransition-colors tracking-wider"
+                  href="mailto:ferminturban@gmail.com"
+                  className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider"
                 >
                   ferminturban@gmail.com
                 </a>
@@ -130,7 +116,7 @@ const SobreMi = () => {
               {/* Brands */}
               <div className="mt-16 border-t border-border/50 pt-10">
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
-                  Marcas
+                  {t("aboutPage.brands")}
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {brands.map((brand, i) => (
@@ -142,7 +128,7 @@ const SobreMi = () => {
               {/* Platforms */}
               <div className="mt-10 border-t border-border/50 pt-10">
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
-                  Plataformas
+                  {t("aboutPage.platforms")}
                 </h3>
                 <div className="grid grid-cols-3 gap-3">
                   {platforms.map((platform, i) => (
