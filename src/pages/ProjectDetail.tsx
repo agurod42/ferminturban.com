@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
