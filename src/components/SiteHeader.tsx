@@ -32,9 +32,8 @@ const SiteHeader = () => {
             opacity: scrolled ? 1 : 0.5,
           }}
         />
-        <Link to="/" className="relative z-10 flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <Link to="/" className="relative z-10 hover:opacity-80 transition-opacity">
           <img src={ftIcon} alt="FT" className="h-8 brightness-0 invert" />
-          <span className="font-display text-2xl tracking-widest text-foreground hidden sm:inline">FERMIN TURBAN</span>
         </Link>
 
         {/* Desktop nav */}
