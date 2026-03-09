@@ -39,6 +39,8 @@ const ProjectDetail = () => {
   const backPath = categoryPath(project.category);
   const categoryLabel = project.category === "publicidad" ? t("project.advertising") : t("project.documentary");
   const thumbnail = getThumbnail(project.slug);
+  const heroBackground = thumbnail || project.backgroundUrl || pageTexture;
+  const canPlayVideo = project.mediaType === "video" && Boolean(project.videoUrl);
 
   const credits = [
     { label: t("project.client"), value: project.client },
@@ -54,23 +56,28 @@ const ProjectDetail = () => {
       {/* ——— VIDEO HERO ——— */}
       <section className="relative h-screen flex flex-col">
         <div className="absolute inset-0">
-          {videoPlaying ? (
+          {videoPlaying && canPlayVideo ? (
             <iframe
-              src={`${project.videoUrl || "https://player.vimeo.com/video/1119567207"}?autoplay=1&byline=0&title=0`}
+              src={project.videoUrl}
               allow="autoplay; fullscreen"
               allowFullScreen
               title={project.title}
               className="absolute inset-0 w-full h-full border-0"
             />
+          ) : project.mediaType === "image" && heroBackground ? (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroBackground})` }}
+            />
           ) : (
             <>
-              {thumbnail ? (
+              {heroBackground ? (
                 <motion.div
                   initial={{ scale: 1.08 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${thumbnail})` }}
+                  style={{ backgroundImage: `url(${heroBackground})` }}
                 />
               ) : (
                 <div
@@ -81,25 +88,27 @@ const ProjectDetail = () => {
 
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
-              <button
-                onClick={() => setVideoPlaying(true)}
-                className="absolute inset-0 flex items-center justify-center group cursor-pointer z-10"
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-foreground/30 flex items-center justify-center bg-background/20 backdrop-blur-sm group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
+              {canPlayVideo && (
+                <button
+                  onClick={() => setVideoPlaying(true)}
+                  className="absolute inset-0 flex items-center justify-center group cursor-pointer z-10"
                 >
-                  <Play size={36} className="text-foreground ml-1.5 group-hover:text-primary transition-colors" />
-                </motion.div>
-              </button>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    whileHover={{ scale: 1.1 }}
+                    className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-foreground/30 flex items-center justify-center bg-background/20 backdrop-blur-sm group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <Play size={36} className="text-foreground ml-1.5 group-hover:text-primary transition-colors" />
+                  </motion.div>
+                </button>
+              )}
             </>
           )}
         </div>
 
-        {!videoPlaying && (
+        {(!videoPlaying || !canPlayVideo) && (
           <div className="relative z-20 mt-auto pb-16 md:pb-20">
             <div className="container px-6 md:px-12">
               <motion.div
@@ -193,6 +202,7 @@ const ProjectDetail = () => {
                       src={img}
                       alt={`${project.title} – ${i + 1}`}
                       className="w-full h-full object-cover aspect-video hover:scale-[1.03] transition-transform duration-700"
+                      loading="lazy"
                     />
                   </motion.div>
                 );
@@ -219,7 +229,7 @@ const ProjectDetail = () => {
                     <div
                       className="w-full aspect-video bg-cover bg-center opacity-50 hover:opacity-70 transition-opacity duration-500"
                       style={{
-                        backgroundImage: thumbnail ? `url(${thumbnail})` : `url(${pageTexture})`,
+                        backgroundImage: heroBackground ? `url(${heroBackground})` : `url(${pageTexture})`,
                         filter: `brightness(${0.4 + i * 0.08}) saturate(${0.6 + i * 0.1})`,
                       }}
                     />

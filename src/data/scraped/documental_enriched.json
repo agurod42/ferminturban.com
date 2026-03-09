@@ -1,0 +1,709 @@
+{
+  "site": {
+    "name": "Fermin Turban",
+    "base_url": "https://ferminturban.com",
+    "section": "documental",
+    "source_url": "https://ferminturban.com/documental"
+  },
+  "items_count": 7,
+  "items": [
+    {
+      "name": "Colombia",
+      "slug": "colombia",
+      "href": "/colombia",
+      "absolute_url": "https://ferminturban.com/colombia",
+      "linked_page_id": "zyXNan",
+      "gallery": {
+        "thumbnail_asset": "0c892d40199ba7512a5c11f4b40c7552-m6L2PBowWvUP2Pp0.jpeg",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/0c892d40199ba7512a5c11f4b40c7552-m6L2PBowWvUP2Pp0.jpeg",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Colombia",
+        "slug": "colombia",
+        "url": "https://ferminturban.com/colombia",
+        "page_title": "Colombia | Fermin Turban",
+        "canonical": "https://ferminturban.com/colombia",
+        "campaign_title": "Colombia - Camino a la gloria",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Colombia | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Colombia | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Colombia",
+          "url": "https://ferminturban.com/colombia",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films\nDirector: Luis Ara\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/960540239",
+          "source_url": "https://vimeo.com/960540239",
+          "embed_url": "https://player.vimeo.com/video/960540239?h=undefined&playlist=960540239&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1873106493-fefafb19b64656ce5faa4228e399fb61d01ef995641116aafca5225035b78d59-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "960540239",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 105,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Higuita",
+      "slug": "higuita",
+      "href": "/higuita",
+      "absolute_url": "https://ferminturban.com/higuita",
+      "linked_page_id": "zdzFc7",
+      "gallery": {
+        "thumbnail_asset": "slide-higuita-es-Y4LPOeoEGXhG7o50.jpg",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/slide-higuita-es-Y4LPOeoEGXhG7o50.jpg",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Higuita",
+        "slug": "higuita",
+        "url": "https://ferminturban.com/higuita",
+        "page_title": "Higuita | Fermin Turban",
+        "canonical": "https://ferminturban.com/higuita",
+        "campaign_title": "Higuita - El camino del escorpion",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Higuita | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Higuita | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Higuita",
+          "url": "https://ferminturban.com/higuita",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films\nDirector: Luis Ara\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/884446816",
+          "source_url": "https://vimeo.com/884446816",
+          "embed_url": "https://player.vimeo.com/video/884446816?h=undefined&playlist=884446816&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1753535430-7f3804c00f9dd5707f2a717f3e92cae25803fe3c78d1eabf121b72212c195122-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "884446816",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 117,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Brasil2002",
+      "slug": "brasil2002",
+      "href": "/brasil2002",
+      "absolute_url": "https://ferminturban.com/brasil2002",
+      "linked_page_id": "zx6ff-",
+      "gallery": {
+        "thumbnail_asset": "os-bastidores-do-penta-netflix-brasil-muestran-version-conquista-mundial-2002-Yle42RDJlaieg98a.webp",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/os-bastidores-do-penta-netflix-brasil-muestran-version-conquista-mundial-2002-Yle42RDJlaieg98a.webp",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Brasil2002",
+        "slug": "brasil2002",
+        "url": "https://ferminturban.com/brasil2002",
+        "page_title": "Brasil2002 | Fermin Turban",
+        "canonical": "https://ferminturban.com/brasil2002",
+        "campaign_title": "Brazil 2002 - Os bastidores do Penta",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Brasil2002 | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Brasil2002 | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Brasil2002",
+          "url": "https://ferminturban.com/brasil2002",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films\nDirector: Luis Ara\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/975768187",
+          "source_url": "https://vimeo.com/975768187",
+          "embed_url": "https://player.vimeo.com/video/975768187?h=undefined&playlist=975768187&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1890227488-3fdfd1851459c245b867f98ca52102a88f696b3910fe7ec2f8dfa22b8e168564-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "975768187",
+          "native_metadata": {
+            "width": 1280,
+            "height": 720,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 125,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Vicunas",
+      "slug": "vicunas",
+      "href": "/vicunas",
+      "absolute_url": "https://ferminturban.com/vicunas",
+      "linked_page_id": "zHUkGW",
+      "gallery": {
+        "thumbnail_asset": "maxresdefault-mePg5RygylSX7M0e.jpg",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/maxresdefault-mePg5RygylSX7M0e.jpg",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Vicunas",
+        "slug": "vicunas",
+        "url": "https://ferminturban.com/vicunas",
+        "page_title": "Vicunas | Fermin Turban",
+        "canonical": "https://ferminturban.com/vicunas",
+        "campaign_title": "Vicunas Salvation",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Vicunas | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Vicunas | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Vicunas",
+          "url": "https://ferminturban.com/vicunas",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films\nDirector: Luis Ara\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/840197987?turnstile=0.PXcv_ZVcpMKKFFcBTNXxFhMELsOyUVPq-__hm6lZoVOwJcZ95ZqFefTp0PmzdWXlGer6FPd0b9lVtS13tfdn4eKZn57_hoNq4L5pOfQZaNTeK7ojBOG1SPb1aouzJ_xec-qnNwVh4aTUdk4pydNbBT_Mj1UioMRj1LZADwO42Rr0PmeyBnTcQBy28-KeSwDK7OirTG3s_3mPeC0pzaMjFTz6THyl4Om86h2i0An0LJgdpusRqX0vLoBYbniqEtETmjgjbcawX6JU6JYn5sHcvBpghXLOrdFgHFxZahvPxMPrPWzKzX_8i4-Ebtc-zoLF2X8dtgluJ6n8_l3nkFfCTaDwVyNyavsEKUCuxChwDOE8ZjKF4o0D378FoYv8UgoTvVEXBrVCADCUpNoNH6HzDu1Pfk-wHHNgSmhT0BVkILxX8tHDw23L2nciKdBTffD7vH0r9kTTHY0frpXTf2SFThL_H52yCDtT5F5JqDn18WdLwJVm-COGkWNVrRULENeAZnZeesZSAiYZCsVEfXUelJFO2Ef-4LkM_ivcq9b6YjJPJWqDD_ZDByWMGkDDczd8cI28FEui70GoYffqTh4rqI9w7RhPSF2EoBgcXrryJ5aQIpMtKSNIiTCvMr7tBDbRKZ7v-YKeoyNPWDzp-4iaUO3oigP0LcM0bdbPGGymzurJiY1fV3lmjzKis_qNX6O-O1yUU-CzCoK-VCJlq-UCLFm-1rt2dZWukocMP44Lscx4EaoKyiWbaBgoLNYh1slXWHXfHg6jrTGU2iw_NQS8Nwnp7KHZhEBFgO1-Q4JA_NcHsglv1SAnSZrhekQLJk_TDR01hkrV1pk3xN5g8UR75b7jdKFJ_eNnaydzRt5WYFavADWDqS7whW0xm4BnZuBUTMbezoad4dmV76keulO2gZDHPAvY7nQJJ0dKH5OeVUg.Wkt5Stdr0pWO_WGBXrBqgA.69e9b0401c28da436f817acde320cfbddb2f8a4f49e0b0ad5c3cb733f196f4c8",
+          "source_url": "https://vimeo.com/840197987?turnstile=0.PXcv_ZVcpMKKFFcBTNXxFhMELsOyUVPq-__hm6lZoVOwJcZ95ZqFefTp0PmzdWXlGer6FPd0b9lVtS13tfdn4eKZn57_hoNq4L5pOfQZaNTeK7ojBOG1SPb1aouzJ_xec-qnNwVh4aTUdk4pydNbBT_Mj1UioMRj1LZADwO42Rr0PmeyBnTcQBy28-KeSwDK7OirTG3s_3mPeC0pzaMjFTz6THyl4Om86h2i0An0LJgdpusRqX0vLoBYbniqEtETmjgjbcawX6JU6JYn5sHcvBpghXLOrdFgHFxZahvPxMPrPWzKzX_8i4-Ebtc-zoLF2X8dtgluJ6n8_l3nkFfCTaDwVyNyavsEKUCuxChwDOE8ZjKF4o0D378FoYv8UgoTvVEXBrVCADCUpNoNH6HzDu1Pfk-wHHNgSmhT0BVkILxX8tHDw23L2nciKdBTffD7vH0r9kTTHY0frpXTf2SFThL_H52yCDtT5F5JqDn18WdLwJVm-COGkWNVrRULENeAZnZeesZSAiYZCsVEfXUelJFO2Ef-4LkM_ivcq9b6YjJPJWqDD_ZDByWMGkDDczd8cI28FEui70GoYffqTh4rqI9w7RhPSF2EoBgcXrryJ5aQIpMtKSNIiTCvMr7tBDbRKZ7v-YKeoyNPWDzp-4iaUO3oigP0LcM0bdbPGGymzurJiY1fV3lmjzKis_qNX6O-O1yUU-CzCoK-VCJlq-UCLFm-1rt2dZWukocMP44Lscx4EaoKyiWbaBgoLNYh1slXWHXfHg6jrTGU2iw_NQS8Nwnp7KHZhEBFgO1-Q4JA_NcHsglv1SAnSZrhekQLJk_TDR01hkrV1pk3xN5g8UR75b7jdKFJ_eNnaydzRt5WYFavADWDqS7whW0xm4BnZuBUTMbezoad4dmV76keulO2gZDHPAvY7nQJJ0dKH5OeVUg.Wkt5Stdr0pWO_WGBXrBqgA.69e9b0401c28da436f817acde320cfbddb2f8a4f49e0b0ad5c3cb733f196f4c8",
+          "embed_url": "https://player.vimeo.com/video/840197987?turnstile=0.PXcv_ZVcpMKKFFcBTNXxFhMELsOyUVPq-__hm6lZoVOwJcZ95ZqFefTp0PmzdWXlGer6FPd0b9lVtS13tfdn4eKZn57_hoNq4L5pOfQZaNTeK7ojBOG1SPb1aouzJ_xec-qnNwVh4aTUdk4pydNbBT_Mj1UioMRj1LZADwO42Rr0PmeyBnTcQBy28-KeSwDK7OirTG3s_3mPeC0pzaMjFTz6THyl4Om86h2i0An0LJgdpusRqX0vLoBYbniqEtETmjgjbcawX6JU6JYn5sHcvBpghXLOrdFgHFxZahvPxMPrPWzKzX_8i4-Ebtc-zoLF2X8dtgluJ6n8_l3nkFfCTaDwVyNyavsEKUCuxChwDOE8ZjKF4o0D378FoYv8UgoTvVEXBrVCADCUpNoNH6HzDu1Pfk-wHHNgSmhT0BVkILxX8tHDw23L2nciKdBTffD7vH0r9kTTHY0frpXTf2SFThL_H52yCDtT5F5JqDn18WdLwJVm-COGkWNVrRULENeAZnZeesZSAiYZCsVEfXUelJFO2Ef-4LkM_ivcq9b6YjJPJWqDD_ZDByWMGkDDczd8cI28FEui70GoYffqTh4rqI9w7RhPSF2EoBgcXrryJ5aQIpMtKSNIiTCvMr7tBDbRKZ7v-YKeoyNPWDzp-4iaUO3oigP0LcM0bdbPGGymzurJiY1fV3lmjzKis_qNX6O-O1yUU-CzCoK-VCJlq-UCLFm-1rt2dZWukocMP44Lscx4EaoKyiWbaBgoLNYh1slXWHXfHg6jrTGU2iw_NQS8Nwnp7KHZhEBFgO1-Q4JA_NcHsglv1SAnSZrhekQLJk_TDR01hkrV1pk3xN5g8UR75b7jdKFJ_eNnaydzRt5WYFavADWDqS7whW0xm4BnZuBUTMbezoad4dmV76keulO2gZDHPAvY7nQJJ0dKH5OeVUg.Wkt5Stdr0pWO_WGBXrBqgA.69e9b0401c28da436f817acde320cfbddb2f8a4f49e0b0ad5c3cb733f196f4c8?h=undefined&playlist=840197987?turnstile=0.PXcv_ZVcpMKKFFcBTNXxFhMELsOyUVPq-__hm6lZoVOwJcZ95ZqFefTp0PmzdWXlGer6FPd0b9lVtS13tfdn4eKZn57_hoNq4L5pOfQZaNTeK7ojBOG1SPb1aouzJ_xec-qnNwVh4aTUdk4pydNbBT_Mj1UioMRj1LZADwO42Rr0PmeyBnTcQBy28-KeSwDK7OirTG3s_3mPeC0pzaMjFTz6THyl4Om86h2i0An0LJgdpusRqX0vLoBYbniqEtETmjgjbcawX6JU6JYn5sHcvBpghXLOrdFgHFxZahvPxMPrPWzKzX_8i4-Ebtc-zoLF2X8dtgluJ6n8_l3nkFfCTaDwVyNyavsEKUCuxChwDOE8ZjKF4o0D378FoYv8UgoTvVEXBrVCADCUpNoNH6HzDu1Pfk-wHHNgSmhT0BVkILxX8tHDw23L2nciKdBTffD7vH0r9kTTHY0frpXTf2SFThL_H52yCDtT5F5JqDn18WdLwJVm-COGkWNVrRULENeAZnZeesZSAiYZCsVEfXUelJFO2Ef-4LkM_ivcq9b6YjJPJWqDD_ZDByWMGkDDczd8cI28FEui70GoYffqTh4rqI9w7RhPSF2EoBgcXrryJ5aQIpMtKSNIiTCvMr7tBDbRKZ7v-YKeoyNPWDzp-4iaUO3oigP0LcM0bdbPGGymzurJiY1fV3lmjzKis_qNX6O-O1yUU-CzCoK-VCJlq-UCLFm-1rt2dZWukocMP44Lscx4EaoKyiWbaBgoLNYh1slXWHXfHg6jrTGU2iw_NQS8Nwnp7KHZhEBFgO1-Q4JA_NcHsglv1SAnSZrhekQLJk_TDR01hkrV1pk3xN5g8UR75b7jdKFJ_eNnaydzRt5WYFavADWDqS7whW0xm4BnZuBUTMbezoad4dmV76keulO2gZDHPAvY7nQJJ0dKH5OeVUg.Wkt5Stdr0pWO_WGBXrBqgA.69e9b0401c28da436f817acde320cfbddb2f8a4f49e0b0ad5c3cb733f196f4c8&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1690083377-fafbf067dd56cc1fcfb820b5ebc578aa366a68ac0e72b6ca394c5f22790febe5-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "840197987",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 131,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Rada",
+      "slug": "rada",
+      "href": "/rada",
+      "absolute_url": "https://ferminturban.com/rada",
+      "linked_page_id": "zgkb3_",
+      "gallery": {
+        "thumbnail_asset": "rada-slide.homeweb.1500x600.plantilla-AzGMjlyxp6Txgngz.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/rada-slide.homeweb.1500x600.plantilla-AzGMjlyxp6Txgngz.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Rada",
+        "slug": "rada",
+        "url": "https://ferminturban.com/rada",
+        "page_title": "Rada | Fermin Turban",
+        "canonical": "https://ferminturban.com/rada",
+        "campaign_title": "RADA",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Rada | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Rada | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Rada",
+          "url": "https://ferminturban.com/rada",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films & Ska Films\nDirector: Luis Ara\nDirector de Foto: Juan Manuel Apolo & Nico Lejtreger\nUnidad B: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films & Ska Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Juan Manuel Apolo & Nico Lejtreger",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": [
+            {
+              "label": "Unidad B",
+              "value": "Fermin Turban"
+            }
+          ]
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/941992771",
+          "source_url": "https://vimeo.com/941992771",
+          "embed_url": "https://player.vimeo.com/video/941992771?h=undefined&playlist=941992771&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1845325808-7a3cb80c1aef82d5d9535624c6bf90634786e1471040d9e61591f140593be7c2-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "941992771",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 121,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Laura Bozzo",
+      "slug": "laura-bozzo",
+      "href": "/laura-bozzo",
+      "absolute_url": "https://ferminturban.com/laura-bozzo",
+      "linked_page_id": "zZghZ7",
+      "gallery": {
+        "thumbnail_asset": "laurabozzo_horizontal_ori_onevix_kv01-m5K8l1WDlbF79nGk.webp",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/laurabozzo_horizontal_ori_onevix_kv01-m5K8l1WDlbF79nGk.webp",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Laura Bozzo",
+        "slug": "laura-bozzo",
+        "url": "https://ferminturban.com/laura-bozzo",
+        "page_title": "Laura Bozzo | Fermin Turban",
+        "canonical": "https://ferminturban.com/laura-bozzo",
+        "campaign_title": "Laura Bozzo",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Laura Bozzo | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Laura Bozzo | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Laura Bozzo",
+          "url": "https://ferminturban.com/laura-bozzo",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films\nDirector: Luis Ara\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "youtube",
+          "initialSrc": "https://www.youtube.com/watch?v=JT4xBAnW6ng",
+          "source_url": "https://www.youtube.com/watch?v=JT4xBAnW6ng",
+          "embed_url": "https://www.youtube.com/embed/JT4xBAnW6ng?h=null&playlist=JT4xBAnW6ng&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&mute=0",
+          "thumbnail": {
+            "url": "https://i.ytimg.com/vi/JT4xBAnW6ng/hqdefault.jpg",
+            "width": 480,
+            "height": 360,
+            "aspect_ratio": 1.333333
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": null,
+          "native_metadata": {
+            "width": null,
+            "height": null,
+            "aspect_ratio": null,
+            "duration_seconds": null,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "El desafio imposible",
+      "slug": "el-desafio-imposible",
+      "href": "/el-desafio-imposible",
+      "absolute_url": "https://ferminturban.com/el-desafio-imposible",
+      "linked_page_id": "z8frVd",
+      "gallery": {
+        "thumbnail_asset": "643eb0967b2c91507c865e42461d38ef-mePg5R5RgvsKeJEK.jpeg",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/643eb0967b2c91507c865e42461d38ef-mePg5R5RgvsKeJEK.jpeg",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "El desafio imposible",
+        "slug": "el-desafio-imposible",
+        "url": "https://ferminturban.com/el-desafio-imposible",
+        "page_title": "El desafio imposible | Fermin Turban",
+        "canonical": "https://ferminturban.com/el-desafio-imposible",
+        "campaign_title": "El desafio imposible",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "El desafio imposible | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "El desafio imposible | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "El desafio imposible",
+          "url": "https://ferminturban.com/el-desafio-imposible",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Trailer Films\nDirector: Luis Ara\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Trailer Films",
+          "director": "Luis Ara",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "youtube",
+          "initialSrc": "https://www.youtube.com/watch?v=ByP8wUdB9pQ",
+          "source_url": "https://www.youtube.com/watch?v=ByP8wUdB9pQ",
+          "embed_url": "https://www.youtube.com/embed/ByP8wUdB9pQ?h=null&playlist=ByP8wUdB9pQ&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&mute=0",
+          "thumbnail": {
+            "url": "https://i.ytimg.com/vi/ByP8wUdB9pQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360,
+            "aspect_ratio": 1.333333
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": null,
+          "native_metadata": {
+            "width": null,
+            "height": null,
+            "aspect_ratio": null,
+            "duration_seconds": null,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    }
+  ]
+}

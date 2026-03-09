@@ -1,0 +1,3498 @@
+{
+  "site": {
+    "name": "Fermin Turban",
+    "base_url": "https://ferminturban.com",
+    "section": "publicidad",
+    "source_url": "https://ferminturban.com/publicidad"
+  },
+  "items_count": 23,
+  "items": [
+    {
+      "name": "Nacional por el Mundo",
+      "slug": "nacional-por-el-mundo",
+      "href": "/nacional-por-el-mundo",
+      "absolute_url": "https://ferminturban.com/nacional-por-el-mundo",
+      "linked_page_id": "zbv6rf",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-11.18.58a-a.a-m.-dWxLMok1e5uw3B74.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-11.18.58a-a.a-m.-dWxLMok1e5uw3B74.png",
+        "thumbnail_alt": "Nacional por el Mundo",
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Nacional por el Mundo",
+        "slug": "nacional-por-el-mundo",
+        "url": "https://ferminturban.com/nacional-por-el-mundo",
+        "page_title": "Nacional por el Mundo | Fermin Turban",
+        "canonical": "https://ferminturban.com/nacional-por-el-mundo",
+        "campaign_title": "Nacional por el Mundo",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Nacional por el Mundo | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Nacional por el Mundo | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Nacional por el Mundo",
+          "url": "https://ferminturban.com/nacional-por-el-mundo",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "img_2717_original-YrD41yPWN0UGojwN.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2717_original-YrD41yPWN0UGojwN.jpg",
+            "alt": null,
+            "fullResolutionWidth": 3840,
+            "fullResolutionHeight": 2160,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 273,
+                "aspect_ratio": 1.505495
+              },
+              "mobile": {
+                "width": 328,
+                "height": 197,
+                "aspect_ratio": 1.664975
+              }
+            }
+          },
+          {
+            "asset_path": "img_2713_original-ALp2BKVPv0fe8ODA.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2713_original-ALp2BKVPv0fe8ODA.jpg",
+            "alt": null,
+            "fullResolutionWidth": 3840,
+            "fullResolutionHeight": 2160,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 273,
+                "aspect_ratio": 1.501832
+              },
+              "mobile": {
+                "width": 328,
+                "height": 190,
+                "aspect_ratio": 1.726316
+              }
+            }
+          },
+          {
+            "asset_path": "img_2711_original-dOqZlV9a58i8ey8O.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2711_original-dOqZlV9a58i8ey8O.jpg",
+            "alt": null,
+            "fullResolutionWidth": 3840,
+            "fullResolutionHeight": 2160,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 413,
+                "height": 276,
+                "aspect_ratio": 1.496377
+              },
+              "mobile": {
+                "width": 328,
+                "height": 197,
+                "aspect_ratio": 1.664975
+              }
+            }
+          },
+          {
+            "asset_path": "img_2727_original-dJoPey7ZNgHWaJEB.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2727_original-dJoPey7ZNgHWaJEB.jpg",
+            "alt": null,
+            "fullResolutionWidth": 3840,
+            "fullResolutionHeight": 2160,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 413,
+                "height": 276,
+                "aspect_ratio": 1.496377
+              },
+              "mobile": {
+                "width": 328,
+                "height": 183,
+                "aspect_ratio": 1.79235
+              }
+            }
+          },
+          {
+            "asset_path": "img_2721_original-Yan06LW1PbSDQ764.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2721_original-Yan06LW1PbSDQ764.jpg",
+            "alt": null,
+            "fullResolutionWidth": 3840,
+            "fullResolutionHeight": 2160,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 414,
+                "height": 274,
+                "aspect_ratio": 1.510949
+              },
+              "mobile": {
+                "width": 328,
+                "height": 200,
+                "aspect_ratio": 1.64
+              }
+            }
+          },
+          {
+            "asset_path": "img_2704_original-m6L2PaKZWEirozan.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2704_original-m6L2PaKZWEirozan.jpg",
+            "alt": null,
+            "fullResolutionWidth": 3840,
+            "fullResolutionHeight": 2160,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 274,
+                "aspect_ratio": 1.459854
+              },
+              "mobile": {
+                "width": 328,
+                "height": 177,
+                "aspect_ratio": 1.853107
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111388366",
+          "source_url": "https://vimeo.com/1111388366",
+          "embed_url": "https://player.vimeo.com/video/1111388366?h=undefined&playlist=1111388366&autoplay=1&controls=1&loop=0&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049358167-0458724c8d54b210f99be79f1b963234683ef2800308f38b7776b5f846d61242-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 200,
+              "aspect_ratio": 1.64
+            }
+          },
+          "vimeo_id": "1111388366",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 120,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Nativa",
+      "slug": "nativa",
+      "href": "/nativa",
+      "absolute_url": "https://ferminturban.com/nativa",
+      "linked_page_id": "zY60TU",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.21.18a-p.a-m.-Awv8LNR4wKCeaqE4.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.21.18a-p.a-m.-Awv8LNR4wKCeaqE4.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Nativa",
+        "slug": "nativa",
+        "url": "https://ferminturban.com/nativa",
+        "page_title": "Nativa | Fermin Turban",
+        "canonical": "https://ferminturban.com/nativa",
+        "campaign_title": "Nativa Sport",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Nativa | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Nativa | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Nativa",
+          "url": "https://ferminturban.com/nativa",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.15.53a-p.a-m.-dJoPeyW6rrFn8onG.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.15.53a-p.a-m.-dJoPeyW6rrFn8onG.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 222,
+                "aspect_ratio": 1.846847
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.15.18a-p.a-m.-A1az1Z9BnGh8vnlM.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.15.18a-p.a-m.-A1az1Z9BnGh8vnlM.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 222,
+                "aspect_ratio": 1.851351
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.14.53a-p.a-m.-mk348WGq8aiG5Rl1.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.14.53a-p.a-m.-mk348WGq8aiG5Rl1.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 418,
+                "height": 223,
+                "aspect_ratio": 1.874439
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.19.46a-p.a-m.-mP43PglGqeFpeyX6.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.19.46a-p.a-m.-mP43PglGqeFpeyX6.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 219,
+                "aspect_ratio": 1.876712
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.18.37a-p.a-m.-m5K8lBGxW5HzgGky.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.18.37a-p.a-m.-m5K8lBGxW5HzgGky.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.15.40a-p.a-m.-YNqMOGbPLaflgQ9e.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.15.40a-p.a-m.-YNqMOGbPLaflgQ9e.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111391112",
+          "source_url": "https://vimeo.com/1111391112",
+          "embed_url": "https://player.vimeo.com/video/1111391112?h=undefined&playlist=1111391112&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049358652-2878bc08316a7fdd599e8fdf5b3215d7df464f47ff621cac0e72aabdd33770d6-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111391112",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 22,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "mini miss carol",
+      "slug": "mini-miss-carol",
+      "href": "/mini-miss-carol",
+      "absolute_url": "https://ferminturban.com/mini-miss-carol",
+      "linked_page_id": "z5v4qP",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.16.31a-p.a-m.-mxB2x6R4N2UE1x4v.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.16.31a-p.a-m.-mxB2x6R4N2UE1x4v.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "mini miss carol",
+        "slug": "mini-miss-carol",
+        "url": "https://ferminturban.com/mini-miss-carol",
+        "page_title": "mini miss carol | Fermin Turban",
+        "canonical": "https://ferminturban.com/mini-miss-carol",
+        "campaign_title": "Stadium Mini miss Carol",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "mini miss carol | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "mini miss carol | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "mini miss carol",
+          "url": "https://ferminturban.com/mini-miss-carol",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1120216322",
+          "source_url": "https://vimeo.com/1120216322",
+          "embed_url": "https://player.vimeo.com/video/1120216322?h=undefined&playlist=1120216322&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2060909198-cec4c516e6e0e36e0babc26330d5787cac0c2f097a9106dac4ed1128cda68df6-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1120216322",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 37,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Stadium",
+      "slug": "stadium",
+      "href": "/stadium",
+      "absolute_url": "https://ferminturban.com/stadium",
+      "linked_page_id": "ztYZNw",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.18.21a-p.a-m.-Yan02lRqvGuxNKvD.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.18.21a-p.a-m.-Yan02lRqvGuxNKvD.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Stadium",
+        "slug": "stadium",
+        "url": "https://ferminturban.com/stadium",
+        "page_title": "Stadium | Fermin Turban",
+        "canonical": "https://ferminturban.com/stadium",
+        "campaign_title": "Miss Stadium",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Stadium | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Stadium | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Stadium",
+          "url": "https://ferminturban.com/stadium",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.35.12a-p.a-m.-YX4j1M387WSbOkyE.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.35.12a-p.a-m.-YX4j1M387WSbOkyE.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 417,
+                "height": 258,
+                "aspect_ratio": 1.616279
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.34.27a-p.a-m.-mk348Wb7JBuNVNRL.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.34.27a-p.a-m.-mk348Wb7JBuNVNRL.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 417,
+                "height": 258,
+                "aspect_ratio": 1.616279
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.35.34a-p.a-m.-m6L2PapkxKCLzb68.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.35.34a-p.a-m.-m6L2PapkxKCLzb68.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 417,
+                "height": 258,
+                "aspect_ratio": 1.616279
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.36.11a-p.a-m.-A3QlaeRxyGhVRxvX.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.36.11a-p.a-m.-A3QlaeRxyGhVRxvX.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 417,
+                "height": 258,
+                "aspect_ratio": 1.616279
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.34.58a-p.a-m.-Aq2Ge94nRgsJB2j5.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.34.58a-p.a-m.-Aq2Ge94nRgsJB2j5.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 417,
+                "height": 258,
+                "aspect_ratio": 1.616279
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.35.23a-p.a-m.-YyvDXr8BQbfGZ5aX.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.35.23a-p.a-m.-YyvDXr8BQbfGZ5aX.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 417,
+                "height": 258,
+                "aspect_ratio": 1.616279
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Matias Morales\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Matias Morales",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111395985",
+          "source_url": "https://vimeo.com/1111395985",
+          "embed_url": "https://player.vimeo.com/video/1111395985?h=undefined&playlist=1111395985&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049364554-c5b0f44d8bfa20fe9281937c248cb41f6e2867a7562f33e3ea784c9cdfdb8631-d_295x166?region=us",
+            "width": 295,
+            "height": 199,
+            "aspect_ratio": 1.482412
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111395985",
+          "native_metadata": {
+            "width": 1600,
+            "height": 1080,
+            "aspect_ratio": 1.481481,
+            "duration_seconds": 43,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Jack Invierno",
+      "slug": "jack-invierno",
+      "href": "/jack-invierno",
+      "absolute_url": "https://ferminturban.com/jack-invierno",
+      "linked_page_id": "zwlpa7",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.24.32a-p.a-m.-m7VDE7a3naFlVG8K.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.24.32a-p.a-m.-m7VDE7a3naFlVG8K.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Jack Invierno",
+        "slug": "jack-invierno",
+        "url": "https://ferminturban.com/jack-invierno",
+        "page_title": "Jack Invierno | Fermin Turban",
+        "canonical": "https://ferminturban.com/jack-invierno",
+        "campaign_title": "Jack and Jones - Winter",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Jack Invierno | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Jack Invierno | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Jack Invierno",
+          "url": "https://ferminturban.com/jack-invierno",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.50.32a-p.a-m.-m7VD8ljgkDiDbVe7.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.50.32a-p.a-m.-m7VD8ljgkDiDbVe7.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 233,
+                "aspect_ratio": 1.716738
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.53.20a-p.a-m.-mjE4PBDk8bfk2kgO.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.53.20a-p.a-m.-mjE4PBDk8bfk2kgO.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 233,
+                "aspect_ratio": 1.716738
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.51.59a-p.a-m.-dOqZlW06b2Tpr5gO.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.51.59a-p.a-m.-dOqZlW06b2Tpr5gO.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 233,
+                "aspect_ratio": 1.716738
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.53.06a-p.a-m.-Y4LPOrg6aaHbkl2L.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.53.06a-p.a-m.-Y4LPOrg6aaHbkl2L.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 233,
+                "aspect_ratio": 1.716738
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.52.52a-p.a-m.-AGBzM5jo7RSQoPQq.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.52.52a-p.a-m.-AGBzM5jo7RSQoPQq.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 233,
+                "aspect_ratio": 1.716738
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.52.07a-p.a-m.-A85M2PyjVjsoB4zz.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.52.07a-p.a-m.-A85M2PyjVjsoB4zz.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 233,
+                "aspect_ratio": 1.716738
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111395607",
+          "source_url": "https://vimeo.com/1111395607",
+          "embed_url": "https://player.vimeo.com/video/1111395607?h=undefined&playlist=1111395607&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049364060-63f67cc5cf23e6ada662436c5d78deeb659ec0e9a64208f6340708136649e6bf-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111395607",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 61,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Navidad punta carretas",
+      "slug": "navidad-punta-carretas",
+      "href": "/navidad-punta-carretas",
+      "absolute_url": "https://ferminturban.com/navidad-punta-carretas",
+      "linked_page_id": "zpeoxq",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.20.02a-p.a-m.-YBgjoQN8vXiQG5VW.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.20.02a-p.a-m.-YBgjoQN8vXiQG5VW.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Navidad punta carretas",
+        "slug": "navidad-punta-carretas",
+        "url": "https://ferminturban.com/navidad-punta-carretas",
+        "page_title": "Navidad punta carretas | Fermin Turban",
+        "canonical": "https://ferminturban.com/navidad-punta-carretas",
+        "campaign_title": "Punta Carretas - Navidad",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Navidad punta carretas | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Navidad punta carretas | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Navidad punta carretas",
+          "url": "https://ferminturban.com/navidad-punta-carretas",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111393235",
+          "source_url": "https://vimeo.com/1111393235",
+          "embed_url": "https://player.vimeo.com/video/1111393235?h=undefined&playlist=1111393235&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049361208-8f6c97126d2eb50b6085c6001da4a3e20e8d55ef103d027a72185561bd2da840-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111393235",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 35,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Jack stay true",
+      "slug": "jack-stay-true",
+      "href": "/jack-stay-true",
+      "absolute_url": "https://ferminturban.com/jack-stay-true",
+      "linked_page_id": "zk5ac1",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.22.55a-p.a-m.-dJoPG395E6fKgNzW.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.22.55a-p.a-m.-dJoPG395E6fKgNzW.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 156,
+            "aspect_ratio": 1.012821
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Jack stay true",
+        "slug": "jack-stay-true",
+        "url": "https://ferminturban.com/jack-stay-true",
+        "page_title": "Jack stay true | Fermin Turban",
+        "canonical": "https://ferminturban.com/jack-stay-true",
+        "campaign_title": "Jack and Jones Stay - true to yourself",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Jack stay true | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Jack stay true | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Jack stay true",
+          "url": "https://ferminturban.com/jack-stay-true",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "img_2986_original-YKb814o3rWcv9GK5.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2986_original-YKb814o3rWcv9GK5.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1920,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 408,
+                "height": 274,
+                "aspect_ratio": 1.489051
+              },
+              "mobile": {
+                "width": 328,
+                "height": 192,
+                "aspect_ratio": 1.708333
+              }
+            }
+          },
+          {
+            "asset_path": "img_2983_original-A0xveM4l32c8RwOk.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2983_original-A0xveM4l32c8RwOk.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1920,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 274,
+                "aspect_ratio": 1.49635
+              },
+              "mobile": {
+                "width": 328,
+                "height": 190,
+                "aspect_ratio": 1.726316
+              }
+            }
+          },
+          {
+            "asset_path": "img_2987_original-mjE4P6L77DIvgbgx.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2987_original-mjE4P6L77DIvgbgx.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1920,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 408,
+                "height": 274,
+                "aspect_ratio": 1.489051
+              },
+              "mobile": {
+                "width": 328,
+                "height": 190,
+                "aspect_ratio": 1.726316
+              }
+            }
+          },
+          {
+            "asset_path": "img_2985_original-mp843QXWWKF109Z4.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2985_original-mp843QXWWKF109Z4.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1920,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 408,
+                "height": 274,
+                "aspect_ratio": 1.489051
+              },
+              "mobile": {
+                "width": 328,
+                "height": 190,
+                "aspect_ratio": 1.726316
+              }
+            }
+          },
+          {
+            "asset_path": "img_2984_original-A85M2x6eqOsPDb6q.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2984_original-A85M2x6eqOsPDb6q.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1920,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 274,
+                "aspect_ratio": 1.49635
+              },
+              "mobile": {
+                "width": 328,
+                "height": 176,
+                "aspect_ratio": 1.863636
+              }
+            }
+          },
+          {
+            "asset_path": "img_2981_original-Awv8jVL4rxTB6DqB.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_2981_original-Awv8jVL4rxTB6DqB.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1920,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.777778,
+            "rendered_size": {
+              "desktop": {
+                "width": 408,
+                "height": 274,
+                "aspect_ratio": 1.489051
+              },
+              "mobile": {
+                "width": 328,
+                "height": 193,
+                "aspect_ratio": 1.699482
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1048141828",
+          "source_url": "https://vimeo.com/1048141828",
+          "embed_url": "https://player.vimeo.com/video/1048141828?h=undefined&playlist=1048141828&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1972237897-119d4f477b75d86d36be81712c3e21ef2351bd872bfdb61321801804fbc542a5-d_295x166?region=us",
+            "width": 295,
+            "height": 146,
+            "aspect_ratio": 2.020548
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1048141828",
+          "native_metadata": {
+            "width": 3840,
+            "height": 1900,
+            "aspect_ratio": 2.021053,
+            "duration_seconds": 45,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Jack Backspring summer",
+      "slug": "jack-backspring-summer",
+      "href": "/jack-backspring-summer",
+      "absolute_url": "https://ferminturban.com/jack-backspring-summer",
+      "linked_page_id": "zgNL4h",
+      "gallery": {
+        "thumbnail_asset": "captura-2025-09-16-155510_1.1.14-Yan02lR7JvCawk51.jpg",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-2025-09-16-155510_1.1.14-Yan02lR7JvCawk51.jpg",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Jack Backspring summer",
+        "slug": "jack-backspring-summer",
+        "url": "https://ferminturban.com/jack-backspring-summer",
+        "page_title": "Jack Backspring summer | Fermin Turban",
+        "canonical": "https://ferminturban.com/jack-backspring-summer",
+        "campaign_title": "Jack and Jones Summer",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Jack Backspring summer | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Jack Backspring summer | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Jack Backspring summer",
+          "url": "https://ferminturban.com/jack-backspring-summer",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "img_4642-A3Qla3z7G5SnXL22.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_4642-A3Qla3z7G5SnXL22.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1511,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.399074,
+            "rendered_size": {
+              "desktop": {
+                "width": 364,
+                "height": 280,
+                "aspect_ratio": 1.3
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "img_4652-YX4j1R6xJ4hPeOao.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_4652-YX4j1R6xJ4hPeOao.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1511,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.399074,
+            "rendered_size": {
+              "desktop": {
+                "width": 366,
+                "height": 280,
+                "aspect_ratio": 1.307143
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "img_4651-m5K8l1NnXBtwKrVx.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_4651-m5K8l1NnXBtwKrVx.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1511,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.399074,
+            "rendered_size": {
+              "desktop": {
+                "width": 369,
+                "height": 280,
+                "aspect_ratio": 1.317857
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "img_4647-AVLx3RqxPRcEJn8e.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_4647-AVLx3RqxPRcEJn8e.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1511,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.399074,
+            "rendered_size": {
+              "desktop": {
+                "width": 365,
+                "height": 267,
+                "aspect_ratio": 1.367041
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "img_4645-YD0E8W2E0MFNGRNW.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_4645-YD0E8W2E0MFNGRNW.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1511,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.399074,
+            "rendered_size": {
+              "desktop": {
+                "width": 372,
+                "height": 267,
+                "aspect_ratio": 1.393258
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "img_4653-YZ9EaRJj6zcXQDWD.jpg",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/img_4653-YZ9EaRJj6zcXQDWD.jpg",
+            "alt": null,
+            "fullResolutionWidth": 1511,
+            "fullResolutionHeight": 1080,
+            "full_resolution_aspect_ratio": 1.399074,
+            "rendered_size": {
+              "desktop": {
+                "width": 369,
+                "height": 267,
+                "aspect_ratio": 1.382022
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1120210224",
+          "source_url": "https://vimeo.com/1120210224",
+          "embed_url": "https://player.vimeo.com/video/1120210224?h=undefined&playlist=1120210224&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2060901732-1dd80ffd3cf7beab2612baf04d4264cdce7ab3342b894fb88f4e2b6c77a0dce2-d_295x166?region=us",
+            "width": 295,
+            "height": 212,
+            "aspect_ratio": 1.391509
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1120210224",
+          "native_metadata": {
+            "width": 3000,
+            "height": 2160,
+            "aspect_ratio": 1.388889,
+            "duration_seconds": 53,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Natalia oreiro",
+      "slug": "natalia-oreiro",
+      "href": "/natalia-oreiro",
+      "absolute_url": "https://ferminturban.com/natalia-oreiro",
+      "linked_page_id": "zr6o1P",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-19-a-la-s-2.44.49a-p.a-m.-Yg24LrO2lvUM9lZx.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-2.44.49a-p.a-m.-Yg24LrO2lvUM9lZx.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 186,
+            "aspect_ratio": 2.150538
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Natalia oreiro",
+        "slug": "natalia-oreiro",
+        "url": "https://ferminturban.com/natalia-oreiro",
+        "page_title": "Natalia oreiro | Fermin Turban",
+        "canonical": "https://ferminturban.com/natalia-oreiro",
+        "campaign_title": "Loreal - Natalia Oreiro",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Natalia oreiro | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Natalia oreiro | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Natalia oreiro",
+          "url": "https://ferminturban.com/natalia-oreiro",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/844034498",
+          "source_url": "https://vimeo.com/844034498",
+          "embed_url": "https://player.vimeo.com/video/844034498?h=undefined&playlist=844034498&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1696026230-381d1055a118fcf9514f27b22094410b252d4bdd02d0eaa3693d4ae7b6033409-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "844034498",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 27,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "NACIONAL PUPO",
+      "slug": "nacional-pupo",
+      "href": "/nacional-pupo",
+      "absolute_url": "https://ferminturban.com/nacional-pupo",
+      "linked_page_id": "z0APrX",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.14.55a-p.a-m.-d95ZEzx77EskBJKa.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.14.55a-p.a-m.-d95ZEzx77EskBJKa.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "NACIONAL PUPO",
+        "slug": "nacional-pupo",
+        "url": "https://ferminturban.com/nacional-pupo",
+        "page_title": "NACIONAL PUPO | Fermin Turban",
+        "canonical": "https://ferminturban.com/nacional-pupo",
+        "campaign_title": "Nacional AWAY I",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "NACIONAL PUPO | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "NACIONAL PUPO | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "NACIONAL PUPO",
+          "url": "https://ferminturban.com/nacional-pupo",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111395103",
+          "source_url": "https://vimeo.com/1111395103",
+          "embed_url": "https://player.vimeo.com/video/1111395103?h=undefined&playlist=1111395103&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049363529-614415adee080adbd7f6ad3a550c027b5ba8a97f8064b997a3515aa29777b9a4-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111395103",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 79,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Jack Back rutine",
+      "slug": "jack-back-rutine",
+      "href": "/jack-back-rutine",
+      "absolute_url": "https://ferminturban.com/jack-back-rutine",
+      "linked_page_id": "zyFa8U",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.23.29a-p.a-m.-YyvDkWRZ4XF0qVPP.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.23.29a-p.a-m.-YyvDkWRZ4XF0qVPP.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Jack Back rutine",
+        "slug": "jack-back-rutine",
+        "url": "https://ferminturban.com/jack-back-rutine",
+        "page_title": "Jack Back rutine | Fermin Turban",
+        "canonical": "https://ferminturban.com/jack-back-rutine",
+        "campaign_title": "Jack and Jones Back to Rutine",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Jack Back rutine | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Jack Back rutine | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Jack Back rutine",
+          "url": "https://ferminturban.com/jack-back-rutine",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111391707",
+          "source_url": "https://vimeo.com/1111391707",
+          "embed_url": "https://player.vimeo.com/video/1111391707?h=undefined&playlist=1111391707&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049359340-c0685d95f02b21cb98860cf12febce35b0cb38a8163bf896229765ad8c4cecd8-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111391707",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 60,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Mc Donald",
+      "slug": "mc-donald",
+      "href": "/mc-donald",
+      "absolute_url": "https://ferminturban.com/mc-donald",
+      "linked_page_id": "zk8Bsa",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-19-a-la-s-1.39.27a-p.a-m.-AE0726Xnq0h2XObz.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-1.39.27a-p.a-m.-AE0726Xnq0h2XObz.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Mc Donald",
+        "slug": "mc-donald",
+        "url": "https://ferminturban.com/mc-donald",
+        "page_title": "Mc Donald | Fermin Turban",
+        "canonical": "https://ferminturban.com/mc-donald",
+        "campaign_title": "Mc Donald Tasty Turbo",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Mc Donald | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Mc Donald | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Mc Donald",
+          "url": "https://ferminturban.com/mc-donald",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Oriental\nDirector: Juanchi Camargo\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Oriental",
+          "director": "Juanchi Camargo",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/844034061",
+          "source_url": "https://vimeo.com/844034061",
+          "embed_url": "https://player.vimeo.com/video/844034061?h=undefined&playlist=844034061&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1696024092-40f9ea3a193f9796252d521d8ff6869c54d8191d7166c37ab1769558c8446831-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "844034061",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 6,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Mercado Pago",
+      "slug": "mercado-pago",
+      "href": "/mercado-pago",
+      "absolute_url": "https://ferminturban.com/mercado-pago",
+      "linked_page_id": "zfqnLC",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-174948-AGBzrkpXv6ij12xm.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-174948-AGBzrkpXv6ij12xm.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Mercado Pago",
+        "slug": "mercado-pago",
+        "url": "https://ferminturban.com/mercado-pago",
+        "page_title": "Mercado Pago | Fermin Turban",
+        "canonical": "https://ferminturban.com/mercado-pago",
+        "campaign_title": "Mercado Pago con QR",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Mercado Pago | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Mercado Pago | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Mercado Pago",
+          "url": "https://ferminturban.com/mercado-pago",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Nodo\nDirector: Grampo\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Nodo",
+          "director": "Grampo",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1120206992",
+          "source_url": "https://vimeo.com/1120206992",
+          "embed_url": "https://player.vimeo.com/video/1120206992?h=undefined&playlist=1120206992&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2060897635-eb22d54b3af2d1a592a4644b3bd0ad5f023bcf9bbbbed34284b82e02eee553b6-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1120206992",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 20,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Stadium dia de la madre",
+      "slug": "stadium-dia-de-la-madre",
+      "href": "/stadium-dia-de-la-madre",
+      "absolute_url": "https://ferminturban.com/stadium-dia-de-la-madre",
+      "linked_page_id": "zEjLC9",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.17.53a-p.a-m.-YZ9En6RVoXH6r9L4.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.17.53a-p.a-m.-YZ9En6RVoXH6r9L4.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Stadium dia de la madre",
+        "slug": "stadium-dia-de-la-madre",
+        "url": "https://ferminturban.com/stadium-dia-de-la-madre",
+        "page_title": "Stadium dia de la madre | Fermin Turban",
+        "canonical": "https://ferminturban.com/stadium-dia-de-la-madre",
+        "campaign_title": "STADIUM - Dia de la Madre",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Stadium dia de la madre | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Stadium dia de la madre | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Stadium dia de la madre",
+          "url": "https://ferminturban.com/stadium-dia-de-la-madre",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111394532",
+          "source_url": "https://vimeo.com/1111394532",
+          "embed_url": "https://player.vimeo.com/video/1111394532?h=undefined&playlist=1111394532&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049362831-74a6763e9aead499801f81602192ec44f78e8d5363709e384e49c9feb717488b-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111394532",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 53,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "cimarronas punta carretas",
+      "slug": "cimarronas-punta-carretas",
+      "href": "/cimarronas-punta-carretas",
+      "absolute_url": "https://ferminturban.com/cimarronas-punta-carretas",
+      "linked_page_id": "zmvhDz",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.20.57a-p.a-m.-ALp2X14eMghkRl8y.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.20.57a-p.a-m.-ALp2X14eMghkRl8y.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "cimarronas punta carretas",
+        "slug": "cimarronas-punta-carretas",
+        "url": "https://ferminturban.com/cimarronas-punta-carretas",
+        "page_title": "cimarronas punta carretas | Fermin Turban",
+        "canonical": "https://ferminturban.com/cimarronas-punta-carretas",
+        "campaign_title": "Punta Carretas - Cimarronas",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "cimarronas punta carretas | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "cimarronas punta carretas | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "cimarronas punta carretas",
+          "url": "https://ferminturban.com/cimarronas-punta-carretas",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111396201",
+          "source_url": "https://vimeo.com/1111396201",
+          "embed_url": "https://player.vimeo.com/video/1111396201?h=undefined&playlist=1111396201&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049368517-68a826ad357815ff43799736f24ed87921258de2dfd6d7be3e82041766b30faf-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111396201",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 29,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Ibutron",
+      "slug": "ibutron",
+      "href": "/ibutron",
+      "absolute_url": "https://ferminturban.com/ibutron",
+      "linked_page_id": "zZSR2X",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-174714-YD0Ejk9jN3cRB0gK.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-174714-YD0Ejk9jN3cRB0gK.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Ibutron",
+        "slug": "ibutron",
+        "url": "https://ferminturban.com/ibutron",
+        "page_title": "Ibutron | Fermin Turban",
+        "canonical": "https://ferminturban.com/ibutron",
+        "campaign_title": "Ibutron",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Ibutron | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Ibutron | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Ibutron",
+          "url": "https://ferminturban.com/ibutron",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.43.23a-p.a-m.-Yan06LNWrQuQvq71.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.43.23a-p.a-m.-Yan06LNWrQuQvq71.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 217,
+                "aspect_ratio": 1.894009
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.43.58a-p.a-m.-YNqMOGwqrqUrg2Nk.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.43.58a-p.a-m.-YNqMOGwqrqUrg2Nk.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 217,
+                "aspect_ratio": 1.894009
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.42.49a-p.a-m.-mePg579aKDUgPnGR.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.42.49a-p.a-m.-mePg579aKDUgPnGR.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 216,
+                "aspect_ratio": 1.898148
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.43.02a-p.a-m.-mk348WkLQ1fjWE7r.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.43.02a-p.a-m.-mk348WkLQ1fjWE7r.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 217,
+                "aspect_ratio": 1.894009
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.43.32a-p.a-m.-m2WqB3LW8Oh1kkDZ.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.43.32a-p.a-m.-m2WqB3LW8Oh1kkDZ.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 217,
+                "aspect_ratio": 1.894009
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-09-19-a-la-s-8.43.40a-p.a-m.-YyvDXrwGRgUPzgxy.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-8.43.40a-p.a-m.-YyvDXrwGRgUPzgxy.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 216,
+                "aspect_ratio": 1.898148
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111395783",
+          "source_url": "https://vimeo.com/1111395783",
+          "embed_url": "https://player.vimeo.com/video/1111395783?h=undefined&playlist=1111395783&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049364251-614c063ee2facb097627f4696ee5d28c8d0902f03df79ca21380afcba5d67284-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111395783",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 41,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Mercado Libre bicho",
+      "slug": "mercado-libre-bicho",
+      "href": "/mercado-libre-bicho",
+      "absolute_url": "https://ferminturban.com/mercado-libre-bicho",
+      "linked_page_id": "ztZkH5",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.21.53a-p.a-m.-AoP4E5k3JMFMlKwB.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.21.53a-p.a-m.-AoP4E5k3JMFMlKwB.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Mercado Libre bicho",
+        "slug": "mercado-libre-bicho",
+        "url": "https://ferminturban.com/mercado-libre-bicho",
+        "page_title": "Mercado Libre bicho | Fermin Turban",
+        "canonical": "https://ferminturban.com/mercado-libre-bicho",
+        "campaign_title": "Mercado Libre - Bicho",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Mercado Libre bicho | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Mercado Libre bicho | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Mercado Libre bicho",
+          "url": "https://ferminturban.com/mercado-libre-bicho",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1111397503",
+          "source_url": "https://vimeo.com/1111397503",
+          "embed_url": "https://player.vimeo.com/video/1111397503?h=undefined&playlist=1111397503&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2049366327-a7fb7a7bdefd3b3cbaa963849aaaea9d984fd04205c584dca48bfce81caad03f-d_200x150?region=us",
+            "width": 200,
+            "height": 356,
+            "aspect_ratio": 0.561798
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1111397503",
+          "native_metadata": {
+            "width": 1080,
+            "height": 1920,
+            "aspect_ratio": 0.5625,
+            "duration_seconds": 46,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Pilsen",
+      "slug": "pilsen",
+      "href": "/pilsen",
+      "absolute_url": "https://ferminturban.com/pilsen",
+      "linked_page_id": "zE3OS6",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-19-a-la-s-1.40.41a-p.a-m.-m7VD81gjzDI3JQKk.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-1.40.41a-p.a-m.-m7VD81gjzDI3JQKk.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 180,
+            "aspect_ratio": 2.222222
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Pilsen",
+        "slug": "pilsen",
+        "url": "https://ferminturban.com/pilsen",
+        "page_title": "Pilsen | Fermin Turban",
+        "canonical": "https://ferminturban.com/pilsen",
+        "campaign_title": "Pilsen Edicion Mundial",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Pilsen | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Pilsen | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Pilsen",
+          "url": "https://ferminturban.com/pilsen",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Futura\nDirector: Juanchi Camargo\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Futura",
+          "director": "Juanchi Camargo",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/844032084",
+          "source_url": "https://vimeo.com/844032084",
+          "embed_url": "https://player.vimeo.com/video/844032084?h=undefined&playlist=844032084&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/1696021441-3a2bf3728a00e43e0dad6f63e46b26a42c38fc9a304f88437ad7f21ee4a4d1b5-d_200x150?region=us",
+            "width": 200,
+            "height": 356,
+            "aspect_ratio": 0.561798
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "844032084",
+          "native_metadata": {
+            "width": 1080,
+            "height": 1920,
+            "aspect_ratio": 0.5625,
+            "duration_seconds": 17,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "audi",
+      "slug": "audi",
+      "href": "/audi",
+      "absolute_url": "https://ferminturban.com/audi",
+      "linked_page_id": "zlv8b4",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-19-a-la-s-2.38.51a-p.a-m.-YbN4nrNjezTV0WM7.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-19-a-la-s-2.38.51a-p.a-m.-YbN4nrNjezTV0WM7.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "audi",
+        "slug": "audi",
+        "url": "https://ferminturban.com/audi",
+        "page_title": "audi | Fermin Turban",
+        "canonical": "https://ferminturban.com/audi",
+        "campaign_title": "Audi Q5 - Thrill of adrenaline",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "audi | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "audi | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "audi",
+          "url": "https://ferminturban.com/audi",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Futura\nDirector: Rodra Mendez & Juanchi Camargo\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Futura",
+          "director": "Rodra Mendez & Juanchi Camargo",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/992797912",
+          "source_url": "https://vimeo.com/992797912",
+          "embed_url": "https://player.vimeo.com/video/992797912?h=undefined&playlist=992797912&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2115977251-f1d350ebf8db41db673c1f84526e8d4af10163db6a5e510d6e7c356bd542ea2f-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "992797912",
+          "native_metadata": {
+            "width": 3840,
+            "height": 2160,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 44,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "dia del nino punta carretas",
+      "slug": "dia-del-nino-punta-carretas",
+      "href": "/dia-del-nino-punta-carretas",
+      "absolute_url": "https://ferminturban.com/dia-del-nino-punta-carretas",
+      "linked_page_id": "zV8oVy",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-09-17-a-la-s-12.19.23a-p.a-m.-dOqZXOGaeGsMv3yk.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-09-17-a-la-s-12.19.23a-p.a-m.-dOqZXOGaeGsMv3yk.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 186,
+            "aspect_ratio": 2.150538
+          },
+          "mobile": {
+            "width": 158,
+            "height": 154,
+            "aspect_ratio": 1.025974
+          }
+        }
+      },
+      "detail": {
+        "page_name": "dia del nino punta carretas",
+        "slug": "dia-del-nino-punta-carretas",
+        "url": "https://ferminturban.com/dia-del-nino-punta-carretas",
+        "page_title": "dia del nino punta carretas | Fermin Turban",
+        "canonical": "https://ferminturban.com/dia-del-nino-punta-carretas",
+        "campaign_title": "Punta Carretas - Dia del Niño",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "dia del nino punta carretas | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "dia del nino punta carretas | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "dia del nino punta carretas",
+          "url": "https://ferminturban.com/dia-del-nino-punta-carretas",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1120218028",
+          "source_url": "https://vimeo.com/1120218028",
+          "embed_url": "https://player.vimeo.com/video/1120218028?h=undefined&playlist=1120218028&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2060911368-6a81c9f3201ab9a8a3c3dfcd1d06be960060cb4ba141ccceb74037e92e467256-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1120218028",
+          "native_metadata": {
+            "width": 3840,
+            "height": 2160,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 34,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Dream liso",
+      "slug": "dream-liso",
+      "href": "/dream-liso",
+      "absolute_url": "https://ferminturban.com/dream-liso",
+      "linked_page_id": "zRWz65",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-12-29-a-la-s-11.53.25a-a.a-m.-y2pQXAZKu1mbNyES.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.53.25a-a.a-m.-y2pQXAZKu1mbNyES.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 186,
+            "aspect_ratio": 2.150538
+          },
+          "mobile": {
+            "width": 328,
+            "height": 186,
+            "aspect_ratio": 1.763441
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Dream liso",
+        "slug": "dream-liso",
+        "url": "https://ferminturban.com/dream-liso",
+        "page_title": "Dream liso | Fermin Turban",
+        "canonical": "https://ferminturban.com/dream-liso",
+        "campaign_title": "Dream Liso - Elvive",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Dream liso | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Dream liso | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Dream liso",
+          "url": "https://ferminturban.com/dream-liso",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.52.40a-a.a-m.-YBjChPPSRIpWKeA9.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.52.40a-a.a-m.-YBjChPPSRIpWKeA9.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 222,
+                "aspect_ratio": 1.846847
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.53.34a-a.a-m.-hKOHI7qWarAjzpqF.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.53.34a-a.a-m.-hKOHI7qWarAjzpqF.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 222,
+                "aspect_ratio": 1.851351
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.52.46a-a.a-m.-nYodyex5gaEzGb56.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.52.46a-a.a-m.-nYodyex5gaEzGb56.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 418,
+                "height": 223,
+                "aspect_ratio": 1.874439
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.53.25a-a.a-m.-y2pQXAZKu1mbNyES.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.53.25a-a.a-m.-y2pQXAZKu1mbNyES.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 219,
+                "aspect_ratio": 1.876712
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.52.58a-a.a-m.-03HLdZlp5BqzwMrb.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.52.58a-a.a-m.-03HLdZlp5BqzwMrb.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.53.19a-a.a-m.-7nZ9wHMUeJvDP5GK.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.53.19a-a.a-m.-7nZ9wHMUeJvDP5GK.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1150100076?share=copy&fl=sv&fe=ci",
+          "source_url": "https://vimeo.com/1150100076?share=copy&fl=sv&fe=ci",
+          "embed_url": "https://player.vimeo.com/video/1150100076?share=copy&fl=sv&fe=ci?h=undefined&playlist=1150100076?share=copy&fl=sv&fe=ci&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2100902529-6fb152d2560f1589ec5bb76c7673c132a5a401b8cb3bccd66dbc05d6f6c89370-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1150100076",
+          "native_metadata": {
+            "width": 1920,
+            "height": 1080,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 26,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Farmashop Navidad",
+      "slug": "farmashop-navidad",
+      "href": "/farmashop-navidad",
+      "absolute_url": "https://ferminturban.com/farmashop-navidad",
+      "linked_page_id": "zBkLQ4",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-12-29-a-la-s-11.37.17a-a.a-m.-QT9fwM2LbNjF5FZh.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.37.17a-a.a-m.-QT9fwM2LbNjF5FZh.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 184,
+            "aspect_ratio": 2.173913
+          },
+          "mobile": {
+            "width": 328,
+            "height": 320,
+            "aspect_ratio": 1.025
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Farmashop Navidad",
+        "slug": "farmashop-navidad",
+        "url": "https://ferminturban.com/farmashop-navidad",
+        "page_title": "Farmashop Navidad | Fermin Turban",
+        "canonical": "https://ferminturban.com/farmashop-navidad",
+        "campaign_title": "Farmashop - Navidad",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Farmashop Navidad | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Farmashop Navidad | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Farmashop Navidad",
+          "url": "https://ferminturban.com/farmashop-navidad",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.36.25a-a.a-m.-tdUof087fZyNszrZ.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.36.25a-a.a-m.-tdUof087fZyNszrZ.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 222,
+                "aspect_ratio": 1.846847
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.40.29a-a.a-m.-59yJAyb51HJ91Xwr.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.40.29a-a.a-m.-59yJAyb51HJ91Xwr.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 222,
+                "aspect_ratio": 1.851351
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.36.16a-a.a-m.-xGS1uVDoyjJKbcxf.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.36.16a-a.a-m.-xGS1uVDoyjJKbcxf.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 412,
+                "height": 223,
+                "aspect_ratio": 1.847534
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.37.17a-a.a-m.-QT9fwM2LbNjF5FZh.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.37.17a-a.a-m.-QT9fwM2LbNjF5FZh.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 400,
+                "height": 217,
+                "aspect_ratio": 1.843318
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.35.10a-a.a-m.-I3looX8x0JYTgQKH.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.35.10a-a.a-m.-I3looX8x0JYTgQKH.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 219,
+                "aspect_ratio": 1.876712
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-11.35.35a-a.a-m.-GJ2bdA4btdob2keh.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-11.35.35a-a.a-m.-GJ2bdA4btdob2keh.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri & Matias Morales\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri & Matias Morales",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "vimeo",
+          "initialSrc": "https://vimeo.com/1150093961",
+          "source_url": "https://vimeo.com/1150093961",
+          "embed_url": "https://player.vimeo.com/video/1150093961?h=undefined&playlist=1150093961&autoplay=1&controls=1&loop=1&autopause=0&playsinline=1&muted=0",
+          "thumbnail": {
+            "url": "https://i.vimeocdn.com/video/2100895372-dd091d685cf6fc61620ede066885abedc54bc99608ca87c4a9c1d2d37ae36c03-d_295x166?region=us",
+            "width": 295,
+            "height": 166,
+            "aspect_ratio": 1.777108
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": "1150093961",
+          "native_metadata": {
+            "width": 3840,
+            "height": 2160,
+            "aspect_ratio": 1.777778,
+            "duration_seconds": 88,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    },
+    {
+      "name": "Rada - Stadium",
+      "slug": "rada-stadium",
+      "href": "/rada-stadium",
+      "absolute_url": "https://ferminturban.com/rada-stadium",
+      "linked_page_id": "zJbx62",
+      "gallery": {
+        "thumbnail_asset": "captura-de-pantalla-2025-12-29-a-la-s-12.01.12a-p.a-m.-5xGm688nKbExBWvx.png",
+        "thumbnail_url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.01.12a-p.a-m.-5xGm688nKbExBWvx.png",
+        "thumbnail_alt": null,
+        "rendered_size": {
+          "desktop": {
+            "width": 400,
+            "height": 186,
+            "aspect_ratio": 2.150538
+          },
+          "mobile": {
+            "width": 328,
+            "height": 186,
+            "aspect_ratio": 1.763441
+          }
+        }
+      },
+      "detail": {
+        "page_name": "Rada - Stadium",
+        "slug": "rada-stadium",
+        "url": "https://ferminturban.com/rada-stadium",
+        "page_title": "Rada - Stadium | Fermin Turban",
+        "canonical": "https://ferminturban.com/rada-stadium",
+        "campaign_title": "Rada - Stadium",
+        "meta": {
+          "title": null,
+          "description": null,
+          "og_title": "Rada - Stadium | Fermin Turban",
+          "og_description": null,
+          "twitter_title": "Rada - Stadium | Fermin Turban",
+          "twitter_description": null
+        },
+        "json_ld": {
+          "@context": "https://schema.org/",
+          "name": "Rada - Stadium",
+          "url": "https://ferminturban.com/rada-stadium",
+          "inLanguage": "es",
+          "@type": "WebPage"
+        },
+        "detail_page_background": {
+          "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg",
+          "asset_path": "14706d87bad03ec936c2c1a0541a4f1e-mp84XrEWDwuq8eGm.jpg"
+        },
+        "gallery_images": [
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-12.01.12a-p.a-m.-5xGm688nKbExBWvx.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.01.12a-p.a-m.-5xGm688nKbExBWvx.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 410,
+                "height": 222,
+                "aspect_ratio": 1.846847
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-12.01.43a-p.a-m.-UuAzho5RTibxlag9.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.01.43a-p.a-m.-UuAzho5RTibxlag9.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 222,
+                "aspect_ratio": 1.851351
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-12.01.03a-p.a-m.-DydKL3tsjblcagA2.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.01.03a-p.a-m.-DydKL3tsjblcagA2.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 418,
+                "height": 223,
+                "aspect_ratio": 1.874439
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-12.01.21a-p.a-m.-2t4YOjW1h3wYUTYu.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.01.21a-p.a-m.-2t4YOjW1h3wYUTYu.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 219,
+                "aspect_ratio": 1.876712
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-12.00.13a-p.a-m.-NmI72DyGaXbmP4TB.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.00.13a-p.a-m.-NmI72DyGaXbmP4TB.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          },
+          {
+            "asset_path": "captura-de-pantalla-2025-12-29-a-la-s-12.01.32a-p.a-m.-volvAfED9zYBEkLa.png",
+            "url": "https://assets.zyrosite.com/YD0EjbkwBBt2lqog/captura-de-pantalla-2025-12-29-a-la-s-12.01.32a-p.a-m.-volvAfED9zYBEkLa.png",
+            "alt": null,
+            "fullResolutionWidth": 2940,
+            "fullResolutionHeight": 1912,
+            "full_resolution_aspect_ratio": 1.537657,
+            "rendered_size": {
+              "desktop": {
+                "width": 411,
+                "height": 218,
+                "aspect_ratio": 1.885321
+              },
+              "mobile": {
+                "width": 328,
+                "height": 320,
+                "aspect_ratio": 1.025
+              }
+            }
+          }
+        ],
+        "credits_text": "Productora: Somos Wach\nDirector: Mateo Silvestri\nDirector de Foto: Fermin Turban",
+        "credits": {
+          "productora": "Somos Wach",
+          "director": "Mateo Silvestri",
+          "directora": null,
+          "director_de_foto": "Fermin Turban",
+          "director_de_fotografia": null,
+          "dop": null,
+          "cliente": null,
+          "agencia": null,
+          "otros": []
+        },
+        "credits_unparsed": [],
+        "media": {
+          "type": "video",
+          "provider": "youtube",
+          "initialSrc": "https://www.youtube.com/watch?v=awrnkODXZ1U",
+          "source_url": "https://www.youtube.com/watch?v=awrnkODXZ1U",
+          "embed_url": "https://www.youtube.com/embed/awrnkODXZ1U?h=null&playlist=awrnkODXZ1U&autoplay=0&controls=1&loop=0&autopause=0&playsinline=1&mute=0",
+          "thumbnail": {
+            "url": "https://i.ytimg.com/vi/awrnkODXZ1U/hqdefault.jpg",
+            "width": 480,
+            "height": 360,
+            "aspect_ratio": 1.333333
+          },
+          "rendered_size": {
+            "desktop": {
+              "width": 1224,
+              "height": 632,
+              "aspect_ratio": 1.936709
+            },
+            "mobile": {
+              "width": 328,
+              "height": 187,
+              "aspect_ratio": 1.754011
+            }
+          },
+          "vimeo_id": null,
+          "native_metadata": {
+            "width": null,
+            "height": null,
+            "aspect_ratio": null,
+            "duration_seconds": null,
+            "filesize_bytes": null
+          }
+        }
+      },
+      "errors": []
+    }
+  ]
+}

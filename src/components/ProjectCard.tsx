@@ -14,6 +14,7 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
   const thumbnail = getThumbnail(project.slug);
   const { t, projectPath } = useLanguage();
   const isFilmstrip = variant === "filmstrip";
+  const aspectRatio = project.thumbnailAspectRatio || 16 / 9;
 
   const categoryLabel = project.category === "publicidad"
     ? t("project.advertising")
@@ -31,12 +32,15 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
         to={projectPath(project)}
         className="group block"
       >
-        <div className="relative overflow-hidden rounded bg-secondary aspect-video mb-3">
+        <div
+          className="relative overflow-hidden rounded bg-secondary mb-3"
+          style={{ aspectRatio }}
+        >
           {thumbnail ? (
             <>
               <img
                 src={thumbnail}
-                alt={project.title}
+                alt={project.thumbnailAlt || project.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />

@@ -1,71 +1,203 @@
+import publicidadSource from "@/data/scraped/publicidad_enriched.json";
+import documentalSource from "@/data/scraped/documental_enriched.json";
 import type { Lang } from "@/hooks/useLanguage";
+
+export type ProjectCategory = "publicidad" | "documental";
 
 export type Project = {
   slug: string;
   slugEn?: string;
   title: string;
-  category: "publicidad" | "documental";
+  category: ProjectCategory;
   client?: string;
   productora?: string;
   director?: string;
   dop?: string;
   videoUrl?: string;
+  mediaType?: "video" | "image";
+  mediaProvider?: string;
   featured?: boolean;
   gallery?: string[];
+  thumbnailUrl?: string;
+  thumbnailAlt?: string;
+  thumbnailAspectRatio?: number;
+  backgroundUrl?: string;
+  canonicalUrl?: string;
+  sourceUrl?: string;
+  creditsText?: string;
+};
+
+type RawRenderedSize = {
+  aspect_ratio?: number | null;
+};
+
+type RawGalleryImage = {
+  url?: string | null;
+};
+
+type RawCredits = {
+  cliente?: string | null;
+  productora?: string | null;
+  director?: string | null;
+  directora?: string | null;
+  director_de_foto?: string | null;
+  director_de_fotografia?: string | null;
+  dop?: string | null;
+};
+
+type RawMedia = {
+  type?: "video" | "image" | null;
+  provider?: string | null;
+  embed_url?: string | null;
+  source_url?: string | null;
+  thumbnail?: {
+    url?: string | null;
+  } | null;
+};
+
+type RawItem = {
+  name?: string | null;
+  slug: string;
+  gallery?: {
+    thumbnail_url?: string | null;
+    thumbnail_alt?: string | null;
+    rendered_size?: {
+      desktop?: RawRenderedSize | null;
+      mobile?: RawRenderedSize | null;
+    } | null;
+  } | null;
+  detail?: {
+    campaign_title?: string | null;
+    canonical?: string | null;
+    url?: string | null;
+    detail_page_background?: {
+      url?: string | null;
+    } | null;
+    gallery_images?: RawGalleryImage[] | null;
+    credits_text?: string | null;
+    credits?: RawCredits | null;
+    media?: RawMedia | null;
+  } | null;
+};
+
+type RawSource = {
+  items: RawItem[];
+};
+
+const advertisingFeatured = new Set([
+  "audi",
+  "natalia-oreiro",
+  "mercado-pago",
+]);
+
+const documentaryFeatured = new Set([
+  "higuita",
+  "colombia",
+]);
+
+const englishSlugMap: Record<string, string> = {
+  "farmashop-navidad": "farmashop-christmas",
+  "jack-invierno": "jack-winter",
+  "stadium-dia-de-la-madre": "stadium-mothers-day",
+  "dia-del-nino-punta-carretas": "childrens-day-punta-carretas",
+  "navidad-punta-carretas": "christmas-punta-carretas",
+  "nacional-por-el-mundo": "nacional-around-the-world",
+  "el-desafio-imposible": "the-impossible-challenge",
+};
+
+const publicidadData = publicidadSource as RawSource;
+const documentalData = documentalSource as RawSource;
+
+const pickFirst = (...values: Array<string | null | undefined>) =>
+  values.find((value) => typeof value === "string" && value.trim().length > 0);
+
+const buildPlayableVideoUrl = (
+  provider: string | null | undefined,
+  embedUrl: string | null | undefined,
+  sourceUrl: string | null | undefined,
+) => {
+  const candidate = pickFirst(embedUrl, sourceUrl);
+  if (!candidate) {
+    return undefined;
+  }
+
+  try {
+    const url = new URL(candidate);
+    url.searchParams.set("autoplay", "1");
+
+    if (provider === "youtube") {
+      url.searchParams.set("playsinline", url.searchParams.get("playsinline") || "1");
+    }
+
+    return url.toString();
+  } catch {
+    return candidate;
+  }
+};
+
+const normalizeProject = (item: RawItem, category: ProjectCategory): Project => {
+  const detail = item.detail ?? {};
+  const credits = detail.credits ?? {};
+  const media = detail.media ?? {};
+  const galleryImages = (detail.gallery_images ?? [])
+    .map((image) => image.url || undefined)
+    .filter((url): url is string => Boolean(url));
+
+  return {
+    slug: item.slug,
+    slugEn: englishSlugMap[item.slug],
+    title: pickFirst(detail.campaign_title, item.name, item.slug) ?? item.slug,
+    category,
+    client: pickFirst(credits.cliente),
+    productora: pickFirst(credits.productora),
+    director: pickFirst(credits.director, credits.directora),
+    dop: pickFirst(credits.director_de_foto, credits.director_de_fotografia, credits.dop),
+    videoUrl: media.type === "video"
+      ? buildPlayableVideoUrl(media.provider, media.embed_url, media.source_url)
+      : undefined,
+    mediaType: media.type ?? undefined,
+    mediaProvider: pickFirst(media.provider),
+    featured: category === "publicidad"
+      ? advertisingFeatured.has(item.slug)
+      : documentaryFeatured.has(item.slug),
+    gallery: galleryImages,
+    thumbnailUrl: pickFirst(
+      item.gallery?.thumbnail_url,
+      media.thumbnail?.url,
+      detail.detail_page_background?.url,
+    ),
+    thumbnailAlt: pickFirst(item.gallery?.thumbnail_alt, detail.campaign_title, item.name),
+    thumbnailAspectRatio:
+      item.gallery?.rendered_size?.desktop?.aspect_ratio ??
+      item.gallery?.rendered_size?.mobile?.aspect_ratio ??
+      undefined,
+    backgroundUrl: pickFirst(detail.detail_page_background?.url),
+    canonicalUrl: pickFirst(detail.canonical),
+    sourceUrl: pickFirst(detail.url),
+    creditsText: pickFirst(detail.credits_text),
+  };
 };
 
 export const projects: Project[] = [
-  // PUBLICIDAD
-  { slug: "audi", title: "Audi Q5 – Thrill of Adrenaline", category: "publicidad", client: "Audi", productora: "Futura", director: "Rodra Mendez", dop: "Juanchi Camargo", featured: true },
-  { slug: "natalia-oreiro", title: "L'Oréal – Natalia Oreiro", category: "publicidad", client: "L'Oréal", productora: "Somos Wach", director: "Mateo Silvestri", dop: "Fermin Turban", featured: true },
-  { slug: "mercado-pago", title: "Mercado Pago con QR", category: "publicidad", client: "Mercado Pago", productora: "Nodo", director: "Grampo", dop: "Fermin Turban", featured: true },
-  { slug: "mc-donald", title: "McDonald's Tasty Turbo", category: "publicidad", client: "McDonald's", productora: "Oriental", director: "Juanchi Camargo", dop: "Fermin Turban" },
-  { slug: "mercado-libre-bicho", title: "Mercado Libre – Bicho", category: "publicidad", client: "Mercado Libre" },
-  { slug: "pilsen", title: "Pilsen", category: "publicidad", client: "Pilsen" },
-  { slug: "nativa", title: "Nativa", category: "publicidad", client: "Nativa" },
-  { slug: "dream-liso", title: "Dream Liso", category: "publicidad" },
-  { slug: "ibutron", title: "Ibutrón", category: "publicidad" },
-  { slug: "farmashop-navidad", slugEn: "farmashop-christmas", title: "Farmashop Navidad", category: "publicidad", client: "Farmashop" },
-  { slug: "jack-stay-true", title: "Jack – Stay True", category: "publicidad" },
-  { slug: "jack-back-rutine", title: "Jack – Back Routine", category: "publicidad" },
-  { slug: "jack-backspring-summer", title: "Jack – Spring/Summer", category: "publicidad" },
-  { slug: "jack-invierno", slugEn: "jack-winter", title: "Jack – Invierno", category: "publicidad" },
-  { slug: "stadium", title: "Miss Stadium", category: "publicidad", client: "Stadium" },
-  { slug: "stadium-dia-de-la-madre", slugEn: "stadium-mothers-day", title: "Stadium – Día de la Madre", category: "publicidad", client: "Stadium" },
-  { slug: "rada-stadium", title: "Rada Stadium", category: "publicidad" },
-  { slug: "cimarronas-punta-carretas", title: "Cimarronas – Punta Carretas", category: "publicidad" },
-  { slug: "dia-del-nino-punta-carretas", slugEn: "childrens-day-punta-carretas", title: "Día del Niño – Punta Carretas", category: "publicidad" },
-  { slug: "navidad-punta-carretas", slugEn: "christmas-punta-carretas", title: "Navidad – Punta Carretas", category: "publicidad" },
-  { slug: "mini-miss-carol", title: "Mini Miss Carol", category: "publicidad" },
-  { slug: "nacional-por-el-mundo", slugEn: "nacional-around-the-world", title: "Nacional por el Mundo", category: "publicidad", client: "Nacional" },
-  { slug: "nacional-pupo", title: "Nacional – Pupo", category: "publicidad", client: "Nacional" },
-
-  // DOCUMENTAL
-  { slug: "higuita", title: "Higuita – El Camino del Escorpión", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban", featured: true },
-  { slug: "colombia", title: "Colombia – Camino a la Gloria", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban", featured: true },
-  { slug: "brasil2002", title: "Brazil 2002 – Os Bastidores do Penta", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban" },
-  { slug: "laura-bozzo", title: "Laura Bozzo", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban" },
-  { slug: "el-desafio-imposible", slugEn: "the-impossible-challenge", title: "El Desafío Imposible", category: "documental" },
-  { slug: "rada", title: "Rada", category: "documental" },
-  { slug: "vicunas", title: "Vicuñas", category: "documental" },
+  ...publicidadData.items.map((item) => normalizeProject(item, "publicidad")),
+  ...documentalData.items.map((item) => normalizeProject(item, "documental")),
 ];
 
-export const getProjectsByCategory = (category: "publicidad" | "documental") =>
-  projects.filter((p) => p.category === category);
+export const getProjectsByCategory = (category: ProjectCategory) =>
+  projects.filter((project) => project.category === category);
 
-export const getFeaturedProjects = () => projects.filter((p) => p.featured);
+export const getFeaturedProjects = () => projects.filter((project) => project.featured);
 
 export const getProjectBySlug = (slug: string) =>
-  projects.find((p) => p.slug === slug);
+  projects.find((project) => project.slug === slug);
 
-/** Get the slug for a project in the given language */
 export const getProjectSlug = (project: Project, lang: Lang) =>
   lang === "en" && project.slugEn ? project.slugEn : project.slug;
 
-/** Find a project by a localized slug (checks both slug and slugEn) */
 export const getProjectByLocalizedSlug = (slug: string, lang: Lang) => {
   if (lang === "en") {
-    return projects.find((p) => p.slugEn === slug || p.slug === slug);
+    return projects.find((project) => project.slugEn === slug || project.slug === slug);
   }
-  return projects.find((p) => p.slug === slug);
+
+  return projects.find((project) => project.slug === slug);
 };
