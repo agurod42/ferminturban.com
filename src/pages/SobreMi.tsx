@@ -27,7 +27,7 @@ const platforms = [
 
 type LogoItemType = { name: string; logo: string | null; url: string };
 
-const LogoItem = ({ item, index }: { item: LogoItemType; index: number }) => (
+const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
     href={item.url}
     target="_blank"
@@ -35,23 +35,26 @@ const LogoItem = ({ item, index }: { item: LogoItemType; index: number }) => (
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: index * 0.06 }}
-    className="flex items-center justify-start h-20 group"
+    transition={{ duration: 0.4, delay: index * 0.05 }}
+    className="group flex items-center justify-center aspect-[3/2] border border-border/30 rounded-sm bg-secondary/20 hover:bg-secondary/50 hover:border-border/60 transition-all duration-400"
     title={item.name}
   >
     {item.logo ? (
       <img
         src={item.logo}
         alt={item.name}
-        className="max-h-14 max-w-[120px] object-contain opacity-40 group-hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
+        className="max-h-10 max-w-[80px] object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert"
       />
     ) : (
-      <span className="font-display text-2xl tracking-wider text-muted-foreground/40 group-hover:text-foreground/90 transition-colors duration-300">
+      <span className="font-display text-lg md:text-xl tracking-widest text-muted-foreground/30 group-hover:text-foreground/80 transition-colors duration-300">
         {item.name.toUpperCase()}
       </span>
     )}
   </motion.a>
 );
+
+
+
 
 const SobreMi = () => {
   return (
@@ -95,21 +98,21 @@ const SobreMi = () => {
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   Marcas
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {brands.map((brand, i) => (
-                    <LogoItem key={brand.name} item={brand} index={i} />
+                    <LogoTile key={brand.name} item={brand} index={i} />
                   ))}
                 </div>
               </div>
 
               {/* Platforms */}
-              <div className="mt-12 border-t border-border/50 pt-10">
+              <div className="mt-10 border-t border-border/50 pt-10">
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   Plataformas
                 </h3>
-                <div className="grid grid-cols-3 gap-x-8 gap-y-2">
+                <div className="grid grid-cols-3 gap-3">
                   {platforms.map((platform, i) => (
-                    <LogoItem key={platform.name} item={platform} index={i} />
+                    <LogoTile key={platform.name} item={platform} index={i} />
                   ))}
                 </div>
               </div>
