@@ -53,33 +53,8 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   </motion.a>
 );
 
-type LogoItemType = { name: string; logo: string | null; url: string };
 
-const LogoItem = ({ item, index }: { item: LogoItemType; index: number }) => (
-  <motion.a
-    href={item.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    initial={{ opacity: 0, y: 10 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: index * 0.06 }}
-    className="flex items-center justify-start h-20 group"
-    title={item.name}
-  >
-    {item.logo ? (
-      <img
-        src={item.logo}
-        alt={item.name}
-        className="max-h-14 max-w-[120px] object-contain opacity-40 group-hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
-      />
-    ) : (
-      <span className="font-display text-2xl tracking-wider text-muted-foreground/40 group-hover:text-foreground/90 transition-colors duration-300">
-        {item.name.toUpperCase()}
-      </span>
-    )}
-  </motion.a>
-);
+
 
 const SobreMi = () => {
   return (
