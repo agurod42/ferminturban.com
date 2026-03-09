@@ -23,7 +23,7 @@ const SiteHeader = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden md:flex gap-8 relative z-10">
           {navItems.map((item) => (
             <Link
               key={item.path}
