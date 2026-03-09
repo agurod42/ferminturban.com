@@ -43,9 +43,9 @@ const SiteHeader = () => {
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Menu"
         >
-          <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "rotate-45 translate-y-1" : ""}`} />
+          <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
           <span className={`block w-6 h-px bg-foreground transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+          <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
         </button>
       </div>
 

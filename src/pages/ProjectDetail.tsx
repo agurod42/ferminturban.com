@@ -83,8 +83,6 @@ const ProjectDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         <div className="absolute inset-0 bg-background/30" />
 
-        {/* Grain */}
-        <div className="absolute inset-0 grain-overlay pointer-events-none" />
 
         {/* Back link — top left */}
         <motion.div
