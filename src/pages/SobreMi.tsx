@@ -68,7 +68,7 @@ const SobreMi = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-wide text-foreground mb-8">
+              <h1 className="font-display text-4xl sm:text-4xl sm:text-5xl md:text-7xl tracking-wide text-foreground mb-8">
                 SOBRE MÍ
               </h1>
               <div className="space-y-6 font-body text-secondary-foreground leading-relaxed">
@@ -94,7 +94,7 @@ const SobreMi = () => {
               </div>
 
               {/* Contact */}
-              <div className="mt-8 flex items-center gap-6">
+              <div classNameflex-wrap items-center gap-4 sm:tems-center gap-6">
                 <a
                   href="https://www.instagram.com/ferminturban"
                   target="_blank"
