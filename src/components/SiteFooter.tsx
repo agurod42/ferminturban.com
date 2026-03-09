@@ -28,9 +28,7 @@ const SiteFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <div className="h-6 w-8 overflow-hidden flex items-center justify-center">
-              <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert opacity-50 scale-[1.8]" />
-            </div>
+            <img src={ftIcon} alt="FT" className="w-10 h-auto brightness-0 invert opacity-50" />
             <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
               {t("footer.description")}
             </p>

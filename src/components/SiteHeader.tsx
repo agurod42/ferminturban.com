@@ -34,9 +34,7 @@ const SiteHeader = () => {
       />
       <div className="container relative z-10 flex items-center justify-between py-6 px-6 md:px-12">
         <Link to={`/${lang}`} className="relative z-10 hover:opacity-80 transition-opacity">
-          <div className="h-6 w-8 overflow-hidden flex items-center justify-center">
-            <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert scale-[1.8]" />
-          </div>
+          <img src={ftIcon} alt="FT" className="w-12 md:w-14 h-auto brightness-0 invert" />
         </Link>
 
         {/* Desktop nav */}
