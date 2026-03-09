@@ -10,42 +10,47 @@ import netflixLogo from "@/assets/logos/netflix.png";
 import natgeoLogo from "@/assets/logos/natgeo.png";
 
 const brands = [
-  { name: "L'Oréal", logo: null },
-  { name: "Audi", logo: audiLogo },
-  { name: "McDonald's", logo: mcdonaldsLogo },
-  { name: "Mercado Libre", logo: mercadolibreLogo },
-  { name: "Jeep", logo: null },
-  { name: "Pilsen", logo: null },
-  { name: "Farmashop", logo: null },
+  { name: "L'Oréal", logo: null, url: "https://www.loreal.com" },
+  { name: "Audi", logo: audiLogo, url: "https://www.audi.com" },
+  { name: "McDonald's", logo: mcdonaldsLogo, url: "https://www.mcdonalds.com" },
+  { name: "Mercado Libre", logo: mercadolibreLogo, url: "https://www.mercadolibre.com" },
+  { name: "Jeep", logo: null, url: "https://www.jeep.com" },
+  { name: "Pilsen", logo: null, url: "https://www.pilsen.com.uy" },
+  { name: "Farmashop", logo: null, url: "https://www.farmashop.com.uy" },
 ];
 
 const platforms = [
-  { name: "Netflix", logo: netflixLogo },
-  { name: "NatGeo", logo: natgeoLogo },
-  { name: "VIX", logo: null },
+  { name: "Netflix", logo: netflixLogo, url: "https://www.netflix.com" },
+  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com" },
+  { name: "VIX", logo: null, url: "https://www.vix.com" },
 ];
 
-const LogoItem = ({ item, index }: { item: { name: string; logo: string | null }; index: number }) => (
-  <motion.div
+type LogoItemType = { name: string; logo: string | null; url: string };
+
+const LogoItem = ({ item, index }: { item: LogoItemType; index: number }) => (
+  <motion.a
+    href={item.url}
+    target="_blank"
+    rel="noopener noreferrer"
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: index * 0.06 }}
-    className="flex items-center justify-center h-16"
+    className="flex items-center justify-start h-20 group"
     title={item.name}
   >
     {item.logo ? (
       <img
         src={item.logo}
         alt={item.name}
-        className="max-h-10 max-w-[100px] object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
+        className="max-h-14 max-w-[120px] object-contain opacity-40 group-hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
       />
     ) : (
-      <span className="font-body text-sm tracking-wider text-muted-foreground/50 hover:text-foreground/80 transition-colors duration-300 uppercase">
-        {item.name}
+      <span className="font-display text-2xl tracking-wider text-muted-foreground/40 group-hover:text-foreground/90 transition-colors duration-300">
+        {item.name.toUpperCase()}
       </span>
     )}
-  </motion.div>
+  </motion.a>
 );
 
 const SobreMi = () => {
@@ -54,7 +59,7 @@ const SobreMi = () => {
       <div className="pt-32 pb-24">
         <div className="container px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Text */}
+            {/* Left column: Text + Brands & Platforms */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,6 +90,30 @@ const SobreMi = () => {
                 </p>
               </div>
 
+              {/* Brands */}
+              <div className="mt-16 border-t border-border/50 pt-10">
+                <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
+                  Marcas
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2">
+                  {brands.map((brand, i) => (
+                    <LogoItem key={brand.name} item={brand} index={i} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Platforms */}
+              <div className="mt-12 border-t border-border/50 pt-10">
+                <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
+                  Plataformas
+                </h3>
+                <div className="grid grid-cols-3 gap-x-8 gap-y-2">
+                  {platforms.map((platform, i) => (
+                    <LogoItem key={platform.name} item={platform} index={i} />
+                  ))}
+                </div>
+              </div>
+
               {/* Contact */}
               <div className="mt-12 flex items-center gap-6">
                 <a
@@ -113,53 +142,15 @@ const SobreMi = () => {
               </div>
             </motion.div>
 
-            {/* Visual */}
+            {/* Right column: Visual */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative lg:sticky lg:top-32"
             >
               <div className="aspect-[3/4] bg-gradient-to-br from-secondary to-muted rounded flex items-center justify-center">
                 <span className="font-display text-8xl text-muted-foreground/20">FT</span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* ——— BRANDS & PLATFORMS ——— */}
-          <div className="mt-24 md:mt-32 border-t border-border/50 pt-16">
-            {/* Brands */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8 text-center">
-                Marcas
-              </h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 md:gap-6 items-center">
-                {brands.map((brand, i) => (
-                  <LogoItem key={brand.name} item={brand} index={i} />
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Platforms */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mt-16"
-            >
-              <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8 text-center">
-                Plataformas
-              </h3>
-              <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-md mx-auto items-center">
-                {platforms.map((platform, i) => (
-                  <LogoItem key={platform.name} item={platform} index={i} />
-                ))}
               </div>
             </motion.div>
           </div>
