@@ -8,6 +8,7 @@ export type Project = {
   dop?: string;
   videoUrl?: string;
   featured?: boolean;
+  gallery?: string[];
 };
 
 export const projects: Project[] = [
