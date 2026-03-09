@@ -47,7 +47,12 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
       <img
         src={item.logo}
         alt={item.name}
-        className="max-h-10 sm:max-h-[72px] max-w-[80px] sm:max-w-[130px] object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert"
+        className={`object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert ${
+          item.bigger
+            ? "max-h-12 sm:max-h-[90px] max-w-[100px] sm:max-w-[150px]"
+            : "max-h-12 sm:max-h-[80px] max-w-[90px] sm:max-w-[140px]"
+        }`}
+      />
       />
     ) : (
       <span className="font-display text-lg md:text-xl tracking-widest text-muted-foreground/30 group-hover:text-foreground/80 transition-colors duration-300">
