@@ -5,33 +5,33 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 
 // Logo imports
-import audiLogo from "@/assets/logos/audi.png";
-import mcdonaldsLogo from "@/assets/logos/mcdonalds.png";
-import mercadolibreLogo from "@/assets/logos/mercadolibre.png";
-import netflixLogo from "@/assets/logos/netflix.png";
-import natgeoLogo from "@/assets/logos/natgeo.png";
-import lorealLogo from "@/assets/logos/loreal.png";
-import pilsenLogo from "@/assets/logos/pilsen.png";
-import farmashopLogo from "@/assets/logos/farmashop.png";
-import vixLogo from "@/assets/logos/vix.png";
-import jeepLogo from "@/assets/logos/jeep.svg";
-import imdbLogo from "@/assets/logos/imdb.svg";
+import audiLogo from "@/assets/logos/about/audi-white.png";
+import mcdonaldsLogo from "@/assets/logos/about/mcdonalds-white.png";
+import mercadolibreLogo from "@/assets/logos/about/mercadolibre-white.png";
+import netflixLogo from "@/assets/logos/about/netflix-white.png";
+import natgeoLogo from "@/assets/logos/about/natgeo-white.png";
+import lorealLogo from "@/assets/logos/about/loreal-white.png";
+import pilsenLogo from "@/assets/logos/about/pilsen-white.png";
+import farmashopLogo from "@/assets/logos/about/farmashop-white.png";
+import vixLogo from "@/assets/logos/about/vix-white.png";
+import jeepLogo from "@/assets/logos/about/jeep-white.svg";
+import imdbLogo from "@/assets/logos/about/imdb-white.svg";
 import aboutPortrait from "@/assets/about-fermin-urban.jpg";
 
 const brands = [
-  { name: "L'Oréal", logo: lorealLogo, url: "https://www.loreal.com", logoClassName: "scale-[1.12]" },
+  { name: "L'Oréal", logo: lorealLogo, url: "https://www.loreal.com", logoClassName: "scale-[1.45]" },
   { name: "Audi", logo: audiLogo, url: "https://www.audi.com", logoClassName: "scale-[1.06]" },
   { name: "McDonald's", logo: mcdonaldsLogo, url: "https://www.mcdonalds.com", logoClassName: "scale-90" },
   { name: "Mercado Libre", logo: mercadolibreLogo, url: "https://www.mercadolibre.com", logoClassName: "scale-[1.04]" },
   { name: "Jeep", logo: jeepLogo, url: "https://www.jeep.com", logoClassName: "scale-[1.08]" },
-  { name: "Pilsen", logo: pilsenLogo, url: "https://www.pilsen.com.uy", logoClassName: "scale-[1.02]" },
-  { name: "Farmashop", logo: farmashopLogo, url: "https://www.farmashop.com.uy", logoClassName: "scale-[1.18]" },
+  { name: "Pilsen", logo: pilsenLogo, url: "https://www.pilsen.com.uy", logoClassName: "scale-[1.4]" },
+  { name: "Farmashop", logo: farmashopLogo, url: "https://www.farmashop.com.uy", logoClassName: "scale-[0.9]" },
 ];
 
 const platforms = [
   { name: "Netflix", logo: netflixLogo, url: "https://www.netflix.com", logoClassName: "scale-90" },
-  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com", logoClassName: "scale-[1.15]" },
-  { name: "VIX", logo: vixLogo, url: "https://www.vix.com", logoClassName: "scale-[1.12]" },
+  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com", logoClassName: "scale-[1.08]" },
+  { name: "VIX", logo: vixLogo, url: "https://www.vix.com", logoClassName: "scale-[1.1]" },
 ];
 
 type LogoItemType = { name: string; logo: string; url: string; logoClassName?: string };
@@ -54,7 +54,7 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
         src={item.logo}
         alt={item.name}
         className={cn(
-          "max-h-10 w-auto max-w-full transform-gpu object-contain brightness-0 invert opacity-85 drop-shadow-[0_0_16px_rgba(255,255,255,0.12)] transition duration-300 group-hover:opacity-100 sm:max-h-11",
+          "max-h-10 w-auto max-w-full transform-gpu object-contain opacity-90 drop-shadow-[0_0_16px_rgba(255,255,255,0.18)] transition duration-300 group-hover:opacity-100 sm:max-h-11",
           item.logoClassName,
         )}
       />
@@ -107,7 +107,7 @@ const SobreMi = () => {
                   <img
                     src={imdbLogo}
                     alt="IMDb"
-                    className="h-4 w-auto brightness-0 invert opacity-70 transition-opacity duration-300 hover:opacity-100"
+                    className="h-4 w-auto opacity-70 transition-opacity duration-300 hover:opacity-100"
                   />
                 </a>
                 <a
