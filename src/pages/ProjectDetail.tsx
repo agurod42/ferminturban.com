@@ -118,50 +118,27 @@ const ProjectDetail = () => {
         )}
       </section>
 
-      {/* ——— PROJECT INFO: Title recap + Credits side by side ——— */}
-      <section className="py-16 md:py-24">
-        <div className="container px-6 md:px-12 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-10 md:gap-16 items-start">
-            {/* Left: Title + Category */}
+      {/* ——— CREDITS ——— */}
+      {credits.length > 0 && (
+        <section className="py-16 md:py-24">
+          <div className="container px-6 md:px-12 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="border-t border-border/30 pt-10"
             >
-              <p className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-                {categoryLabel}
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl tracking-wide text-foreground leading-tight mb-6">
-                {project.title.toUpperCase()}
-              </h2>
-              <div className="w-12 h-px bg-primary/40" />
-            </motion.div>
-
-            {/* Divider */}
-            {credits.length > 0 && (
-              <div className="hidden md:block w-px bg-border/40 self-stretch" />
-            )}
-
-            {/* Right: Credits */}
-            {credits.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="space-y-5"
-              >
+              <div className="flex flex-wrap gap-x-12 gap-y-5">
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
                     initial={{ opacity: 0, x: 10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                    className="flex items-baseline gap-4"
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
                   >
-                    <span className="font-body text-[10px] uppercase tracking-[0.25em] text-muted-foreground shrink-0 w-32">
+                    <span className="font-body text-[10px] uppercase tracking-[0.25em] text-muted-foreground block mb-1">
                       {credit.label}
                     </span>
                     <span className="font-body text-sm text-foreground">
@@ -169,11 +146,11 @@ const ProjectDetail = () => {
                     </span>
                   </motion.div>
                 ))}
-              </motion.div>
-            )}
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ——— GALLERY ——— */}
       <section className="pb-20 md:pb-28">
