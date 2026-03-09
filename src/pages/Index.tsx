@@ -10,10 +10,12 @@ import Filmstrip from "@/components/Filmstrip";
 import { getFeaturedProjects } from "@/data/projects";
 import { getRandomHeroVideo } from "@/data/heroVideos";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Index = () => {
   const isMobile = useIsMobile();
   const isTablet = typeof window !== "undefined" && window.innerWidth >= 768 && window.innerWidth < 1024;
+  const { t, lang, categoryPath } = useLanguage();
 
   const heroVideoId = useMemo(() => {
     const type = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
@@ -62,7 +64,7 @@ const Index = () => {
               transition={{ duration: 1, delay: 1 }}
               className="font-body text-sm md:text-base tracking-[0.4em] uppercase text-muted-foreground mt-4"
             >
-              Cinematógrafo
+              {t("hero.subtitle")}
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -71,16 +73,16 @@ const Index = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10"
             >
               <Link
-                to="/publicidad"
+                to={categoryPath("publicidad")}
                 className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors w-full sm:w-auto text-center"
               >
-                Publicidad
+                {t("nav.advertising")}
               </Link>
               <Link
-                to="/documental"
+                to={categoryPath("documental")}
                 className="font-body text-sm uppercase tracking-[0.2em] border border-foreground/30 px-8 py-3 text-foreground hover:bg-foreground/10 transition-colors w-full sm:w-auto text-center"
               >
-                Documental
+                {t("nav.documentary")}
               </Link>
             </motion.div>
           </div>
@@ -111,13 +113,13 @@ const Index = () => {
                 transition={{ duration: 0.6 }}
                 className="font-display text-4xl md:text-5xl tracking-wide text-foreground"
               >
-                PUBLICIDAD
+                {t("sections.advertising")}
               </motion.h2>
               <Link
-                to="/publicidad"
+                to={categoryPath("publicidad")}
                 className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors"
               >
-                Ver todo →
+                {t("sections.viewAll")}
               </Link>
             </div>
           </div>
@@ -135,13 +137,13 @@ const Index = () => {
                 transition={{ duration: 0.6 }}
                 className="font-display text-4xl md:text-5xl tracking-wide text-foreground"
               >
-                DOCUMENTAL
+                {t("sections.documentary")}
               </motion.h2>
               <Link
-                to="/documental"
+                to={categoryPath("documental")}
                 className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors"
               >
-                Ver todo →
+                {t("sections.viewAll")}
               </Link>
             </div>
           </div>
@@ -158,9 +160,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="font-body text-lg md:text-xl leading-relaxed text-secondary-foreground"
             >
-              Cineasta uruguayo nacido en Guichón. Trabaja entre la publicidad y el
-              documental, combinando sensibilidad documental con un lenguaje visual
-              cinematográfico y una búsqueda constante de autenticidad.
+              {t("bio.text")}
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
@@ -190,7 +190,7 @@ const Index = () => {
                 href="mailto:ferminturban@gmail.com"
                 className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider"
               >
-                Contacto
+                {t("bio.contact")}
               </a>
             </motion.div>
           </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface ProjectCardProps {
   project: Project;
@@ -11,8 +12,12 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) => {
   const thumbnail = getThumbnail(project.slug);
-
+  const { t, projectPath } = useLanguage();
   const isFilmstrip = variant === "filmstrip";
+
+  const categoryLabel = project.category === "publicidad"
+    ? t("project.advertising")
+    : t("project.documentary");
 
   return (
     <motion.div
@@ -23,11 +28,10 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
       className={isFilmstrip ? "flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw]" : ""}
     >
       <Link
-        to={`/proyecto/${project.slug}`}
+        to={projectPath(project)}
         className="group block"
       >
         <div className="relative overflow-hidden rounded bg-secondary aspect-video mb-3">
-          {/* Thumbnail or gradient placeholder */}
           {thumbnail ? (
             <>
               <img
@@ -36,7 +40,6 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              {/* Dark overlay that lifts on hover */}
               <div className="absolute inset-0 bg-background/40 group-hover:bg-background/10 transition-all duration-700" />
             </>
           ) : (
@@ -46,7 +49,7 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
               </span>
               <div className="absolute bottom-3 left-3">
                 <span className="font-body text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  {project.category === "publicidad" ? "Publicidad" : "Documental"}
+                  {categoryLabel}
                 </span>
               </div>
             </div>
@@ -59,13 +62,11 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
             }}
           />
 
-          {/* Bottom gradient for text readability */}
           <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          {/* Hover title overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
             <span className="font-body text-xs uppercase tracking-[0.2em] text-primary">
-              {project.category === "publicidad" ? "Publicidad" : "Documental"}
+              {categoryLabel}
             </span>
           </div>
         </div>

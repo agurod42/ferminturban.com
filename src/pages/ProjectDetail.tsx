@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectByLocalizedSlug, projects, getProjectSlug } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
+import { useLanguage } from "@/hooks/useLanguage";
 import pageTexture from "@/assets/page-texture.jpg";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = getProjectBySlug(slug || "");
+  const { t, lang, projectPath, categoryPath } = useLanguage();
+  const project = getProjectByLocalizedSlug(slug || "", lang);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
@@ -20,8 +22,10 @@ const ProjectDetail = () => {
     return (
       <PageLayout>
         <div className="pt-32 pb-24 container px-6 md:px-12 text-center">
-          <h1 className="font-display text-4xl text-foreground">Proyecto no encontrado</h1>
-          <Link to="/" className="font-body text-primary mt-4 inline-block">Volver al inicio</Link>
+          <h1 className="font-display text-4xl text-foreground">{t("project.notFound")}</h1>
+          <Link to={`/${lang}`} className="font-body text-primary mt-4 inline-block">
+            {t("project.backToHome")}
+          </Link>
         </div>
       </PageLayout>
     );
@@ -32,15 +36,15 @@ const ProjectDetail = () => {
   const prevProject = currentIndex > 0 ? siblings[currentIndex - 1] : null;
   const nextProject = currentIndex < siblings.length - 1 ? siblings[currentIndex + 1] : null;
 
-  const backPath = project.category === "publicidad" ? "/publicidad" : "/documental";
-  const categoryLabel = project.category === "publicidad" ? "Publicidad" : "Documental";
+  const backPath = categoryPath(project.category);
+  const categoryLabel = project.category === "publicidad" ? t("project.advertising") : t("project.documentary");
   const thumbnail = getThumbnail(project.slug);
 
   const credits = [
-    { label: "Cliente", value: project.client },
-    { label: "Productora", value: project.productora },
-    { label: "Director", value: project.director },
-    { label: "Dir. de Fotografía", value: project.dop },
+    { label: t("project.client"), value: project.client },
+    { label: t("project.producer"), value: project.productora },
+    { label: t("project.director"), value: project.director },
+    { label: t("project.dop"), value: project.dop },
   ].filter((c) => c.value);
 
   const hasGallery = project.gallery && project.gallery.length > 0;
@@ -109,7 +113,7 @@ const ProjectDetail = () => {
                     <span className="text-foreground/50"> — {project.client}</span>
                   )}
                 </p>
-                <h1 className="font-display text-4xl sm:text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide text-foreground leading-[0.95]">
+                <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide text-foreground leading-[0.95]">
                   {project.title.toUpperCase()}
                 </h1>
               </motion.div>
@@ -129,7 +133,7 @@ const ProjectDetail = () => {
               transition={{ duration: 0.6 }}
               className="border-t border-border/30 pt-10"
             >
-              <div className="flex flex-wrap justify-c8 sm:gap-x-12 md:gap-x-enter gap-x-16 gap-y-6">
+              <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
@@ -162,7 +166,7 @@ const ProjectDetail = () => {
             viewport={{ once: true }}
             className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
           >
-            Galería
+            {t("project.gallery")}
           </motion.h3>
 
           <div className="grid grid-cols-12 gap-3 md:gap-4">
@@ -232,12 +236,12 @@ const ProjectDetail = () => {
         <div className="grid grid-cols-2">
           {prevProject ? (
             <Link
-              to={`/proyecto/${prevProject.slug}`}
+              to={projectPath(prevProject)}
               className="group relative py-14 md:py-20 px-6 md:px-12 border-r border-border/30 hover:bg-secondary/20 transition-colors duration-500"
             >
               <div className="flex items-center gap-3 mb-2">
                 <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Anterior</span>
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{t("project.previous")}</span>
               </div>
               <p className="font-display text-base sm:text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors line-clamp-2">
                 {prevProject.title.toUpperCase()}
@@ -250,7 +254,7 @@ const ProjectDetail = () => {
             >
               <div className="flex items-center gap-3 mb-2">
                 <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{t("project.back")}</span>
               </div>
               <p className="font-display text-base sm:text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors line-clamp-2">
                 {categoryLabel.toUpperCase()}
@@ -260,11 +264,11 @@ const ProjectDetail = () => {
 
           {nextProject ? (
             <Link
-              to={`/proyecto/${nextProject.slug}`}
+              to={projectPath(nextProject)}
               className="group relative py-14 md:py-20 px-6 md:px-12 text-right hover:bg-secondary/20 transition-colors duration-500"
             >
               <div className="flex items-center justify-end gap-3 mb-2">
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Siguiente</span>
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{t("project.next")}</span>
                 <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <p className="font-display text-base sm:text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors line-clamp-2">
@@ -277,7 +281,7 @@ const ProjectDetail = () => {
               className="group relative py-14 md:py-20 px-6 md:px-12 text-right hover:bg-secondary/20 transition-colors duration-500"
             >
               <div className="flex items-center justify-end gap-3 mb-2">
-                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{t("project.back")}</span>
                 <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <p className="font-display text-base sm:text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors line-clamp-2">

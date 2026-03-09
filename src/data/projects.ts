@@ -1,5 +1,8 @@
+import type { Lang } from "@/hooks/useLanguage";
+
 export type Project = {
   slug: string;
+  slugEn?: string;
   title: string;
   category: "publicidad" | "documental";
   client?: string;
@@ -22,19 +25,19 @@ export const projects: Project[] = [
   { slug: "nativa", title: "Nativa", category: "publicidad", client: "Nativa" },
   { slug: "dream-liso", title: "Dream Liso", category: "publicidad" },
   { slug: "ibutron", title: "Ibutrón", category: "publicidad" },
-  { slug: "farmashop-navidad", title: "Farmashop Navidad", category: "publicidad", client: "Farmashop" },
+  { slug: "farmashop-navidad", slugEn: "farmashop-christmas", title: "Farmashop Navidad", category: "publicidad", client: "Farmashop" },
   { slug: "jack-stay-true", title: "Jack – Stay True", category: "publicidad" },
   { slug: "jack-back-rutine", title: "Jack – Back Routine", category: "publicidad" },
   { slug: "jack-backspring-summer", title: "Jack – Spring/Summer", category: "publicidad" },
-  { slug: "jack-invierno", title: "Jack – Invierno", category: "publicidad" },
+  { slug: "jack-invierno", slugEn: "jack-winter", title: "Jack – Invierno", category: "publicidad" },
   { slug: "stadium", title: "Miss Stadium", category: "publicidad", client: "Stadium" },
-  { slug: "stadium-dia-de-la-madre", title: "Stadium – Día de la Madre", category: "publicidad", client: "Stadium" },
+  { slug: "stadium-dia-de-la-madre", slugEn: "stadium-mothers-day", title: "Stadium – Día de la Madre", category: "publicidad", client: "Stadium" },
   { slug: "rada-stadium", title: "Rada Stadium", category: "publicidad" },
   { slug: "cimarronas-punta-carretas", title: "Cimarronas – Punta Carretas", category: "publicidad" },
-  { slug: "dia-del-nino-punta-carretas", title: "Día del Niño – Punta Carretas", category: "publicidad" },
-  { slug: "navidad-punta-carretas", title: "Navidad – Punta Carretas", category: "publicidad" },
+  { slug: "dia-del-nino-punta-carretas", slugEn: "childrens-day-punta-carretas", title: "Día del Niño – Punta Carretas", category: "publicidad" },
+  { slug: "navidad-punta-carretas", slugEn: "christmas-punta-carretas", title: "Navidad – Punta Carretas", category: "publicidad" },
   { slug: "mini-miss-carol", title: "Mini Miss Carol", category: "publicidad" },
-  { slug: "nacional-por-el-mundo", title: "Nacional por el Mundo", category: "publicidad", client: "Nacional" },
+  { slug: "nacional-por-el-mundo", slugEn: "nacional-around-the-world", title: "Nacional por el Mundo", category: "publicidad", client: "Nacional" },
   { slug: "nacional-pupo", title: "Nacional – Pupo", category: "publicidad", client: "Nacional" },
 
   // DOCUMENTAL
@@ -42,7 +45,7 @@ export const projects: Project[] = [
   { slug: "colombia", title: "Colombia – Camino a la Gloria", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban", featured: true },
   { slug: "brasil2002", title: "Brazil 2002 – Os Bastidores do Penta", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban" },
   { slug: "laura-bozzo", title: "Laura Bozzo", category: "documental", productora: "Trailer Films", director: "Luis Ara", dop: "Fermin Turban" },
-  { slug: "el-desafio-imposible", title: "El Desafío Imposible", category: "documental" },
+  { slug: "el-desafio-imposible", slugEn: "the-impossible-challenge", title: "El Desafío Imposible", category: "documental" },
   { slug: "rada", title: "Rada", category: "documental" },
   { slug: "vicunas", title: "Vicuñas", category: "documental" },
 ];
@@ -52,4 +55,17 @@ export const getProjectsByCategory = (category: "publicidad" | "documental") =>
 
 export const getFeaturedProjects = () => projects.filter((p) => p.featured);
 
-export const getProjectBySlug = (slug: string) => projects.find((p) => p.slug === slug);
+export const getProjectBySlug = (slug: string) =>
+  projects.find((p) => p.slug === slug);
+
+/** Get the slug for a project in the given language */
+export const getProjectSlug = (project: Project, lang: Lang) =>
+  lang === "en" && project.slugEn ? project.slugEn : project.slug;
+
+/** Find a project by a localized slug (checks both slug and slugEn) */
+export const getProjectByLocalizedSlug = (slug: string, lang: Lang) => {
+  if (lang === "en") {
+    return projects.find((p) => p.slugEn === slug || p.slug === slug);
+  }
+  return projects.find((p) => p.slug === slug);
+};
