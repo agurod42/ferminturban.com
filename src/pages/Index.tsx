@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
-import heroTexture from "@/assets/hero-texture.jpg";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
@@ -33,10 +32,6 @@ const Index = () => {
 
         {/* HERO */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroTexture})` }}
-          />
           <div className="absolute inset-0 bg-background/60" />
 
           {/* Vimeo reel background */}

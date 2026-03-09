@@ -25,14 +25,14 @@ const SiteHeader = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+        style={{
+          background: "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 40%, transparent 100%)",
+          opacity: scrolled ? 1 : 0.5,
+        }}
+      />
       <div className="container relative z-10 flex items-center justify-between py-6 px-6 md:px-12">
-        <div
-          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-          style={{
-            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 40%, transparent 100%)",
-            opacity: scrolled ? 1 : 0.5,
-          }}
-        />
         <Link to={`/${lang}`} className="relative z-10 hover:opacity-80 transition-opacity">
           <div className="h-6 w-8 overflow-hidden flex items-center justify-center">
             <img src={ftIcon} alt="FT" className="h-10 brightness-0 invert scale-[1.8]" />
