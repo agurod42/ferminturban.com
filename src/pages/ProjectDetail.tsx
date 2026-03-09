@@ -195,6 +195,7 @@ const ProjectDetail = () => {
             </Link>
           )}
         </div>
+        </div>
       </section>
     </PageLayout>
   );
