@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
@@ -11,6 +11,12 @@ const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug || "");
   const [videoPlaying, setVideoPlaying] = useState(false);
+
+  // Reset state when navigating between projects
+  useEffect(() => {
+    setVideoPlaying(false);
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!project) {
     return (
@@ -77,8 +83,6 @@ const ProjectDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         <div className="absolute inset-0 bg-background/30" />
 
-        {/* Grain */}
-        <div className="absolute inset-0 grain-overlay pointer-events-none" />
 
         {/* Back link — top left */}
         <motion.div
