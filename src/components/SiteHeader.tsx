@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ftIcon from "@/assets/ft-icon.png";
 
 const navItems = [
   { label: "Inicio", path: "/" },
@@ -31,8 +32,9 @@ const SiteHeader = () => {
             opacity: scrolled ? 1 : 0.5,
           }}
         />
-        <Link to="/" className="relative z-10 font-display text-2xl tracking-widest text-foreground hover:text-primary transition-colors">
-          FERMIN TURBAN
+        <Link to="/" className="relative z-10 flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src={ftIcon} alt="FT" className="h-8 brightness-0 invert" />
+          <span className="font-display text-2xl tracking-widest text-foreground hidden sm:inline">FERMIN TURBAN</span>
         </Link>
 
         {/* Desktop nav */}
