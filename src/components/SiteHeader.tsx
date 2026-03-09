@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ftIcon from "@/assets/ft-icon.png";
+import FTLogo from "@/components/FTLogo";
 
 const navItems = [
   { label: "Inicio", path: "/" },
