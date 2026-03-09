@@ -37,17 +37,18 @@ const ProjectDetail = () => {
   const thumbnail = getThumbnail(project.slug);
 
   const credits = [
-    { label: "CLIENTE", value: project.client },
-    { label: "PRODUCTORA", value: project.productora },
-    { label: "DIRECTOR", value: project.director },
-    { label: "DIR. DE FOTOGRAFÍA", value: project.dop },
+    { label: "Cliente", value: project.client },
+    { label: "Productora", value: project.productora },
+    { label: "Director", value: project.director },
+    { label: "Dir. de Fotografía", value: project.dop },
   ].filter((c) => c.value);
+
+  const hasGallery = project.gallery && project.gallery.length > 0;
 
   return (
     <PageLayout showTexture={false}>
       {/* ——— VIDEO HERO ——— */}
       <section className="relative h-screen flex flex-col">
-        {/* Video / thumbnail fills the viewport */}
         <div className="absolute inset-0">
           {videoPlaying ? (
             <iframe
@@ -74,10 +75,8 @@ const ProjectDetail = () => {
                 />
               )}
 
-              {/* Gradient overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
-              {/* Play button — centered */}
               <button
                 onClick={() => setVideoPlaying(true)}
                 className="absolute inset-0 flex items-center justify-center group cursor-pointer z-10"
@@ -89,17 +88,13 @@ const ProjectDetail = () => {
                   whileHover={{ scale: 1.1 }}
                   className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-foreground/30 flex items-center justify-center bg-background/20 backdrop-blur-sm group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
                 >
-                  <Play
-                    size={36}
-                    className="text-foreground ml-1.5 group-hover:text-primary transition-colors"
-                  />
+                  <Play size={36} className="text-foreground ml-1.5 group-hover:text-primary transition-colors" />
                 </motion.div>
               </button>
             </>
           )}
         </div>
 
-        {/* Title overlay — pinned to bottom */}
         {!videoPlaying && (
           <div className="relative z-20 mt-auto pb-16 md:pb-20">
             <div className="container px-6 md:px-12">
@@ -123,134 +118,193 @@ const ProjectDetail = () => {
         )}
       </section>
 
-      {/* ——— CREDITS ——— */}
-      {credits.length > 0 && (
-        <section className="py-20 md:py-28">
-          <div className="container px-6 md:px-12 max-w-6xl mx-auto">
+      {/* ——— PROJECT INFO: Title recap + Credits side by side ——— */}
+      <section className="py-16 md:py-24">
+        <div className="container px-6 md:px-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-10 md:gap-16 items-start">
+            {/* Left: Title + Category */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="border-t border-border/50 pt-12"
             >
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-8">
+              <p className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+                {categoryLabel}
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl tracking-wide text-foreground leading-tight mb-6">
+                {project.title.toUpperCase()}
+              </h2>
+              <div className="w-12 h-px bg-primary/40" />
+            </motion.div>
+
+            {/* Divider */}
+            {credits.length > 0 && (
+              <div className="hidden md:block w-px bg-border/40 self-stretch" />
+            )}
+
+            {/* Right: Credits */}
+            {credits.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="space-y-5"
+              >
                 {credits.map((credit, i) => (
                   <motion.div
                     key={credit.label}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                    className="flex items-baseline gap-4"
                   >
-                    <h3 className="font-body text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">
+                    <span className="font-body text-[10px] uppercase tracking-[0.25em] text-muted-foreground shrink-0 w-32">
                       {credit.label}
-                    </h3>
-                    <p className="font-body text-base text-foreground">{credit.value}</p>
+                    </span>
+                    <span className="font-body text-sm text-foreground">
+                      {credit.value}
+                    </span>
                   </motion.div>
                 ))}
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* ——— GALLERY ——— */}
-      <section className="py-16 md:py-24">
+      <section className="pb-20 md:pb-28">
         <div className="container px-6 md:px-12 max-w-6xl mx-auto">
-          <motion.h2
+          <motion.h3
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
           >
             Galería
-          </motion.h2>
+          </motion.h3>
 
-          {project.gallery && project.gallery.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-              {project.gallery.map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`overflow-hidden rounded-sm ${
-                    i === 0 ? "col-span-2 row-span-2" : ""
-                  }`}
-                >
-                  <img
-                    src={img}
-                    alt={`${project.title} – foto ${i + 1}`}
-                    className="w-full h-full object-cover aspect-video hover:scale-105 transition-transform duration-700"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`overflow-hidden rounded-sm ${
-                    i === 0 ? "col-span-2 row-span-2" : ""
-                  }`}
-                >
-                  <div
-                    className="w-full h-full min-h-[160px] md:min-h-[200px] bg-cover bg-center opacity-60"
-                    style={{
-                      backgroundImage: thumbnail ? `url(${thumbnail})` : `url(${pageTexture})`,
-                      filter: `brightness(${0.5 + i * 0.1}) contrast(1.1)`,
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          )}
+          <div className="grid grid-cols-12 gap-3 md:gap-4">
+            {hasGallery ? (
+              project.gallery!.map((img, i) => {
+                const spans = [
+                  "col-span-12 md:col-span-8",
+                  "col-span-6 md:col-span-4",
+                  "col-span-6 md:col-span-4",
+                  "col-span-12 md:col-span-8",
+                  "col-span-12 md:col-span-6",
+                  "col-span-12 md:col-span-6",
+                ];
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.07 }}
+                    className={`overflow-hidden rounded-sm ${spans[i % spans.length]}`}
+                  >
+                    <img
+                      src={img}
+                      alt={`${project.title} – ${i + 1}`}
+                      className="w-full h-full object-cover aspect-video hover:scale-[1.03] transition-transform duration-700"
+                    />
+                  </motion.div>
+                );
+              })
+            ) : (
+              [0, 1, 2, 3, 4, 5].map((i) => {
+                const spans = [
+                  "col-span-12 md:col-span-8",
+                  "col-span-6 md:col-span-4",
+                  "col-span-6 md:col-span-4",
+                  "col-span-12 md:col-span-8",
+                  "col-span-12 md:col-span-6",
+                  "col-span-12 md:col-span-6",
+                ];
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.07 }}
+                    className={`overflow-hidden rounded-sm ${spans[i]}`}
+                  >
+                    <div
+                      className="w-full aspect-video bg-cover bg-center opacity-50 hover:opacity-70 transition-opacity duration-500"
+                      style={{
+                        backgroundImage: thumbnail ? `url(${thumbnail})` : `url(${pageTexture})`,
+                        filter: `brightness(${0.4 + i * 0.08}) saturate(${0.6 + i * 0.1})`,
+                      }}
+                    />
+                  </motion.div>
+                );
+              })
+            )}
+          </div>
         </div>
       </section>
 
-
-      <section className="border-t border-border/50">
+      {/* ——— NAVIGATION ——— */}
+      <section className="border-t border-border/30">
         <div className="grid grid-cols-2">
           {prevProject ? (
-            <Link to={`/proyecto/${prevProject.slug}`} className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500">
-              <div className="flex items-center gap-3 mb-3">
+            <Link
+              to={`/proyecto/${prevProject.slug}`}
+              className="group relative py-14 md:py-20 px-6 md:px-12 border-r border-border/30 hover:bg-secondary/20 transition-colors duration-500"
+            >
+              <div className="flex items-center gap-3 mb-2">
                 <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Anterior</span>
               </div>
-              <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">{prevProject.title.toUpperCase()}</p>
+              <p className="font-display text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors">
+                {prevProject.title.toUpperCase()}
+              </p>
             </Link>
           ) : (
-            <Link to={backPath} className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500">
-              <div className="flex items-center gap-3 mb-3">
+            <Link
+              to={backPath}
+              className="group relative py-14 md:py-20 px-6 md:px-12 border-r border-border/30 hover:bg-secondary/20 transition-colors duration-500"
+            >
+              <div className="flex items-center gap-3 mb-2">
                 <ArrowLeft size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
               </div>
-              <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">{categoryLabel.toUpperCase()}</p>
+              <p className="font-display text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors">
+                {categoryLabel.toUpperCase()}
+              </p>
             </Link>
           )}
 
           {nextProject ? (
-            <Link to={`/proyecto/${nextProject.slug}`} className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500">
-              <div className="flex items-center justify-end gap-3 mb-3">
+            <Link
+              to={`/proyecto/${nextProject.slug}`}
+              className="group relative py-14 md:py-20 px-6 md:px-12 text-right hover:bg-secondary/20 transition-colors duration-500"
+            >
+              <div className="flex items-center justify-end gap-3 mb-2">
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Siguiente</span>
                 <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
-              <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">{nextProject.title.toUpperCase()}</p>
+              <p className="font-display text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors">
+                {nextProject.title.toUpperCase()}
+              </p>
             </Link>
           ) : (
-            <Link to={backPath} className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500">
-              <div className="flex items-center justify-end gap-3 mb-3">
+            <Link
+              to={backPath}
+              className="group relative py-14 md:py-20 px-6 md:px-12 text-right hover:bg-secondary/20 transition-colors duration-500"
+            >
+              <div className="flex items-center justify-end gap-3 mb-2">
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Volver</span>
                 <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
-              <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">{categoryLabel.toUpperCase()}</p>
+              <p className="font-display text-lg md:text-2xl tracking-wide text-foreground/70 group-hover:text-foreground transition-colors">
+                {categoryLabel.toUpperCase()}
+              </p>
             </Link>
           )}
         </div>
