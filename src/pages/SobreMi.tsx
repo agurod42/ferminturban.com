@@ -43,7 +43,7 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
       <img
         src={item.logo}
         alt={item.name}
-        className="max-h-14 max-w-[100px] object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert"
+        className="max-h-[72px] max-w-[130px] object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert"
       />
     ) : (
       <span className="font-display text-lg md:text-xl tracking-widest text-muted-foreground/30 group-hover:text-foreground/80 transition-colors duration-300">
