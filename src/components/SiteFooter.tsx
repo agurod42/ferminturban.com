@@ -1,12 +1,16 @@
 import { Instagram } from "lucide-react";
+import ftIcon from "@/assets/ft-icon.png";
 
 const SiteFooter = () => {
   return (
     <footer className="border-t border-border py-12">
       <div className="container px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="font-body text-xs text-muted-foreground tracking-wider uppercase">
-          © {new Date().getFullYear()} Fermin Turban
-        </p>
+        <div className="flex items-center gap-3">
+          <img src={ftIcon} alt="FT" className="h-5 brightness-0 invert opacity-40" />
+          <p className="font-body text-xs text-muted-foreground tracking-wider uppercase">
+            © {new Date().getFullYear()} Fermin Turban
+          </p>
+        </div>
         <div className="flex items-center gap-6">
           <a
             href="https://www.instagram.com/ferminturban"
