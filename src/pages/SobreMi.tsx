@@ -53,7 +53,6 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
             : "max-h-12 sm:max-h-[80px] max-w-[90px] sm:max-w-[140px]"
         }`}
       />
-      />
     ) : (
       <span className="font-display text-lg md:text-xl tracking-widest text-muted-foreground/30 group-hover:text-foreground/80 transition-colors duration-300">
         {item.name.toUpperCase()}
