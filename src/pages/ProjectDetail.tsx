@@ -189,29 +189,14 @@ const ProjectDetail = () => {
         </section>
       )}
 
-      {/* ——— BACK TO CATEGORY ——— */}
+      {/* ——— NAVIGATION ——— */}
       <section className="border-t border-border/50">
-        <Link
-          to={backPath}
-          className="group flex items-center justify-center gap-3 py-10 hover:bg-secondary/30 transition-colors duration-500"
-        >
-          <ArrowLeft
-            size={14}
-            className="text-muted-foreground group-hover:text-primary transition-colors"
-          />
-          <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground group-hover:text-foreground transition-colors">
-            Todos los proyectos de {categoryLabel}
-          </span>
-        </Link>
-      </section>
-
-      {/* ——— NEXT / PREV NAVIGATION ——— */}
-      <section className="border-t border-border/50">
-        <div className={`grid ${prevProject && nextProject ? "grid-cols-2" : "grid-cols-1"}`}>
-          {prevProject && (
+        <div className="grid grid-cols-2">
+          {/* Left: Previous project OR back to category */}
+          {prevProject ? (
             <Link
               to={`/proyecto/${prevProject.slug}`}
-              className={`group relative py-16 md:py-24 px-6 md:px-12 hover:bg-secondary/30 transition-colors duration-500 ${nextProject ? "border-r border-border/50" : ""}`}
+              className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500"
             >
               <div className="flex items-center gap-3 mb-3">
                 <ArrowLeft
@@ -226,12 +211,31 @@ const ProjectDetail = () => {
                 {prevProject.title.toUpperCase()}
               </p>
             </Link>
+          ) : (
+            <Link
+              to={backPath}
+              className="group relative py-16 md:py-24 px-6 md:px-12 border-r border-border/50 hover:bg-secondary/30 transition-colors duration-500"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <ArrowLeft
+                  size={14}
+                  className="text-muted-foreground group-hover:text-primary transition-colors"
+                />
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                  Volver
+                </span>
+              </div>
+              <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
+                {categoryLabel.toUpperCase()}
+              </p>
+            </Link>
           )}
 
-          {nextProject && (
+          {/* Right: Next project OR back to category */}
+          {nextProject ? (
             <Link
               to={`/proyecto/${nextProject.slug}`}
-              className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500 ml-auto w-full"
+              className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500"
             >
               <div className="flex items-center justify-end gap-3 mb-3">
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
@@ -244,6 +248,24 @@ const ProjectDetail = () => {
               </div>
               <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
                 {nextProject.title.toUpperCase()}
+              </p>
+            </Link>
+          ) : (
+            <Link
+              to={backPath}
+              className="group relative py-16 md:py-24 px-6 md:px-12 text-right hover:bg-secondary/30 transition-colors duration-500"
+            >
+              <div className="flex items-center justify-end gap-3 mb-3">
+                <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                  Volver
+                </span>
+                <ArrowRight
+                  size={14}
+                  className="text-muted-foreground group-hover:text-primary transition-colors"
+                />
+              </div>
+              <p className="font-display text-xl md:text-2xl tracking-wide text-foreground/80 group-hover:text-foreground transition-colors">
+                {categoryLabel.toUpperCase()}
               </p>
             </Link>
           )}
