@@ -58,12 +58,11 @@ const SiteHeader = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 relative z-10"
+          className="md:hidden flex flex-col gap-[7px] p-2 relative z-10"
           aria-label="Menu"
         >
-          <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
-          <span className={`block w-6 h-px bg-foreground transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-px bg-foreground transition-transform ${menuOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
+          <span className={`block w-6 h-px bg-foreground transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[4px]" : ""}`} />
+          <span className={`block w-6 h-px bg-foreground transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[4px]" : ""}`} />
         </button>
       </div>
 
@@ -74,7 +73,7 @@ const SiteHeader = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed inset-0 top-16 bg-background/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8"
+            className="md:hidden fixed inset-0 top-16 bg-background/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
           >
             {navItems.map((item) => (
               <Link
