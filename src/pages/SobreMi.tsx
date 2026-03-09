@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { useLanguage } from "@/hooks/useLanguage";
+import { cn } from "@/lib/utils";
 
 // Logo imports
 import audiLogo from "@/assets/logos/audi.png";
@@ -13,24 +14,27 @@ import lorealLogo from "@/assets/logos/loreal.png";
 import pilsenLogo from "@/assets/logos/pilsen.png";
 import farmashopLogo from "@/assets/logos/farmashop.png";
 import vixLogo from "@/assets/logos/vix.png";
+import jeepLogo from "@/assets/logos/jeep.svg";
+import imdbLogo from "@/assets/logos/imdb.svg";
+import aboutPortrait from "@/assets/about-fermin-urban.jpg";
 
 const brands = [
-  { name: "L'Oréal", logo: lorealLogo, url: "https://www.loreal.com" },
-  { name: "Audi", logo: audiLogo, url: "https://www.audi.com" },
-  { name: "McDonald's", logo: mcdonaldsLogo, url: "https://www.mcdonalds.com" },
-  { name: "Mercado Libre", logo: mercadolibreLogo, url: "https://www.mercadolibre.com" },
-  { name: "Jeep", logo: null, url: "https://www.jeep.com" },
-  { name: "Pilsen", logo: pilsenLogo, url: "https://www.pilsen.com.uy" },
-  { name: "Farmashop", logo: farmashopLogo, url: "https://www.farmashop.com.uy" },
+  { name: "L'Oréal", logo: lorealLogo, url: "https://www.loreal.com", logoClassName: "scale-[1.12]" },
+  { name: "Audi", logo: audiLogo, url: "https://www.audi.com", logoClassName: "scale-[1.06]" },
+  { name: "McDonald's", logo: mcdonaldsLogo, url: "https://www.mcdonalds.com", logoClassName: "scale-90" },
+  { name: "Mercado Libre", logo: mercadolibreLogo, url: "https://www.mercadolibre.com", logoClassName: "scale-[1.04]" },
+  { name: "Jeep", logo: jeepLogo, url: "https://www.jeep.com", logoClassName: "scale-[1.08]" },
+  { name: "Pilsen", logo: pilsenLogo, url: "https://www.pilsen.com.uy", logoClassName: "scale-[1.02]" },
+  { name: "Farmashop", logo: farmashopLogo, url: "https://www.farmashop.com.uy", logoClassName: "scale-[1.18]" },
 ];
 
 const platforms = [
-  { name: "Netflix", logo: netflixLogo, url: "https://www.netflix.com" },
-  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com", bigger: true },
-  { name: "VIX", logo: vixLogo, url: "https://www.vix.com", bigger: true },
+  { name: "Netflix", logo: netflixLogo, url: "https://www.netflix.com", logoClassName: "scale-90" },
+  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com", logoClassName: "scale-[1.15]" },
+  { name: "VIX", logo: vixLogo, url: "https://www.vix.com", logoClassName: "scale-[1.12]" },
 ];
 
-type LogoItemType = { name: string; logo: string | null; url: string; bigger?: boolean };
+type LogoItemType = { name: string; logo: string; url: string; logoClassName?: string };
 
 const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
@@ -41,24 +45,20 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: index * 0.05 }}
-    className="group flex items-center justify-center aspect-[3/2] border border-border/30 rounded-sm bg-secondary/20 hover:bg-secondary/50 hover:border-border/60 transition-all duration-400"
+    className="group relative flex aspect-[3/2] overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br from-secondary/90 via-secondary/70 to-black/80 p-4 shadow-[0_16px_30px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_20px_34px_rgba(0,0,0,0.36)]"
     title={item.name}
   >
-    {item.logo ? (
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_58%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+    <div className="relative flex h-full w-full items-center justify-center rounded-[2px] border border-white/6 bg-black/25 px-5">
       <img
         src={item.logo}
         alt={item.name}
-        className={`object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert ${
-          item.bigger
-            ? "max-h-12 sm:max-h-[90px] max-w-[100px] sm:max-w-[150px]"
-            : "max-h-12 sm:max-h-[80px] max-w-[90px] sm:max-w-[140px]"
-        }`}
+        className={cn(
+          "max-h-10 w-auto max-w-full transform-gpu object-contain brightness-0 invert opacity-85 drop-shadow-[0_0_16px_rgba(255,255,255,0.12)] transition duration-300 group-hover:opacity-100 sm:max-h-11",
+          item.logoClassName,
+        )}
       />
-    ) : (
-      <span className="font-display text-lg md:text-xl tracking-widest text-muted-foreground/30 group-hover:text-foreground/80 transition-colors duration-300">
-        {item.name.toUpperCase()}
-      </span>
-    )}
+    </div>
   </motion.a>
 );
 
@@ -101,9 +101,14 @@ const SobreMi = () => {
                   href="https://www.imdb.com/es-es/name/nm14037227/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-body text-sm font-semibold text-muted-foreground hover:text-primary transition-colors tracking-wider"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="IMDb"
                 >
-                  IMDb
+                  <img
+                    src={imdbLogo}
+                    alt="IMDb"
+                    className="h-4 w-auto brightness-0 invert opacity-70 transition-opacity duration-300 hover:opacity-100"
+                  />
                 </a>
                 <a
                   href="mailto:ferminturban@gmail.com"
@@ -145,8 +150,16 @@ const SobreMi = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative lg:sticky lg:top-32"
             >
-              <div className="aspect-[3/4] bg-gradient-to-br from-secondary to-muted rounded flex items-center justify-center">
-                <span className="font-display text-8xl text-muted-foreground/20">FT</span>
+              <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-10 -left-8 h-36 w-36 rounded-full bg-white/8 blur-3xl" />
+              <div className="relative overflow-hidden rounded-sm border border-white/10 bg-card shadow-[0_30px_60px_rgba(0,0,0,0.38)]">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                <img
+                  src={aboutPortrait}
+                  alt="Fermin Urban filming with a cinema camera"
+                  className="aspect-[3/4] w-full object-cover object-center"
+                  loading="eager"
+                />
               </div>
             </motion.div>
           </div>
