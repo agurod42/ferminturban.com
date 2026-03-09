@@ -111,7 +111,8 @@
 }
 
 .gpu-layer {
-  transform: translate3d(0, 0, 0);
+  /* Preserve authored transforms (Tailwind, Framer Motion, hover states). */
+  will-change: transform;
   backface-visibility: hidden;
 }
 
@@ -127,7 +128,9 @@
 .performance-strip {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
   scroll-snap-type: x proximity;
+  touch-action: pan-x;
 }
 
 .performance-strip > * {
