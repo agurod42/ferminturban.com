@@ -143,8 +143,7 @@ const SobreMi = () => {
                   ))}
                 </div>
               </div>
-
-
+            </motion.div>
 
             {/* Right column: Visual */}
             <motion.div
