@@ -189,6 +189,22 @@ const ProjectDetail = () => {
         </section>
       )}
 
+      {/* ——— BACK TO CATEGORY ——— */}
+      <section className="border-t border-border/50">
+        <Link
+          to={backPath}
+          className="group flex items-center justify-center gap-3 py-10 hover:bg-secondary/30 transition-colors duration-500"
+        >
+          <ArrowLeft
+            size={14}
+            className="text-muted-foreground group-hover:text-primary transition-colors"
+          />
+          <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground group-hover:text-foreground transition-colors">
+            Todos los proyectos de {categoryLabel}
+          </span>
+        </Link>
+      </section>
+
       {/* ——— NEXT / PREV NAVIGATION ——— */}
       <section className="border-t border-border/50">
         <div className={`grid ${prevProject && nextProject ? "grid-cols-2" : "grid-cols-1"}`}>
