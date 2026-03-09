@@ -2,10 +2,14 @@ import { hmac } from "@noble/hashes/hmac.js";
 import { sha256 } from "@noble/hashes/sha2.js";
 import { concatBytes, hexToBytes, utf8ToBytes } from "@noble/hashes/utils.js";
 
-const IMGPROXY_BASE = __IMGPROXY_BASE__;
-const IMGPROXY_KEY_HEX = __IMGPROXY_KEY__.trim();
-const IMGPROXY_SALT_HEX = __IMGPROXY_SALT__.trim();
-const IMGPROXY_SIGNATURE_SIZE = Number.parseInt(__IMGPROXY_SIGNATURE_SIZE__, 10);
+const runtimeConfig = typeof window !== "undefined" ? window.__APP_CONFIG__ : undefined;
+const IMGPROXY_BASE = (runtimeConfig?.IMGPROXY_BASE || __IMGPROXY_BASE__).trim();
+const IMGPROXY_KEY_HEX = (runtimeConfig?.IMGPROXY_KEY || __IMGPROXY_KEY__).trim();
+const IMGPROXY_SALT_HEX = (runtimeConfig?.IMGPROXY_SALT || __IMGPROXY_SALT__).trim();
+const IMGPROXY_SIGNATURE_SIZE = Number.parseInt(
+  runtimeConfig?.IMGPROXY_SIGNATURE_SIZE || __IMGPROXY_SIGNATURE_SIZE__,
+  10,
+);
 
 type ImgproxyMode = "fill" | "fit";
 
