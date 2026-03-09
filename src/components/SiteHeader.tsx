@@ -73,7 +73,7 @@ const SiteHeader = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed inset-0 top-16 bg-background/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8"
+            className="md:hidden fixed inset-0 top-16 bg-background/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
           >
             {navItems.map((item) => (
               <Link
