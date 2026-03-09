@@ -1,6 +1,7 @@
 import { useParams, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCallback, useEffect } from "react";
+import type { Project } from "@/data/projects";
 import { getProjectSlug, getProjectByLocalizedSlug } from "@/data/projects";
 
 export type Lang = "es" | "en";
