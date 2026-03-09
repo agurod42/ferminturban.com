@@ -41,7 +41,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="font-display text-5xl sm:text-7xl md:text-9xl tracking-[0.15em] text-foreground"
+              className="font-display text-5xl sm:text-5xl sm:text-7xl md:text-9xl tracking-[0.15em] text-foreground"
             >
               FERMIN TURBAN
             </motion.h1>
@@ -57,7 +57,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="flex items-center justify-center gap-6 mt-10"
+              clasflex-col sm:flex-row items-center justify-center gap-4 sm:tify-center gap-6 mt-10"
             >
               <Link
                 to="/publicidad"
