@@ -21,7 +21,7 @@ const Filmstrip = ({ projects }: FilmstripProps) => {
   };
 
   return (
-    <div className="relative group/strip">
+    <div className="relative group/strip content-auto">
       {/* Scroll buttons */}
       <button
         onClick={() => scroll("left")}
@@ -45,7 +45,7 @@ const Filmstrip = ({ projects }: FilmstripProps) => {
       {/* Scrollable strip */}
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide px-6 md:px-12 pb-4 scroll-smooth"
+        className="flex gap-6 overflow-x-auto scrollbar-hide px-6 md:px-12 pb-4 scroll-smooth performance-strip gpu-layer"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {projects.map((project, i) => (

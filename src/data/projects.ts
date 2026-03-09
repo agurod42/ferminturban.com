@@ -107,6 +107,10 @@ const englishSlugMap: Record<string, string> = {
 
 const publicidadData = publicidadSource as RawSource;
 const documentalData = documentalSource as RawSource;
+const projectCollator = new Intl.Collator("es", {
+  sensitivity: "base",
+  numeric: true,
+});
 
 const pickFirst = (...values: Array<string | null | undefined>) =>
   values.find((value) => typeof value === "string" && value.trim().length > 0);
@@ -178,10 +182,18 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
   };
 };
 
-export const projects: Project[] = [
-  ...publicidadData.items.map((item) => normalizeProject(item, "publicidad")),
-  ...documentalData.items.map((item) => normalizeProject(item, "documental")),
-];
+const sortProjectsAlphabetically = (items: Project[]) =>
+  [...items].sort((left, right) => projectCollator.compare(left.title, right.title));
+
+const advertisingProjects = sortProjectsAlphabetically(
+  publicidadData.items.map((item) => normalizeProject(item, "publicidad")),
+);
+
+const documentaryProjects = sortProjectsAlphabetically(
+  documentalData.items.map((item) => normalizeProject(item, "documental")),
+);
+
+export const projects: Project[] = [...advertisingProjects, ...documentaryProjects];
 
 export const getProjectsByCategory = (category: ProjectCategory) =>
   projects.filter((project) => project.category === category);

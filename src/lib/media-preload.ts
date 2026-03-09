@@ -1,4 +1,5 @@
 import type { Project } from "@/data/projects";
+import { getOptimizedImageUrl } from "@/lib/imgproxy";
 
 type FetchPriority = "high" | "low" | "auto";
 
@@ -163,12 +164,31 @@ export const preloadProjectMedia = (
 
   const includeGallery = options.includeGallery ?? false;
   const priority = options.priority ?? "low";
+  const thumbnailAspectRatio = project.thumbnailAspectRatio ?? 16 / 9;
 
-  preconnectOrigins(["https://assets.zyrosite.com"]);
-  preloadImage(project.thumbnailUrl, priority);
+  preconnectOrigins([
+    "https://assets.zyrosite.com",
+    "https://imgproxy.thewisemonkey.co.uk",
+  ]);
+
+  preloadImage(
+    getOptimizedImageUrl(project.thumbnailUrl, {
+      width: 1280,
+      height: Math.round(1280 / thumbnailAspectRatio),
+      mode: "fill",
+    }) ?? project.thumbnailUrl,
+    priority,
+  );
 
   if (project.backgroundUrl && project.backgroundUrl !== project.thumbnailUrl) {
-    preloadImage(project.backgroundUrl, priority);
+    preloadImage(
+      getOptimizedImageUrl(project.backgroundUrl, {
+        width: 1600,
+        height: Math.round(1600 / thumbnailAspectRatio),
+        mode: "fill",
+      }) ?? project.backgroundUrl,
+      priority,
+    );
   }
 
   warmVideoProvider(project.mediaProvider, project.videoUrl);
@@ -179,6 +199,13 @@ export const preloadProjectMedia = (
 
   const maxImages = canAggressivelyPreload() ? 6 : 2;
   project.gallery.slice(0, maxImages).forEach((imageUrl, index) => {
-    preloadImage(imageUrl, index === 0 ? priority : "low");
+    preloadImage(
+      getOptimizedImageUrl(imageUrl, {
+        width: 1280,
+        height: 720,
+        mode: "fill",
+      }) ?? imageUrl,
+      index === 0 ? priority : "low",
+    );
   });
 };

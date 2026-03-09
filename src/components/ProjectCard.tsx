@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
+import { getResponsiveImageSet } from "@/lib/imgproxy";
 import { preloadProjectMedia } from "@/lib/media-preload";
 
 interface ProjectCardProps {
@@ -17,6 +18,14 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
   const isFilmstrip = variant === "filmstrip";
   const aspectRatio = project.thumbnailAspectRatio || 16 / 9;
   const prioritizeImage = isFilmstrip ? index < 2 : index < 6;
+  const image = getResponsiveImageSet(thumbnail, {
+    aspectRatio,
+    widths: isFilmstrip ? [480, 720, 960, 1280] : [480, 720, 960, 1280, 1600],
+    sizes: isFilmstrip
+      ? "(max-width: 767px) 70vw, (max-width: 1023px) 40vw, 30vw"
+      : "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw",
+    mode: "fill",
+  });
   const warmProject = () => {
     preloadProjectMedia(project, {
       includeGallery: false,
@@ -34,7 +43,7 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className={isFilmstrip ? "flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw]" : ""}
+      className={isFilmstrip ? "flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] performance-tile" : "performance-tile"}
     >
       <Link
         to={projectPath(project)}
@@ -44,15 +53,19 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
         onTouchStart={warmProject}
       >
         <div
-          className="relative overflow-hidden rounded bg-secondary mb-3"
+          className="relative overflow-hidden rounded bg-secondary mb-3 gpu-layer paint-contain"
           style={{ aspectRatio }}
         >
-          {thumbnail ? (
+          {thumbnail && image ? (
             <>
               <img
-                src={thumbnail}
+                src={image.src}
+                srcSet={image.srcSet}
+                sizes={image.sizes}
+                width={image.width}
+                height={image.height}
                 alt={project.thumbnailAlt || project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 gpu-layer"
                 loading={prioritizeImage ? "eager" : "lazy"}
                 fetchPriority={prioritizeImage ? "high" : "auto"}
                 decoding="async"
@@ -73,7 +86,7 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
           )}
 
           {/* Scanline hover effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none gpu-layer"
             style={{
               background: "repeating-linear-gradient(0deg, transparent, transparent 2px, hsla(0,0%,0%,0.03) 2px, hsla(0,0%,0%,0.03) 4px)",
             }}

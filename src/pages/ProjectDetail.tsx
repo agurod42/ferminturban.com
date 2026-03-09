@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
-import { getProjectByLocalizedSlug, projects, getProjectSlug } from "@/data/projects";
+import { getProjectByLocalizedSlug, projects } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
+import { getOptimizedImageUrl, getResponsiveImageSet } from "@/lib/imgproxy";
 import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
 import pageTexture from "@/assets/page-texture.jpg";
 
@@ -42,6 +43,17 @@ const ProjectDetail = () => {
   const thumbnail = getThumbnail(project.slug);
   const heroBackground = thumbnail || project.backgroundUrl || pageTexture;
   const canPlayVideo = project.mediaType === "video" && Boolean(project.videoUrl);
+  const heroImage = getResponsiveImageSet(heroBackground, {
+    aspectRatio: project.thumbnailAspectRatio || 16 / 9,
+    widths: [960, 1280, 1600, 1920],
+    sizes: "100vw",
+    mode: "fill",
+  });
+  const fallbackGalleryBackground = getOptimizedImageUrl(heroBackground, {
+    width: 1280,
+    height: 720,
+    mode: "fill",
+  }) ?? heroBackground;
 
   const credits = [
     { label: t("project.client"), value: project.client },
@@ -79,15 +91,19 @@ const ProjectDetail = () => {
               allow="autoplay; fullscreen"
               allowFullScreen
               title={project.title}
-              className="absolute inset-0 w-full h-full border-0"
+              className="absolute inset-0 w-full h-full border-0 gpu-layer paint-contain"
               loading="eager"
             />
           ) : project.mediaType === "image" && heroBackground ? (
             <>
               <img
-                src={heroBackground}
+                src={heroImage?.src ?? heroBackground}
+                srcSet={heroImage?.srcSet}
+                sizes={heroImage?.sizes}
+                width={heroImage?.width}
+                height={heroImage?.height}
                 alt={project.thumbnailAlt || project.title}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover gpu-layer paint-contain"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -98,7 +114,11 @@ const ProjectDetail = () => {
             <>
               {heroBackground ? (
                 <motion.img
-                  src={heroBackground}
+                  src={heroImage?.src ?? heroBackground}
+                  srcSet={heroImage?.srcSet}
+                  sizes={heroImage?.sizes}
+                  width={heroImage?.width}
+                  height={heroImage?.height}
                   alt={project.thumbnailAlt || project.title}
                   loading="eager"
                   fetchPriority="high"
@@ -106,7 +126,7 @@ const ProjectDetail = () => {
                   initial={{ scale: 1.08 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover gpu-layer paint-contain"
                 />
               ) : (
                 <div
@@ -207,7 +227,7 @@ const ProjectDetail = () => {
             {t("project.gallery")}
           </motion.h3>
 
-          <div className="grid grid-cols-12 gap-3 md:gap-4">
+          <div className="grid grid-cols-12 gap-3 md:gap-4 content-auto">
             {hasGallery ? (
               project.gallery!.map((img, i) => {
                 const spans = [
@@ -218,6 +238,12 @@ const ProjectDetail = () => {
                   "col-span-12 md:col-span-6",
                   "col-span-12 md:col-span-6",
                 ];
+                const galleryImage = getResponsiveImageSet(img, {
+                  aspectRatio: 16 / 9,
+                  widths: [480, 720, 960, 1280, 1600],
+                  sizes: "(max-width: 767px) 100vw, (max-width: 1023px) 66vw, 50vw",
+                  mode: "fill",
+                });
                 return (
                   <motion.div
                     key={i}
@@ -225,12 +251,16 @@ const ProjectDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.07 }}
-                    className={`overflow-hidden rounded-sm ${spans[i % spans.length]}`}
+                    className={`overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i % spans.length]}`}
                   >
                     <img
-                      src={img}
+                      src={galleryImage?.src ?? img}
+                      srcSet={galleryImage?.srcSet}
+                      sizes={galleryImage?.sizes}
+                      width={galleryImage?.width}
+                      height={galleryImage?.height}
                       alt={`${project.title} – ${i + 1}`}
-                      className="w-full h-full object-cover aspect-video hover:scale-[1.03] transition-transform duration-700"
+                      className="w-full h-full object-cover aspect-video hover:scale-[1.03] transition-transform duration-700 gpu-layer"
                       loading={i < 2 ? "eager" : "lazy"}
                       fetchPriority={i === 0 ? "high" : "auto"}
                       decoding="async"
@@ -255,12 +285,12 @@ const ProjectDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.07 }}
-                    className={`overflow-hidden rounded-sm ${spans[i]}`}
+                    className={`overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i]}`}
                   >
                     <div
                       className="w-full aspect-video bg-cover bg-center opacity-50 hover:opacity-70 transition-opacity duration-500"
                       style={{
-                        backgroundImage: heroBackground ? `url(${heroBackground})` : `url(${pageTexture})`,
+                        backgroundImage: heroBackground ? `url(${fallbackGalleryBackground})` : `url(${pageTexture})`,
                         filter: `brightness(${0.4 + i * 0.08}) saturate(${0.6 + i * 0.1})`,
                       }}
                     />

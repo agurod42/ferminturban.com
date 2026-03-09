@@ -110,6 +110,34 @@
   -ms-overflow-style: none;
 }
 
+.gpu-layer {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.paint-contain {
+  contain: layout paint style;
+}
+
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 960px;
+}
+
+.performance-strip {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.performance-strip > * {
+  scroll-snap-align: start;
+}
+
+.performance-tile {
+  contain: paint;
+}
+
 /* Video embed responsive */
 .video-container {
   position: relative;

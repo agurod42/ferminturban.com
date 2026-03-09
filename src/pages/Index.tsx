@@ -6,10 +6,11 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
 import Filmstrip from "@/components/Filmstrip";
-import { getFeaturedProjects, getProjectBySlug } from "@/data/projects";
+import { getProjectBySlug, getProjectsByCategory } from "@/data/projects";
 import { getHeroVideoPool, getRandomHeroVideo } from "@/data/heroVideos";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLanguage } from "@/hooks/useLanguage";
+import { getResponsiveImageSet } from "@/lib/imgproxy";
 import {
   canAggressivelyPreload,
   preconnectOrigins,
@@ -27,19 +28,17 @@ const Index = () => {
   const deviceType = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
 
   const heroVideo = useMemo(() => getRandomHeroVideo(deviceType), [deviceType]);
-
-  const featured = useMemo(() => getFeaturedProjects(), []);
-  const commercialFeatured = useMemo(
-    () => featured.filter((project) => project.category === "publicidad"),
-    [featured],
-  );
-  const docFeatured = useMemo(
-    () => featured.filter((project) => project.category === "documental"),
-    [featured],
-  );
+  const commercialProjects = useMemo(() => getProjectsByCategory("publicidad"), []);
+  const docProjects = useMemo(() => getProjectsByCategory("documental"), []);
   const heroProject = getProjectBySlug(heroVideo.projectSlug);
   const heroPoster = heroProject?.thumbnailUrl;
   const heroVideoUrl = `https://player.vimeo.com/video/${heroVideo.id}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1`;
+  const heroPosterImage = getResponsiveImageSet(heroPoster, {
+    aspectRatio: isMobile ? 9 / 16 : 16 / 9,
+    widths: isMobile ? [720, 900, 1080, 1280] : [960, 1280, 1600, 1920],
+    sizes: "100vw",
+    mode: "fill",
+  });
 
   useEffect(() => {
     setHeroVideoReady(false);
@@ -51,18 +50,25 @@ const Index = () => {
       "https://i.vimeocdn.com",
       "https://f.vimeocdn.com",
       "https://assets.zyrosite.com",
+      "https://imgproxy.thewisemonkey.co.uk",
     ]);
 
-    preloadImage(heroPoster, "high");
+    preloadImage(heroPosterImage?.src ?? heroPoster, "high");
     prefetchDocument(heroVideoUrl);
 
     scheduleIdle(() => {
       getHeroVideoPool(deviceType).forEach((candidate) => {
         const project = getProjectBySlug(candidate.projectSlug);
-        preloadImage(project?.thumbnailUrl, "low");
+        const candidatePoster = getResponsiveImageSet(project?.thumbnailUrl, {
+          aspectRatio: isMobile ? 9 / 16 : 16 / 9,
+          widths: isMobile ? [720, 1080] : [1280, 1600],
+          sizes: "100vw",
+          mode: "fill",
+        });
+        preloadImage(candidatePoster?.src ?? project?.thumbnailUrl, "low");
       });
 
-      const visibleProjects = [...commercialFeatured.slice(0, 4), ...docFeatured.slice(0, 3)];
+      const visibleProjects = [...commercialProjects.slice(0, 5), ...docProjects.slice(0, 4)];
       visibleProjects.forEach((project, index) => {
         preloadProjectMedia(project, {
           includeGallery: false,
@@ -71,12 +77,12 @@ const Index = () => {
       });
 
       if (canAggressivelyPreload()) {
-        [...commercialFeatured, ...docFeatured].forEach((project) => {
+        [...commercialProjects, ...docProjects].forEach((project) => {
           preloadProjectMedia(project, { includeGallery: false, priority: "low" });
         });
       }
     });
-  }, [commercialFeatured, deviceType, docFeatured, heroPoster, heroVideo.projectSlug, heroVideoUrl]);
+  }, [commercialProjects, deviceType, docProjects, heroPoster, heroPosterImage?.src, heroVideo.projectSlug, heroVideoUrl]);
 
   return (
     <PageTransition>
@@ -87,8 +93,12 @@ const Index = () => {
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           {heroPoster && (
             <motion.img
-              key={heroPoster}
-              src={heroPoster}
+              key={heroPosterImage?.src ?? heroPoster}
+              src={heroPosterImage?.src ?? heroPoster}
+              srcSet={heroPosterImage?.srcSet}
+              sizes={heroPosterImage?.sizes}
+              width={heroPosterImage?.width}
+              height={heroPosterImage?.height}
               alt={heroProject?.thumbnailAlt || heroProject?.title || "Fermin Turban reel"}
               fetchPriority="high"
               loading="eager"
@@ -96,19 +106,19 @@ const Index = () => {
               initial={{ scale: 1.06 }}
               animate={{ scale: 1 }}
               transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover gpu-layer paint-contain"
             />
           )}
           <div className="absolute inset-0 bg-background/60" />
 
           {/* Vimeo reel background */}
           <div
-            className="absolute inset-0 overflow-hidden transition-opacity duration-700"
+            className="absolute inset-0 overflow-hidden transition-opacity duration-700 gpu-layer paint-contain"
             style={{ opacity: heroVideoReady ? 0.3 : 0 }}
           >
             <iframe
               src={heroVideoUrl}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] sm:w-auto sm:h-auto sm:min-w-[110vw] sm:min-h-[110vh] object-cover"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] sm:w-auto sm:h-auto sm:min-w-[110vw] sm:min-h-[110vh] object-cover gpu-layer"
               allow="autoplay; fullscreen"
               loading="eager"
               title="Fermin Turban Reel"
@@ -190,7 +200,7 @@ const Index = () => {
               </Link>
             </div>
           </div>
-          <Filmstrip projects={commercialFeatured} />
+          <Filmstrip projects={commercialProjects} />
         </section>
 
         {/* FEATURED DOCUMENTARY — FILMSTRIP */}
@@ -214,7 +224,7 @@ const Index = () => {
               </Link>
             </div>
           </div>
-          <Filmstrip projects={docFeatured} />
+          <Filmstrip projects={docProjects} />
         </section>
 
         {/* BIO STRIP */}
