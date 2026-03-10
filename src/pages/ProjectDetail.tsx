@@ -6,7 +6,7 @@ import PageLayout from "@/components/PageLayout";
 import { getProjectByLocalizedSlug, projects, sharedThumbnailAspectRatio } from "@/data/projects";
 import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
-import { getOptimizedImageUrl, getResponsiveImageSet } from "@/lib/imgproxy";
+import { getResponsiveImageSet } from "@/lib/imgproxy";
 import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
 import pageTexture from "@/assets/page-texture.jpg";
 
@@ -45,17 +45,13 @@ const ProjectDetail = () => {
   const canPlayVideo = project.mediaType === "video" && Boolean(project.videoUrl);
   const heroAspectRatio = project.thumbnailAspectRatio ?? sharedThumbnailAspectRatio;
   const galleryAspectRatio = project.galleryAspectRatio ?? heroAspectRatio;
+  const galleryItems = project.gallery?.filter(Boolean) ?? [];
   const heroImage = getResponsiveImageSet(heroBackground, {
     aspectRatio: heroAspectRatio,
     widths: [960, 1280, 1600, 1920],
     sizes: "100vw",
     mode: "fill",
   });
-  const fallbackGalleryBackground = getOptimizedImageUrl(heroBackground, {
-    width: 1280,
-    height: Math.round(1280 / galleryAspectRatio),
-    mode: "fill",
-  }) ?? heroBackground;
 
   const credits = [
     { label: t("project.client"), value: project.client },
@@ -64,7 +60,7 @@ const ProjectDetail = () => {
     { label: t("project.dop"), value: project.dop },
   ].filter((c) => c.value);
 
-  const hasGallery = project.gallery && project.gallery.length > 0;
+  const hasGallery = galleryItems.length > 0;
 
   useEffect(() => {
     preloadProjectMedia(project, {
@@ -218,20 +214,20 @@ const ProjectDetail = () => {
       )}
 
       {/* ——— GALLERY ——— */}
-      <section className="pb-20 md:pb-28">
-        <div className="container px-6 md:px-12 max-w-6xl mx-auto">
-          <motion.h3
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
-          >
-            {t("project.gallery")}
-          </motion.h3>
+      {hasGallery && (
+        <section className="pb-20 md:pb-28">
+          <div className="container px-6 md:px-12 max-w-6xl mx-auto">
+            <motion.h3
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8"
+            >
+              {t("project.gallery")}
+            </motion.h3>
 
-          <div className="grid grid-cols-12 gap-3 md:gap-4 content-auto">
-            {hasGallery ? (
-              project.gallery!.map((img, i) => {
+            <div className="grid grid-cols-12 gap-3 md:gap-4 content-auto">
+              {galleryItems.map((img, i) => {
                 const spans = [
                   "col-span-12 md:col-span-8",
                   "col-span-6 md:col-span-4",
@@ -270,41 +266,11 @@ const ProjectDetail = () => {
                     />
                   </motion.div>
                 );
-              })
-            ) : (
-              [0, 1, 2, 3, 4, 5].map((i) => {
-                const spans = [
-                  "col-span-12 md:col-span-8",
-                  "col-span-6 md:col-span-4",
-                  "col-span-6 md:col-span-4",
-                  "col-span-12 md:col-span-8",
-                  "col-span-12 md:col-span-6",
-                  "col-span-12 md:col-span-6",
-                ];
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.07 }}
-                    className={`relative overflow-hidden rounded-sm gpu-layer paint-contain ${spans[i]}`}
-                    style={{ aspectRatio: galleryAspectRatio }}
-                  >
-                    <div
-                      className="absolute inset-0 bg-cover bg-center opacity-50 hover:opacity-70 transition-opacity duration-500"
-                      style={{
-                        backgroundImage: heroBackground ? `url(${fallbackGalleryBackground})` : `url(${pageTexture})`,
-                        filter: `brightness(${0.4 + i * 0.08}) saturate(${0.6 + i * 0.1})`,
-                      }}
-                    />
-                  </motion.div>
-                );
-              })
-            )}
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ——— NAVIGATION ——— */}
       <section className="border-t border-border/30">
