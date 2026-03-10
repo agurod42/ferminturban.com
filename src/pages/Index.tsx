@@ -32,7 +32,8 @@ const Index = () => {
   const docProjects = useMemo(() => getProjectsByCategory("documental"), []);
   const heroProject = getProjectBySlug(heroVideo.projectSlug);
   const heroPoster = heroProject?.thumbnailUrl;
-  const heroVideoUrl = `https://player.vimeo.com/video/${heroVideo.id}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1`;
+  const heroVideoStartFragment = heroVideo.startAtSeconds > 0 ? `#t=${heroVideo.startAtSeconds}s` : "";
+  const heroVideoUrl = `https://player.vimeo.com/video/${heroVideo.id}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1${heroVideoStartFragment}`;
   const heroPosterImage = getResponsiveImageSet(heroPoster, {
     aspectRatio: isMobile ? 9 / 16 : 16 / 9,
     widths: isMobile ? [720, 900, 1080, 1280] : [960, 1280, 1600, 1920],
