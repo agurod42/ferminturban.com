@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -8,56 +9,152 @@ import { cn } from "@/lib/utils";
 import audiLogo from "@/assets/logos/about/audi-white.png";
 import mcdonaldsLogo from "@/assets/logos/about/mcdonalds-white.png";
 import mercadolibreLogo from "@/assets/logos/about/mercadolibre-white.png";
-import netflixLogo from "@/assets/logos/about/netflix-white.png";
-import natgeoLogo from "@/assets/logos/about/natgeo-white.png";
-import lorealLogo from "@/assets/logos/about/loreal-white.png";
-import pilsenLogo from "@/assets/logos/about/pilsen-white.png";
 import farmashopLogo from "@/assets/logos/about/farmashop-white.png";
-import vixLogo from "@/assets/logos/about/vix-white.png";
 import jeepLogo from "@/assets/logos/about/jeep-white.svg";
 import imdbLogo from "@/assets/logos/about/imdb-white.svg";
 import aboutPortrait from "@/assets/about-fermin-urban.jpg";
 
-const brands = [
-  { name: "L'Oréal", logo: lorealLogo, url: "https://www.loreal.com", logoClassName: "scale-[1.45]" },
-  { name: "Audi", logo: audiLogo, url: "https://www.audi.com", logoClassName: "scale-[1.06]" },
-  { name: "McDonald's", logo: mcdonaldsLogo, url: "https://www.mcdonalds.com", logoClassName: "scale-90" },
-  { name: "Mercado Libre", logo: mercadolibreLogo, url: "https://www.mercadolibre.com", logoClassName: "scale-[1.04]" },
-  { name: "Jeep", logo: jeepLogo, url: "https://www.jeep.com", logoClassName: "scale-[1.08]" },
-  { name: "Pilsen", logo: pilsenLogo, url: "https://www.pilsen.com.uy", logoClassName: "scale-[1.4]" },
-  { name: "Farmashop", logo: farmashopLogo, url: "https://www.farmashop.com.uy", logoClassName: "scale-[0.9]" },
+const MarkImage = ({ src, className }: { src: string; className?: string }) => (
+  <img src={src} alt="" aria-hidden="true" className={cn("h-auto w-auto max-w-full object-contain", className)} />
+);
+
+const LogoLabel = ({ children, className }: { children: ReactNode; className?: string }) => (
+  <span className={cn("font-body text-[10px] font-semibold uppercase tracking-[0.22em] text-white/72 sm:text-[11px]", className)}>
+    {children}
+  </span>
+);
+
+type LogoItemType = {
+  name: string;
+  logo: ReactNode;
+  url: string;
+  tileClassName?: string;
+  contentClassName?: string;
+};
+
+const brands: LogoItemType[] = [
+  {
+    name: "L'Oréal",
+    url: "https://www.loreal.com",
+    logo: (
+      <span className="font-body text-lg font-semibold uppercase tracking-[0.34em] text-[#f4ecdf] sm:text-xl">
+        L'Oréal
+      </span>
+    ),
+  },
+  {
+    name: "Audi",
+    url: "https://www.audi.com",
+    logo: <MarkImage src={audiLogo} className="max-h-8 sm:max-h-9" />,
+  },
+  {
+    name: "McDonald's",
+    url: "https://www.mcdonalds.com",
+    logo: (
+      <div className="flex flex-col items-center gap-2">
+        <MarkImage src={mcdonaldsLogo} className="max-h-9 sm:max-h-10" />
+        <LogoLabel className="text-[#f2c94c]">McDonald's</LogoLabel>
+      </div>
+    ),
+  },
+  {
+    name: "Mercado Libre",
+    url: "https://www.mercadolibre.com",
+    logo: (
+      <div className="flex flex-col items-center gap-2">
+        <MarkImage src={mercadolibreLogo} className="max-h-7 sm:max-h-8" />
+        <LogoLabel className="tracking-[0.18em] text-[#f4d96c]">Mercado Libre</LogoLabel>
+      </div>
+    ),
+  },
+  {
+    name: "Jeep",
+    url: "https://www.jeep.com",
+    logo: <MarkImage src={jeepLogo} className="max-h-5 sm:max-h-6" />,
+  },
+  {
+    name: "Pilsen",
+    url: "https://www.pilsen.com.uy",
+    logo: (
+      <span className="font-body text-2xl font-medium italic tracking-[0.08em] text-[#cfb47c] sm:text-[2rem]">
+        Pilsen
+      </span>
+    ),
+  },
+  {
+    name: "Farmashop",
+    url: "https://www.farmashop.com.uy",
+    logo: (
+      <div className="flex flex-col items-center gap-2">
+        <MarkImage src={farmashopLogo} className="max-h-7 sm:max-h-8" />
+        <LogoLabel className="tracking-[0.18em] text-[#b2d95f]">Farmashop</LogoLabel>
+      </div>
+    ),
+  },
 ];
 
-const platforms = [
-  { name: "Netflix", logo: netflixLogo, url: "https://www.netflix.com", logoClassName: "scale-90" },
-  { name: "NatGeo", logo: natgeoLogo, url: "https://www.nationalgeographic.com", logoClassName: "scale-[1.08]" },
-  { name: "VIX", logo: vixLogo, url: "https://www.vix.com", logoClassName: "scale-[1.1]" },
+const platforms: LogoItemType[] = [
+  {
+    name: "Netflix",
+    url: "https://www.netflix.com",
+    logo: (
+      <span className="font-display text-4xl tracking-[0.24em] text-[#e50914] sm:text-5xl">
+        Netflix
+      </span>
+    ),
+  },
+  {
+    name: "ViX",
+    url: "https://www.vix.com",
+    logo: (
+      <span className="bg-gradient-to-r from-[#ff7a18] via-[#ffd451] to-[#7f6bff] bg-clip-text font-body text-3xl font-semibold uppercase tracking-[0.18em] text-transparent sm:text-4xl">
+        ViX
+      </span>
+    ),
+  },
+  {
+    name: "National Geographic",
+    url: "https://www.nationalgeographic.com",
+    tileClassName: "col-span-2",
+    contentClassName: "justify-start px-1 sm:px-3",
+    logo: (
+      <div className="flex items-center gap-4">
+        <span className="h-10 w-[14px] shrink-0 border-[3px] border-[#f5c518]" aria-hidden="true" />
+        <span className="font-body text-left text-[11px] font-semibold uppercase leading-[1.1] tracking-[0.22em] text-white/90 sm:text-xs">
+          National
+          <br />
+          Geographic
+        </span>
+      </div>
+    ),
+  },
 ];
-
-type LogoItemType = { name: string; logo: string; url: string; logoClassName?: string };
 
 const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
     href={item.url}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label={item.name}
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: index * 0.05 }}
-    className="group relative flex aspect-[3/2] overflow-hidden rounded-sm border border-white/10 bg-gradient-to-br from-secondary/90 via-secondary/70 to-black/80 p-4 shadow-[0_16px_30px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_20px_34px_rgba(0,0,0,0.36)]"
+    className={cn(
+      "group relative flex h-[88px] overflow-hidden rounded-sm border border-white/10 bg-[linear-gradient(135deg,rgba(28,28,28,0.95),rgba(8,8,8,0.92))] px-4 shadow-[0_16px_30px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/18 hover:shadow-[0_20px_34px_rgba(0,0,0,0.36)] sm:h-[94px]",
+      item.tileClassName,
+    )}
     title={item.name}
   >
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_58%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
-    <div className="relative flex h-full w-full items-center justify-center rounded-[2px] border border-white/6 bg-black/25 px-5">
-      <img
-        src={item.logo}
-        alt={item.name}
-        className={cn(
-          "max-h-10 w-auto max-w-full transform-gpu object-contain opacity-90 drop-shadow-[0_0_16px_rgba(255,255,255,0.18)] transition duration-300 group-hover:opacity-100 sm:max-h-11",
-          item.logoClassName,
-        )}
-      />
+    <div className="pointer-events-none absolute inset-[1px] border border-white/6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+    <div
+      className={cn(
+        "relative z-10 flex h-full w-full items-center justify-center transition duration-300 group-hover:scale-[1.01]",
+        item.contentClassName,
+      )}
+    >
+      {item.logo}
     </div>
   </motion.a>
 );
@@ -123,7 +220,7 @@ const SobreMi = () => {
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   {t("aboutPage.brands")}
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {brands.map((brand, i) => (
                     <LogoTile key={brand.name} item={brand} index={i} />
                   ))}
@@ -135,7 +232,7 @@ const SobreMi = () => {
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   {t("aboutPage.platforms")}
                 </h3>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {platforms.map((platform, i) => (
                     <LogoTile key={platform.name} item={platform} index={i} />
                   ))}
