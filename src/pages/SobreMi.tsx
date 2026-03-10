@@ -4,16 +4,15 @@ import PageLayout from "@/components/PageLayout";
 import { useLanguage } from "@/hooks/useLanguage";
 
 // Logo imports
-import audiLogo from "@/assets/logos/about/audi-white.png";
-import lorealLogo from "@/assets/logos/about/loreal-white.png";
-import mcdonaldsLogo from "@/assets/logos/about/mcdonalds-white.png";
-import mercadolibreLogo from "@/assets/logos/about/mercadolibre-white.png";
-import netflixLogo from "@/assets/logos/about/netflix-white.png";
-import natgeoLogo from "@/assets/logos/about/natgeo-white.png";
-import pilsenLogo from "@/assets/logos/about/pilsen-white.png";
-import farmashopLogo from "@/assets/logos/about/farmashop-white.png";
-import vixLogo from "@/assets/logos/about/vix-white.png";
-import jeepLogo from "@/assets/logos/about/jeep-white.svg";
+import audiLogo from "@/assets/logos/about/supplied/audi.png";
+import lorealLogo from "@/assets/logos/about/supplied/loreal.png";
+import mcdonaldsLogo from "@/assets/logos/about/supplied/mcdonalds.png";
+import mercadolibreLogo from "@/assets/logos/about/supplied/mercadolibre.png";
+import netflixLogo from "@/assets/logos/about/supplied/netflix.png";
+import natgeoLogo from "@/assets/logos/about/supplied/nationalgeographic.png";
+import pilsenLogo from "@/assets/logos/about/supplied/pilsen.png";
+import farmashopLogo from "@/assets/logos/about/supplied/farmashop.png";
+import vixLogo from "@/assets/logos/about/supplied/vix.png";
 import imdbLogo from "@/assets/logos/about/imdb-white.svg";
 import aboutPortrait from "@/assets/about-fermin-urban.jpg";
 
@@ -21,11 +20,7 @@ type LogoItemType = {
   name: string;
   logo: string;
   url: string;
-  brandFill: string;
-  maskSize?: string;
-  renderMode?: "mask" | "image";
-  tileClassName?: string;
-  contentClassName?: string;
+  logoClassName?: string;
 };
 
 const brands: LogoItemType[] = [
@@ -33,50 +28,37 @@ const brands: LogoItemType[] = [
     name: "L'Oréal",
     logo: lorealLogo,
     url: "https://www.loreal.com",
-    brandFill: "linear-gradient(90deg, #d9d0c3 0%, #f6f1e8 100%)",
-    maskSize: "155% auto",
+    logoClassName: "max-w-[112px] sm:max-w-[126px]",
   },
   {
     name: "Audi",
     logo: audiLogo,
     url: "https://www.audi.com",
-    brandFill: "linear-gradient(90deg, #cfd2d6 0%, #ffffff 100%)",
-    maskSize: "138% auto",
+    logoClassName: "max-w-[92px] sm:max-w-[102px]",
   },
   {
     name: "McDonald's",
     logo: mcdonaldsLogo,
     url: "https://www.mcdonalds.com",
-    brandFill: "linear-gradient(180deg, #ffd54a 0%, #ffbc0d 100%)",
-    maskSize: "108% auto",
+    logoClassName: "max-h-11 max-w-[94px] sm:max-h-12 sm:max-w-[104px]",
   },
   {
     name: "Mercado Libre",
     logo: mercadolibreLogo,
     url: "https://www.mercadolibre.com",
-    brandFill: "linear-gradient(180deg, #ffe15a 0%, #f5d000 100%)",
-    maskSize: "124% auto",
-  },
-  {
-    name: "Jeep",
-    logo: jeepLogo,
-    url: "https://www.jeep.com",
-    brandFill: "linear-gradient(180deg, #e8ece1 0%, #8fa16c 100%)",
-    maskSize: "92% auto",
+    logoClassName: "max-w-[110px] sm:max-w-[124px]",
   },
   {
     name: "Pilsen",
     logo: pilsenLogo,
     url: "https://www.pilsen.com.uy",
-    brandFill: "linear-gradient(90deg, #d7b16d 0%, #f0d8a4 100%)",
-    maskSize: "150% auto",
+    logoClassName: "max-w-[104px] sm:max-w-[116px]",
   },
   {
     name: "Farmashop",
     logo: farmashopLogo,
     url: "https://www.farmashop.com.uy",
-    brandFill: "linear-gradient(180deg, #d7ef5f 0%, #92d73f 100%)",
-    renderMode: "image",
+    logoClassName: "max-w-[110px] sm:max-w-[124px]",
   },
 ];
 
@@ -85,62 +67,21 @@ const platforms: LogoItemType[] = [
     name: "Netflix",
     logo: netflixLogo,
     url: "https://www.netflix.com",
-    brandFill: "linear-gradient(180deg, #ff4138 0%, #e50914 100%)",
-    maskSize: "108% auto",
+    logoClassName: "max-w-[108px] sm:max-w-[120px]",
   },
   {
     name: "ViX",
     logo: vixLogo,
     url: "https://www.vix.com",
-    brandFill: "linear-gradient(90deg, #ff7a18 0%, #ffd451 50%, #8f74ff 100%)",
-    maskSize: "138% auto",
+    logoClassName: "max-w-[96px] sm:max-w-[108px]",
   },
   {
     name: "National Geographic",
     logo: natgeoLogo,
     url: "https://www.nationalgeographic.com",
-    tileClassName: "col-span-2",
-    brandFill: "linear-gradient(90deg, #f5c518 0%, #f5c518 100%)",
-    maskSize: "118% auto",
+    logoClassName: "max-w-[112px] sm:max-w-[128px]",
   },
 ];
-
-const MaskLogo = ({ src, brandFill, maskSize = "contain" }: { src: string; brandFill: string; maskSize?: string }) => {
-  const maskStyle = {
-    WebkitMaskImage: `url(${src})`,
-    maskImage: `url(${src})`,
-    WebkitMaskRepeat: "no-repeat",
-    maskRepeat: "no-repeat",
-    WebkitMaskPosition: "center",
-    maskPosition: "center",
-    WebkitMaskSize: maskSize,
-    maskSize,
-  } as const;
-
-  return (
-    <div className="relative h-12 w-full max-w-[152px] transition-transform duration-300 group-hover:scale-[1.06] sm:h-14 sm:max-w-[168px]">
-      <div
-        className="absolute inset-0 bg-white/60 opacity-100 drop-shadow-[0_0_14px_rgba(255,255,255,0.14)] transition-opacity duration-300 group-hover:opacity-0"
-        style={maskStyle}
-      />
-      <div
-        className="absolute inset-0 opacity-0 drop-shadow-[0_0_18px_rgba(255,255,255,0.18)] transition-opacity duration-300 group-hover:opacity-100"
-        style={{ ...maskStyle, background: brandFill }}
-      />
-    </div>
-  );
-};
-
-const ImageLogo = ({ src }: { src: string }) => (
-  <div className="relative flex h-12 w-full max-w-[152px] items-center justify-center transition-transform duration-300 group-hover:scale-[1.06] sm:h-14 sm:max-w-[168px]">
-    <img
-      src={src}
-      alt=""
-      aria-hidden="true"
-      className="max-h-full max-w-full object-contain opacity-75 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-    />
-  </div>
-);
 
 const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
@@ -152,16 +93,23 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: index * 0.05 }}
-    className={`group relative flex h-[88px] overflow-hidden rounded-sm border border-white/10 bg-[linear-gradient(135deg,rgba(28,28,28,0.95),rgba(8,8,8,0.92))] px-4 shadow-[0_16px_30px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/18 hover:shadow-[0_20px_34px_rgba(0,0,0,0.36)] sm:h-[94px] ${item.tileClassName ?? ""}`}
+    className="group relative flex h-[84px] overflow-hidden rounded bg-secondary/85 transition-all duration-500 hover:-translate-y-0.5 hover:bg-secondary sm:h-[88px]"
     title={item.name}
   >
-    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_58%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
-    <div className={`relative z-10 flex h-full w-full items-center justify-center transition duration-300 group-hover:scale-[1.01] ${item.contentClassName ?? ""}`}>
-      {item.renderMode === "image" ? (
-        <ImageLogo src={item.logo} />
-      ) : (
-        <MaskLogo src={item.logo} brandFill={item.brandFill} maskSize={item.maskSize} />
-      )}
+    <div className="pointer-events-none absolute inset-0 bg-background/35 transition-all duration-500 group-hover:bg-background/15" />
+    <div
+      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      style={{
+        background: "repeating-linear-gradient(0deg, transparent, transparent 2px, hsla(0,0%,0%,0.03) 2px, hsla(0,0%,0%,0.03) 4px)",
+      }}
+    />
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/40 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+    <div className="relative z-10 flex h-full w-full items-center justify-center px-2">
+      <img
+        src={item.logo}
+        alt={item.name}
+        className={`max-h-10 w-auto max-w-[106px] object-contain opacity-80 transition duration-500 [filter:grayscale(1)_brightness(1.28)_contrast(0.96)] group-hover:scale-[1.04] group-hover:opacity-100 group-hover:[filter:none] sm:max-h-11 ${item.logoClassName ?? ""}`}
+      />
     </div>
   </motion.a>
 );
@@ -227,7 +175,7 @@ const SobreMi = () => {
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   {t("aboutPage.brands")}
                 </h3>
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
                   {brands.map((brand, i) => (
                     <LogoTile key={brand.name} item={brand} index={i} />
                   ))}
@@ -239,7 +187,7 @@ const SobreMi = () => {
                 <h3 className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
                   {t("aboutPage.platforms")}
                 </h3>
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
                   {platforms.map((platform, i) => (
                     <LogoTile key={platform.name} item={platform} index={i} />
                   ))}
