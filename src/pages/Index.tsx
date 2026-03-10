@@ -104,17 +104,19 @@ const Index = () => {
               loading="eager"
               decoding="async"
               initial={{ scale: 1.06 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+              animate={{ scale: 1, opacity: heroVideoReady ? 0 : 1 }}
+              transition={{
+                scale: { duration: 1.6, ease: [0.22, 1, 0.36, 1] },
+                opacity: { duration: 0.7, ease: "easeOut" },
+              }}
               className="absolute inset-0 h-full w-full object-cover gpu-layer paint-contain"
             />
           )}
-          <div className="absolute inset-0 bg-background/60" />
 
           {/* Vimeo reel background */}
           <div
             className="absolute inset-0 overflow-hidden transition-opacity duration-700 gpu-layer paint-contain"
-            style={{ opacity: heroVideoReady ? 0.3 : 0 }}
+            style={{ opacity: heroVideoReady ? 1 : 0 }}
           >
             <iframe
               src={heroVideoUrl}
@@ -125,6 +127,7 @@ const Index = () => {
               onLoad={() => setHeroVideoReady(true)}
             />
           </div>
+          <div className="absolute inset-0 bg-background/55" />
 
           <div className="relative z-10 text-center px-6">
             <motion.h1
