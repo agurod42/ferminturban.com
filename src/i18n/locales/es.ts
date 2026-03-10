@@ -14,7 +14,7 @@ const es = {
     viewAll: "Ver todo →",
   },
   bio: {
-    text: "Cineasta uruguayo nacido en Guichón. Trabaja entre la publicidad y el documental, combinando sensibilidad documental con un lenguaje visual cinematográfico y una búsqueda constante de autenticidad.",
+    text: "Soy Fermín Turban, cineasta uruguayo nacido en Guichón. Trabajo en el cruce entre la publicidad y el documental, explorando distintas formas de narrar a través de la imagen.",
     contact: "Contacto",
   },
   advertisingPage: {
@@ -27,10 +27,10 @@ const es = {
   },
   aboutPage: {
     title: "SOBRE MÍ",
-    bio1: "Fermin Turban es un cineasta uruguayo nacido en Guichón que trabaja entre la publicidad y el documental.",
-    bio2: "Ha filmado y dirigido campañas para marcas como L'Oréal, Audi, McDonald's, Mercado Libre y Jeep, siempre buscando combinar sensibilidad documental con un lenguaje visual cinematográfico.",
-    bio3: "En el terreno documental, cuenta con siete largometrajes estrenados en plataformas como Netflix, NatGeo y VIX, y tiene cuatro proyectos adicionales en desarrollo.",
-    bio4: "Su búsqueda creativa se centra en la autenticidad: encontrar la verdad en cada imagen, ya sea en un set publicitario o en un documental de largo aliento.",
+    bio1: "Soy Fermín Turban, cineasta uruguayo nacido en Guichón.",
+    bio2: "Trabajo en el cruce entre la publicidad y el documental, explorando distintas formas de narrar a través de la imagen.",
+    bio3: "He dirigido y fotografiado campañas para marcas como L'Oréal, Audi, McDonald's, Mercado Libre y Jeep, entre otras. En paralelo, he desarrollado una sólida trayectoria en el cine documental, con siete largometrajes estrenados en plataformas como Netflix, NatGeo y ViX, y cuatro nuevos proyectos en camino.",
+    bio4: "Mi trabajo busca capturar la autenticidad de cada historia, combinando la mirada documental con el lenguaje visual del cine.",
     brands: "Marcas",
     platforms: "Plataformas",
   },
