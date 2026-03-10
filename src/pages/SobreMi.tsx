@@ -1,33 +1,29 @@
-import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { useLanguage } from "@/hooks/useLanguage";
-import { cn } from "@/lib/utils";
 
 // Logo imports
 import audiLogo from "@/assets/logos/about/audi-white.png";
+import lorealLogo from "@/assets/logos/about/loreal-white.png";
 import mcdonaldsLogo from "@/assets/logos/about/mcdonalds-white.png";
 import mercadolibreLogo from "@/assets/logos/about/mercadolibre-white.png";
+import netflixLogo from "@/assets/logos/about/netflix-white.png";
+import natgeoLogo from "@/assets/logos/about/natgeo-white.png";
+import pilsenLogo from "@/assets/logos/about/pilsen-white.png";
 import farmashopLogo from "@/assets/logos/about/farmashop-white.png";
+import vixLogo from "@/assets/logos/about/vix-white.png";
 import jeepLogo from "@/assets/logos/about/jeep-white.svg";
 import imdbLogo from "@/assets/logos/about/imdb-white.svg";
 import aboutPortrait from "@/assets/about-fermin-urban.jpg";
 
-const MarkImage = ({ src, className }: { src: string; className?: string }) => (
-  <img src={src} alt="" aria-hidden="true" className={cn("h-auto w-auto max-w-full object-contain", className)} />
-);
-
-const LogoLabel = ({ children, className }: { children: ReactNode; className?: string }) => (
-  <span className={cn("font-body text-[10px] font-semibold uppercase tracking-[0.22em] text-white/72 sm:text-[11px]", className)}>
-    {children}
-  </span>
-);
-
 type LogoItemType = {
   name: string;
-  logo: ReactNode;
+  logo: string;
   url: string;
+  brandFill: string;
+  maskSize?: string;
+  renderMode?: "mask" | "image";
   tileClassName?: string;
   contentClassName?: string;
 };
@@ -35,100 +31,116 @@ type LogoItemType = {
 const brands: LogoItemType[] = [
   {
     name: "L'Oréal",
+    logo: lorealLogo,
     url: "https://www.loreal.com",
-    logo: (
-      <span className="font-body text-lg font-semibold uppercase tracking-[0.34em] text-[#f4ecdf] sm:text-xl">
-        L'Oréal
-      </span>
-    ),
+    brandFill: "linear-gradient(90deg, #d9d0c3 0%, #f6f1e8 100%)",
+    maskSize: "155% auto",
   },
   {
     name: "Audi",
+    logo: audiLogo,
     url: "https://www.audi.com",
-    logo: <MarkImage src={audiLogo} className="max-h-8 sm:max-h-9" />,
+    brandFill: "linear-gradient(90deg, #cfd2d6 0%, #ffffff 100%)",
+    maskSize: "138% auto",
   },
   {
     name: "McDonald's",
+    logo: mcdonaldsLogo,
     url: "https://www.mcdonalds.com",
-    logo: (
-      <div className="flex flex-col items-center gap-2">
-        <MarkImage src={mcdonaldsLogo} className="max-h-9 sm:max-h-10" />
-        <LogoLabel className="text-[#f2c94c]">McDonald's</LogoLabel>
-      </div>
-    ),
+    brandFill: "linear-gradient(180deg, #ffd54a 0%, #ffbc0d 100%)",
+    maskSize: "108% auto",
   },
   {
     name: "Mercado Libre",
+    logo: mercadolibreLogo,
     url: "https://www.mercadolibre.com",
-    logo: (
-      <div className="flex flex-col items-center gap-2">
-        <MarkImage src={mercadolibreLogo} className="max-h-7 sm:max-h-8" />
-        <LogoLabel className="tracking-[0.18em] text-[#f4d96c]">Mercado Libre</LogoLabel>
-      </div>
-    ),
+    brandFill: "linear-gradient(180deg, #ffe15a 0%, #f5d000 100%)",
+    maskSize: "124% auto",
   },
   {
     name: "Jeep",
+    logo: jeepLogo,
     url: "https://www.jeep.com",
-    logo: <MarkImage src={jeepLogo} className="max-h-5 sm:max-h-6" />,
+    brandFill: "linear-gradient(180deg, #e8ece1 0%, #8fa16c 100%)",
+    maskSize: "92% auto",
   },
   {
     name: "Pilsen",
+    logo: pilsenLogo,
     url: "https://www.pilsen.com.uy",
-    logo: (
-      <span className="font-body text-2xl font-medium italic tracking-[0.08em] text-[#cfb47c] sm:text-[2rem]">
-        Pilsen
-      </span>
-    ),
+    brandFill: "linear-gradient(90deg, #d7b16d 0%, #f0d8a4 100%)",
+    maskSize: "150% auto",
   },
   {
     name: "Farmashop",
+    logo: farmashopLogo,
     url: "https://www.farmashop.com.uy",
-    logo: (
-      <div className="flex flex-col items-center gap-2">
-        <MarkImage src={farmashopLogo} className="max-h-7 sm:max-h-8" />
-        <LogoLabel className="tracking-[0.18em] text-[#b2d95f]">Farmashop</LogoLabel>
-      </div>
-    ),
+    brandFill: "linear-gradient(180deg, #d7ef5f 0%, #92d73f 100%)",
+    renderMode: "image",
   },
 ];
 
 const platforms: LogoItemType[] = [
   {
     name: "Netflix",
+    logo: netflixLogo,
     url: "https://www.netflix.com",
-    logo: (
-      <span className="font-display text-4xl tracking-[0.24em] text-[#e50914] sm:text-5xl">
-        Netflix
-      </span>
-    ),
+    brandFill: "linear-gradient(180deg, #ff4138 0%, #e50914 100%)",
+    maskSize: "108% auto",
   },
   {
     name: "ViX",
+    logo: vixLogo,
     url: "https://www.vix.com",
-    logo: (
-      <span className="bg-gradient-to-r from-[#ff7a18] via-[#ffd451] to-[#7f6bff] bg-clip-text font-body text-3xl font-semibold uppercase tracking-[0.18em] text-transparent sm:text-4xl">
-        ViX
-      </span>
-    ),
+    brandFill: "linear-gradient(90deg, #ff7a18 0%, #ffd451 50%, #8f74ff 100%)",
+    maskSize: "138% auto",
   },
   {
     name: "National Geographic",
+    logo: natgeoLogo,
     url: "https://www.nationalgeographic.com",
     tileClassName: "col-span-2",
-    contentClassName: "justify-start px-1 sm:px-3",
-    logo: (
-      <div className="flex items-center gap-4">
-        <span className="h-10 w-[14px] shrink-0 border-[3px] border-[#f5c518]" aria-hidden="true" />
-        <span className="font-body text-left text-[11px] font-semibold uppercase leading-[1.1] tracking-[0.22em] text-white/90 sm:text-xs">
-          National
-          <br />
-          Geographic
-        </span>
-      </div>
-    ),
+    brandFill: "linear-gradient(90deg, #f5c518 0%, #f5c518 100%)",
+    maskSize: "118% auto",
   },
 ];
+
+const MaskLogo = ({ src, brandFill, maskSize = "contain" }: { src: string; brandFill: string; maskSize?: string }) => {
+  const maskStyle = {
+    WebkitMaskImage: `url(${src})`,
+    maskImage: `url(${src})`,
+    WebkitMaskRepeat: "no-repeat",
+    maskRepeat: "no-repeat",
+    WebkitMaskPosition: "center",
+    maskPosition: "center",
+    WebkitMaskSize: maskSize,
+    maskSize,
+  } as const;
+
+  return (
+    <div className="relative h-12 w-full max-w-[152px] transition-transform duration-300 group-hover:scale-[1.06] sm:h-14 sm:max-w-[168px]">
+      <div
+        className="absolute inset-0 bg-white/60 opacity-100 drop-shadow-[0_0_14px_rgba(255,255,255,0.14)] transition-opacity duration-300 group-hover:opacity-0"
+        style={maskStyle}
+      />
+      <div
+        className="absolute inset-0 opacity-0 drop-shadow-[0_0_18px_rgba(255,255,255,0.18)] transition-opacity duration-300 group-hover:opacity-100"
+        style={{ ...maskStyle, background: brandFill }}
+      />
+    </div>
+  );
+};
+
+const ImageLogo = ({ src }: { src: string }) => (
+  <div className="relative flex h-12 w-full max-w-[152px] items-center justify-center transition-transform duration-300 group-hover:scale-[1.06] sm:h-14 sm:max-w-[168px]">
+    <img
+      src={src}
+      alt=""
+      aria-hidden="true"
+      className="max-h-full max-w-full object-contain opacity-75 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+    />
+  </div>
+);
 
 const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
   <motion.a
@@ -140,21 +152,16 @@ const LogoTile = ({ item, index }: { item: LogoItemType; index: number }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: index * 0.05 }}
-    className={cn(
-      "group relative flex h-[88px] overflow-hidden rounded-sm border border-white/10 bg-[linear-gradient(135deg,rgba(28,28,28,0.95),rgba(8,8,8,0.92))] px-4 shadow-[0_16px_30px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/18 hover:shadow-[0_20px_34px_rgba(0,0,0,0.36)] sm:h-[94px]",
-      item.tileClassName,
-    )}
+    className={`group relative flex h-[88px] overflow-hidden rounded-sm border border-white/10 bg-[linear-gradient(135deg,rgba(28,28,28,0.95),rgba(8,8,8,0.92))] px-4 shadow-[0_16px_30px_rgba(0,0,0,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/18 hover:shadow-[0_20px_34px_rgba(0,0,0,0.36)] sm:h-[94px] ${item.tileClassName ?? ""}`}
     title={item.name}
   >
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_58%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
-    <div className="pointer-events-none absolute inset-[1px] border border-white/6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-    <div
-      className={cn(
-        "relative z-10 flex h-full w-full items-center justify-center transition duration-300 group-hover:scale-[1.01]",
-        item.contentClassName,
+    <div className={`relative z-10 flex h-full w-full items-center justify-center transition duration-300 group-hover:scale-[1.01] ${item.contentClassName ?? ""}`}>
+      {item.renderMode === "image" ? (
+        <ImageLogo src={item.logo} />
+      ) : (
+        <MaskLogo src={item.logo} brandFill={item.brandFill} maskSize={item.maskSize} />
       )}
-    >
-      {item.logo}
     </div>
   </motion.a>
 );
