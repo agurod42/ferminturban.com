@@ -2,8 +2,8 @@ import publicidadSource from "@/data/scraped/publicidad_enriched.json";
 import documentalSource from "@/data/scraped/documental_enriched.json";
 import type { Lang } from "@/hooks/useLanguage";
 
-export type ProjectCategory = "publicidad" | "documental";
-export const DEFAULT_ASPECT_RATIO = 16 / 9;
+type ProjectCategory = "publicidad" | "documental";
+const DEFAULT_ASPECT_RATIO = 16 / 9;
 
 export type Project = {
   slug: string;
@@ -264,8 +264,6 @@ export const sharedThumbnailAspectRatio =
 
 export const getProjectsByCategory = (category: ProjectCategory) =>
   projects.filter((project) => project.category === category);
-
-export const getFeaturedProjects = () => projects.filter((project) => project.featured);
 
 export const getProjectBySlug = (slug: string) =>
   projects.find((project) => project.slug === slug);

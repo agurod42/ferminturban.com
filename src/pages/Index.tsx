@@ -83,7 +83,7 @@ const Index = () => {
         });
       }
     });
-  }, [commercialProjects, deviceType, docProjects, heroPoster, heroPosterImage?.src, heroVideo.projectSlug, heroVideoUrl]);
+  }, [commercialProjects, deviceType, docProjects, heroPoster, heroPosterImage?.src, heroVideo.projectSlug, heroVideoUrl, isMobile]);
 
   return (
     <PageTransition>

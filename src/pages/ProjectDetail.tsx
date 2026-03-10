@@ -15,10 +15,34 @@ const ProjectDetail = () => {
   const { t, lang, projectPath, categoryPath } = useLanguage();
   const project = getProjectByLocalizedSlug(slug || "", lang);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const siblings = project ? projects.filter((p) => p.category === project.category) : [];
+  const currentIndex = project ? siblings.findIndex((p) => p.slug === project.slug) : -1;
+  const prevProject = currentIndex > 0 ? siblings[currentIndex - 1] : null;
+  const nextProject = currentIndex >= 0 && currentIndex < siblings.length - 1 ? siblings[currentIndex + 1] : null;
 
   useEffect(() => {
     setVideoPlaying(false);
   }, [slug]);
+
+  useEffect(() => {
+    if (!project) {
+      return;
+    }
+
+    preloadProjectMedia(project, {
+      includeGallery: true,
+      priority: "high",
+    });
+
+    scheduleIdle(() => {
+      [prevProject, nextProject].forEach((candidate) => {
+        preloadProjectMedia(candidate, {
+          includeGallery: false,
+          priority: "low",
+        });
+      });
+    });
+  }, [nextProject, prevProject, project]);
 
   if (!project) {
     return (
@@ -32,11 +56,6 @@ const ProjectDetail = () => {
       </PageLayout>
     );
   }
-
-  const siblings = projects.filter((p) => p.category === project.category);
-  const currentIndex = siblings.findIndex((p) => p.slug === project.slug);
-  const prevProject = currentIndex > 0 ? siblings[currentIndex - 1] : null;
-  const nextProject = currentIndex < siblings.length - 1 ? siblings[currentIndex + 1] : null;
 
   const backPath = categoryPath(project.category);
   const categoryLabel = project.category === "publicidad" ? t("project.advertising") : t("project.documentary");
@@ -61,22 +80,6 @@ const ProjectDetail = () => {
   ].filter((c) => c.value);
 
   const hasGallery = galleryItems.length > 0;
-
-  useEffect(() => {
-    preloadProjectMedia(project, {
-      includeGallery: true,
-      priority: "high",
-    });
-
-    scheduleIdle(() => {
-      [prevProject, nextProject].forEach((candidate) => {
-        preloadProjectMedia(candidate, {
-          includeGallery: false,
-          priority: "low",
-        });
-      });
-    });
-  }, [nextProject, prevProject, project]);
 
   return (
     <PageLayout showTexture={false}>

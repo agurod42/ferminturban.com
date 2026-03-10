@@ -1,9 +1,5 @@
 import { Suspense, lazy } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageRedirect from "./components/LanguageRedirect";
@@ -15,8 +11,6 @@ const Documental = lazy(() => import("./pages/Documental"));
 const SobreMi = lazy(() => import("./pages/SobreMi"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-
-const queryClient = new QueryClient();
 
 const RouteFallback = () => <div className="min-h-screen bg-background" />;
 
@@ -53,16 +47,10 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <AnimatedRoutes />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <BrowserRouter>
+    <ScrollToTop />
+    <AnimatedRoutes />
+  </BrowserRouter>
 );
 
 export default App;

@@ -1,4 +1,4 @@
-export type HeroVideo = {
+type HeroVideo = {
   id: string;
   projectSlug: string;
   startAtSeconds: number;
@@ -25,19 +25,19 @@ const createHeroVideo = (
   ),
 });
 
-export const heroVideosMobile: HeroVideo[] = [
+const heroVideosMobile: HeroVideo[] = [
   createHeroVideo("1111397503", "mercado-libre-bicho", 46),
   createHeroVideo("844032084", "pilsen", 17),
 ];
 
-export const heroVideosTablet: HeroVideo[] = [
+const heroVideosTablet: HeroVideo[] = [
   createHeroVideo("1111395985", "stadium", 43),
   createHeroVideo("1120210224", "jack-backspring-summer", 53),
   createHeroVideo("844034498", "natalia-oreiro", 27),
   createHeroVideo("884446816", "higuita", 117),
 ];
 
-export const heroVideosDesktop: HeroVideo[] = [
+const heroVideosDesktop: HeroVideo[] = [
   createHeroVideo("1048141828", "jack-stay-true", 45),
   createHeroVideo("992797912", "audi", 44),
   createHeroVideo("1120206992", "mercado-pago", 20),
