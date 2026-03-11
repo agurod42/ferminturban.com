@@ -14,6 +14,7 @@ import {
 import AdminDialog from "@/components/admin/AdminDialog";
 import AdminShell from "@/components/admin/AdminShell";
 import { useAdminSession } from "@/hooks/useAdminSession";
+import { usePublicContent } from "@/hooks/usePublicContent";
 import { apiJson } from "@/lib/api";
 import {
   categoryLabels,
@@ -99,6 +100,7 @@ const toPersistedSnapshot = (project: AdminProject) => JSON.stringify(toProjectI
 const AdminProjectForm = () => {
   const navigate = useNavigate();
   const { session } = useAdminSession();
+  const { sharedThumbnailAspectRatio } = usePublicContent();
   const { id } = useParams<{ id: string }>();
   const isNew = !id;
   const [project, setProject] = useState<AdminProject>(emptyAdminProject);
@@ -881,7 +883,11 @@ const AdminProjectForm = () => {
                       <img
                         src={String(project[asset.key])}
                         alt={asset.label}
-                        className="mt-4 aspect-[16/10] w-full rounded-[1.25rem] border border-border/40 object-cover"
+                        className="mt-4 w-full rounded-[1.25rem] border border-border/40 object-cover"
+                        style={{
+                          aspectRatio:
+                            asset.key === "thumbnailUrl" ? sharedThumbnailAspectRatio : 16 / 10,
+                        }}
                       />
                     ) : null}
                   </div>

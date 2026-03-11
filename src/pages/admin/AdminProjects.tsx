@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ExternalLink, PlusSquare, Search, SlidersHorizontal } from "lucide-react";
 import AdminShell from "@/components/admin/AdminShell";
 import { useAdminProjects } from "@/hooks/useAdminProjects";
+import { usePublicContent } from "@/hooks/usePublicContent";
 import {
   categoryLabels,
   formatRelativeTimestamp,
@@ -31,6 +32,7 @@ type LibrarySort = "recent" | "manual" | "title";
 
 const AdminProjects = () => {
   const { projects, isLoading, error, source, syncedAt } = useAdminProjects();
+  const { sharedThumbnailAspectRatio } = usePublicContent();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const view = (searchParams.get("view") as LibraryView | null) || "all";
@@ -280,10 +282,18 @@ const AdminProjects = () => {
                       <img
                         src={thumbnail}
                         alt={project.thumbnailAltEs || project.titleEs || "Project thumbnail"}
-                        className="h-full min-h-[180px] w-full object-cover"
+                        className="w-full object-cover"
+                        style={{
+                          aspectRatio: sharedThumbnailAspectRatio,
+                        }}
                       />
                     ) : (
-                      <div className="flex min-h-[180px] items-center justify-center px-6 text-center font-body text-sm text-muted-foreground">
+                      <div
+                        className="flex items-center justify-center px-6 text-center font-body text-sm text-muted-foreground"
+                        style={{
+                          aspectRatio: sharedThumbnailAspectRatio,
+                        }}
+                      >
                         Thumbnail missing
                       </div>
                     )}
