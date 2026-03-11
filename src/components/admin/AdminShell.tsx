@@ -48,6 +48,7 @@ const AdminShell = ({
 
     return activeItem?.label || title;
   }, [location.pathname, title]);
+  const mobileShowsContextLabel = activeNavLabel !== title;
 
   const handleLogout = async () => {
     try {
@@ -130,10 +131,16 @@ const AdminShell = ({
           <div className="sticky top-0 z-40 -mx-4 border-b border-border/35 bg-background/92 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:px-6 lg:hidden">
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="font-body text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  {activeNavLabel}
-                </p>
-                <p className="mt-1 font-body text-base font-semibold text-foreground">{title}</p>
+                {mobileShowsContextLabel ? (
+                  <>
+                    <p className="font-body text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                      {activeNavLabel}
+                    </p>
+                    <p className="mt-1 font-body text-base font-semibold text-foreground">{title}</p>
+                  </>
+                ) : (
+                  <p className="font-body text-base font-semibold text-foreground">{title}</p>
+                )}
               </div>
 
               <div className="flex items-center gap-2">
