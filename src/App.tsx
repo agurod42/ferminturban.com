@@ -14,6 +14,7 @@ import Index from "./pages/Index";
 const AdminLogin = lazyRoute(() => import("./pages/admin/AdminLogin"));
 const AdminProjects = lazyRoute(() => import("./pages/admin/AdminProjects"));
 const AdminProjectForm = lazyRoute(() => import("./pages/admin/AdminProjectForm"));
+const AdminSecurity = lazyRoute(() => import("./pages/admin/AdminSecurity"));
 const Publicidad = lazyRoute(() => import("./pages/Publicidad"));
 const Documental = lazyRoute(() => import("./pages/Documental"));
 const SobreMi = lazyRoute(() => import("./pages/SobreMi"));
@@ -68,6 +69,7 @@ const AnimatedRoutes = () => {
               <Route path="projects" element={<AdminProjects />} />
               <Route path="projects/new" element={<AdminProjectForm />} />
               <Route path="projects/:id" element={<AdminProjectForm />} />
+              <Route path="security" element={<AdminSecurity />} />
             </Route>
           </Route>
 

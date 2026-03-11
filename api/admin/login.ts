@@ -1,9 +1,8 @@
 import {
-  getConfiguredAdminEmail,
-  getConfiguredAdminHash,
   setSessionCookie,
   verifyPassword,
 } from "../_lib/auth.js";
+import { getAdminCredentials } from "../_lib/admin-credentials.js";
 import { getErrorMessage, getErrorStatus } from "../_lib/errors.js";
 import {
   getJsonBody,
@@ -25,8 +24,9 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   try {
     const payload = loginSchema.parse(getJsonBody(req));
-    const email = getConfiguredAdminEmail();
-    const hash = getConfiguredAdminHash();
+    const credentials = (await getAdminCredentials()).data;
+    const email = credentials.email;
+    const hash = credentials.passwordHash;
     const isMatch =
       payload.email.toLowerCase() === email.toLowerCase() &&
       (await verifyPassword(payload.password, hash));
@@ -36,7 +36,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       return;
     }
 
-    const session = setSessionCookie(res, email);
+    const session = setSessionCookie(res, credentials);
     json(res, 200, {
       session: {
         authenticated: true,

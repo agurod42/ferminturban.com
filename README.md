@@ -44,6 +44,7 @@ npm run admin:hash -- "your-password"
 ```
 
 3. Set `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `SESSION_SECRET`.
+   The email and hash are used to bootstrap the runtime credential store on first run. After that, password changes from `/admin/security` persist in the runtime store.
 4. Optional: set `DATABASE_URL` for Postgres-backed content storage.
 5. Optional: set `BLOB_READ_WRITE_TOKEN` for Blob uploads.
 6. Seed the runtime content store from the current static portfolio:
@@ -83,3 +84,9 @@ npm run build
   - `IMGPROXY_SIGNATURE_SIZE`
 
 Public SPA routing is handled by `vercel.json`, and API routes under `api/` are deployed as Vercel Functions.
+
+## Admin security
+
+- `POST /api/admin/change-password` rotates the stored admin password and refreshes the current session.
+- Older admin cookies are invalidated automatically after a password change.
+- On deployments without `DATABASE_URL`, password changes persist to `.data/admin-credentials.json` locally. On read-only deployments, `DATABASE_URL` is required for password changes.

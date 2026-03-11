@@ -138,13 +138,13 @@ For v1, use a small relational schema.
 
 Avoid building user management unless needed.
 
-Use environment variables for a single admin account:
+Use environment variables to bootstrap a single admin account:
 
 - `ADMIN_EMAIL`
 - `ADMIN_PASSWORD_HASH`
 - `SESSION_SECRET`
 
-If multi-user admin is needed later, add an `admin_users` table.
+Persist the live credential state in the runtime store so the admin can rotate the password without redeploying. If multi-user admin is needed later, add an `admin_users` table.
 
 ## API Surface
 
@@ -165,6 +165,7 @@ Favor explicit, low-risk routes over clever routing.
 - `POST /api/admin/login`
 - `POST /api/admin/logout`
 - `GET /api/admin/session`
+- `POST /api/admin/change-password`
 
 ### Admin Project APIs
 
@@ -197,6 +198,7 @@ Keep existing routes intact.
 - `/admin/projects`
 - `/admin/projects/new`
 - `/admin/projects/:id`
+- `/admin/security`
 
 The admin route tree should be lazy-loaded and omitted from the public header/footer navigation.
 

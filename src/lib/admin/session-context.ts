@@ -7,6 +7,11 @@ export type AdminSessionContextValue = {
   error: string | null;
   refresh: () => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
+  changePassword: (
+    currentPassword: string,
+    newPassword: string,
+    confirmPassword: string,
+  ) => Promise<void>;
   logout: () => Promise<void>;
 };
 

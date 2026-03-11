@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { ChevronDown, LogOut } from "lucide-react";
+import { ChevronDown, KeyRound, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
 import AdminThemeToggle from "@/components/admin/AdminThemeToggle";
 
 type AdminSessionPanelProps = {
@@ -63,6 +64,14 @@ export const AdminSessionPanel = ({
 
       <div className="mt-5 space-y-3">
         <AdminThemeToggle className="w-full justify-center" />
+        <Link
+          to="/admin/security"
+          onClick={() => onRequestClose?.()}
+          className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary"
+        >
+          <KeyRound size={16} />
+          <span>Security</span>
+        </Link>
         <button
           type="button"
           onClick={() => {

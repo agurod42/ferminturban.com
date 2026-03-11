@@ -1,4 +1,4 @@
-import { getSessionExpiry, readSession } from "../_lib/auth.js";
+import { readSession } from "../_lib/auth.js";
 import { getErrorMessage, getErrorStatus } from "../_lib/errors.js";
 import { json, methodNotAllowed, setNoStore, type ApiRequest, type ApiResponse } from "../_lib/http.js";
 
@@ -11,7 +11,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   try {
-    const session = readSession(req);
+    const session = await readSession(req);
     if (!session) {
       json(res, 200, {
         session: {
@@ -25,7 +25,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       session: {
         authenticated: true,
         email: session.email,
-        expiresAt: new Date(getSessionExpiry(req) || session.exp).toISOString(),
+        expiresAt: new Date(session.exp).toISOString(),
       },
     });
   } catch (error) {

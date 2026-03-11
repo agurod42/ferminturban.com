@@ -5,6 +5,7 @@ import {
   timingSafeEqual,
 } from "node:crypto";
 import { promisify } from "node:util";
+import { getAdminCredentials, type AdminCredentials } from "./admin-credentials.js";
 import { ConfigurationError } from "./errors.js";
 import type { ApiRequest, ApiResponse } from "./http.js";
 import { json } from "./http.js";
@@ -16,6 +17,7 @@ const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 7;
 type SessionPayload = {
   email: string;
   exp: number;
+  ver: number;
 };
 
 const getRequiredEnv = (key: string) => {
@@ -100,17 +102,18 @@ export const verifyPassword = async (password: string, storedHash: string) => {
   return timingSafeEqual(derived, Buffer.from(hash, "hex"));
 };
 
-export const createSessionToken = (email: string) => {
+export const createSessionToken = (credentials: Pick<AdminCredentials, "email" | "sessionVersion">) => {
   const payload: SessionPayload = {
-    email,
+    email: credentials.email,
     exp: Date.now() + SESSION_TTL_MS,
+    ver: credentials.sessionVersion,
   };
 
   const encodedPayload = toBase64Url(JSON.stringify(payload));
   return `${encodedPayload}.${sign(encodedPayload)}`;
 };
 
-export const readSession = (req: ApiRequest) => {
+export const readSession = async (req: ApiRequest) => {
   const cookieValue = parseCookies(req.headers.cookie)[SESSION_COOKIE_NAME];
   if (!cookieValue) {
     return null;
@@ -132,15 +135,26 @@ export const readSession = (req: ApiRequest) => {
   }
 
   const payload = JSON.parse(fromBase64Url(encodedPayload).toString("utf8")) as SessionPayload;
-  if (!payload.email || payload.exp <= Date.now()) {
+  if (!payload.email || payload.exp <= Date.now() || typeof payload.ver !== "number") {
+    return null;
+  }
+
+  const credentials = (await getAdminCredentials()).data;
+  if (
+    payload.email.toLowerCase() !== credentials.email.toLowerCase() ||
+    payload.ver !== credentials.sessionVersion
+  ) {
     return null;
   }
 
   return payload;
 };
 
-export const setSessionCookie = (res: ApiResponse, email: string) => {
-  const token = createSessionToken(email);
+export const setSessionCookie = (
+  res: ApiResponse,
+  credentials: Pick<AdminCredentials, "email" | "sessionVersion">,
+) => {
+  const token = createSessionToken(credentials);
   res.setHeader(
     "Set-Cookie",
     serializeCookie(SESSION_COOKIE_NAME, token, {
@@ -164,11 +178,11 @@ export const clearSessionCookie = (res: ApiResponse) => {
   );
 };
 
-export const requireAdminSession = (req: ApiRequest, res: ApiResponse) => {
+export const requireAdminSession = async (req: ApiRequest, res: ApiResponse) => {
   let session = null;
 
   try {
-    session = readSession(req);
+    session = await readSession(req);
   } catch (error) {
     json(res, 500, {
       error: error instanceof Error ? error.message : "Failed to validate admin session",
@@ -183,8 +197,3 @@ export const requireAdminSession = (req: ApiRequest, res: ApiResponse) => {
 
   return session;
 };
-
-export const getConfiguredAdminEmail = () => getRequiredEnv("ADMIN_EMAIL");
-export const getConfiguredAdminHash = () => getRequiredEnv("ADMIN_PASSWORD_HASH");
-
-export const getSessionExpiry = (req: ApiRequest) => readSession(req)?.exp;

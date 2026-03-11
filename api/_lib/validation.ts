@@ -35,6 +35,17 @@ export const loginSchema = z.object({
   password: z.string().min(1),
 });
 
+export const changePasswordSchema = z
+  .object({
+    currentPassword: z.string().min(1, "Current password is required"),
+    newPassword: z.string().min(12, "New password must be at least 12 characters"),
+    confirmPassword: z.string().min(1, "Please confirm the new password"),
+  })
+  .refine((value) => value.newPassword === value.confirmPassword, {
+    message: "New password confirmation does not match",
+    path: ["confirmPassword"],
+  });
+
 export const galleryItemSchema = z.object({
   id: optionalText,
   imageUrl: z.string().trim().refine(isUrlOrLocalPath, {

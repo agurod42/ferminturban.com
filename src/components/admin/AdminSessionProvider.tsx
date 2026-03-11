@@ -46,6 +46,22 @@ const AdminSessionProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  const changePassword = useCallback(
+    async (currentPassword: string, newPassword: string, confirmPassword: string) => {
+      const payload = await apiJson<AdminSessionResponse>("/api/admin/change-password", {
+        method: "POST",
+        body: JSON.stringify({
+          currentPassword,
+          newPassword,
+          confirmPassword,
+        }),
+      });
+      setSession(payload.session);
+      setError(null);
+    },
+    [],
+  );
+
   const logout = useCallback(async () => {
     setIsLoading(true);
 
@@ -71,9 +87,10 @@ const AdminSessionProvider = ({ children }: { children: ReactNode }) => {
       error,
       refresh,
       login,
+      changePassword,
       logout,
     }),
-    [error, isLoading, login, logout, refresh, session],
+    [changePassword, error, isLoading, login, logout, refresh, session],
   );
 
   return (

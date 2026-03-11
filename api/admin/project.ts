@@ -19,7 +19,7 @@ import { parseAdminProjectInput } from "../_lib/validation.js";
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);
 
-  const session = requireAdminSession(req, res);
+  const session = await requireAdminSession(req, res);
   if (!session) {
     return;
   }
