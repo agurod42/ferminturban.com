@@ -2,9 +2,9 @@ import { useMemo, useState, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ChevronRight,
-  Menu,
   Rows3,
   ShieldCheck,
+  UserRound,
   X,
 } from "lucide-react";
 import { AdminInset, AdminPanel } from "@/components/admin/AdminSurface";
@@ -39,7 +39,7 @@ const AdminShell = ({
   const navigate = useNavigate();
   const { session, error, logout } = useAdminSession();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileAccountOpen, setMobileAccountOpen] = useState(false);
 
   const activeNavLabel = useMemo(() => {
     const activeItem = navItems.find((item) =>
@@ -57,7 +57,7 @@ const AdminShell = ({
       navigate("/admin/login", { replace: true });
     } finally {
       setIsLoggingOut(false);
-      setMobileMenuOpen(false);
+      setMobileAccountOpen(false);
     }
   };
 
@@ -66,7 +66,7 @@ const AdminShell = ({
       event.preventDefault();
     }
 
-    setMobileMenuOpen(false);
+    setMobileAccountOpen(false);
   };
 
   const renderNavigation = (compact = false) => (
@@ -146,52 +146,45 @@ const AdminShell = ({
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={() => setMobileMenuOpen(true)}
+                  onClick={() => setMobileAccountOpen(true)}
                   className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-card/70 text-foreground"
-                  aria-label="Open admin navigation"
+                  aria-label="Open account menu"
                 >
-                  <Menu size={18} />
+                  <UserRound size={18} />
                 </button>
               </div>
             </div>
           </div>
 
-          {mobileMenuOpen ? (
+          {mobileAccountOpen ? (
             <div className="fixed inset-0 z-50 lg:hidden">
               <button
                 type="button"
                 className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-                aria-label="Close admin navigation"
-                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close account menu"
+                onClick={() => setMobileAccountOpen(false)}
               />
               <div className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-border/35 bg-background px-5 py-5 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="font-body text-base font-semibold text-foreground">Admin Workspace</p>
-                    <p className="font-body text-sm text-muted-foreground">Navigation and session controls</p>
+                    <p className="font-body text-sm text-muted-foreground">Session and account controls</p>
                   </div>
                   <button
                     type="button"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => setMobileAccountOpen(false)}
                     className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60"
-                    aria-label="Close admin navigation"
+                    aria-label="Close account menu"
                   >
                     <X size={18} />
                   </button>
                 </div>
 
-                <AdminPanel className="mt-6 p-4 shadow-none">
-                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Navigation
-                  </p>
-                  <div className="mt-4">{renderNavigation(true)}</div>
-                </AdminPanel>
-
                 <AdminSessionPanel
                   email={session.email}
                   isLoggingOut={isLoggingOut}
                   onLogout={handleLogout}
-                  className="mt-4 bg-card/68 shadow-none"
+                  className="mt-6 bg-card/68 shadow-none"
                 />
               </div>
             </div>
@@ -236,19 +229,19 @@ const AdminShell = ({
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 xl:justify-end">
-                {headerActions ? (
-                  <div className="relative z-0 flex flex-wrap items-center gap-3 xl:justify-end">
-                    {headerActions}
-                  </div>
-                ) : null}
-                <div className="relative z-20 hidden lg:block">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center xl:shrink-0 xl:flex-nowrap xl:justify-end">
+                <div className="relative z-20 order-1 hidden self-start lg:block xl:order-2 xl:self-auto">
                   <AdminUserMenu
                     email={session.email}
                     isLoggingOut={isLoggingOut}
                     onLogout={handleLogout}
                   />
                 </div>
+                {headerActions ? (
+                  <div className="relative z-0 order-2 flex flex-wrap items-center gap-3 self-start xl:order-1 xl:self-auto xl:justify-end">
+                    {headerActions}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>

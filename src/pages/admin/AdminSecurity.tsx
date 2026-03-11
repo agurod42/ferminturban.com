@@ -59,7 +59,7 @@ const AdminSecurity = () => {
     <AdminShell
       title="Security"
       subtitle="Rotate the admin password from the live workspace without leaving the runtime environment."
-      breadcrumbs={[{ label: "Security" }]}
+      breadcrumbs={[{ label: "Projects", to: "/admin/projects" }, { label: "Security" }]}
     >
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)]">
         <AdminPanel className="p-5 sm:p-6 lg:p-8">
