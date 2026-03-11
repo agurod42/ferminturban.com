@@ -39,6 +39,66 @@
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Barlow', sans-serif;
   }
+
+  [data-admin-theme="light"] {
+    --background: 40 43% 97%;
+    --foreground: 20 20% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 20% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 20% 14%;
+
+    --primary: 31 82% 43%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 34% 93%;
+    --secondary-foreground: 22 18% 22%;
+
+    --muted: 34 24% 90%;
+    --muted-foreground: 22 10% 42%;
+
+    --accent: 12 68% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 74% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 32 18% 82%;
+    --input: 32 18% 82%;
+    --ring: 31 82% 43%;
+  }
+
+  [data-admin-theme="dark"] {
+    --background: 0 0% 4%;
+    --foreground: 40 10% 90%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 10% 90%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 10% 90%;
+
+    --primary: 30 80% 55%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 10% 80%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 40 5% 50%;
+
+    --accent: 8 70% 45%;
+    --accent-foreground: 40 10% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 30 80% 55%;
+  }
 }
 
 @layer base {
@@ -129,6 +189,16 @@
 
 .performance-tile {
   contain: paint;
+}
+
+.admin-theme-shell {
+  background-image:
+    radial-gradient(circle at top left, hsl(var(--primary) / 0.14), transparent 28%),
+    linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)) 42%, hsl(var(--secondary) / 0.55));
+}
+
+.admin-theme-hero-panel {
+  background-image: linear-gradient(180deg, hsl(var(--card)), hsl(var(--secondary) / 0.82));
 }
 
 /* Video embed responsive */

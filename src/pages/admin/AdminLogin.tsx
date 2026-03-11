@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { CheckCircle2, ShieldCheck } from "lucide-react";
+import AdminThemeToggle from "@/components/admin/AdminThemeToggle";
 import { useAdminSession } from "@/hooks/useAdminSession";
 
 const AdminLogin = () => {
@@ -40,10 +41,13 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.08),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] text-foreground">
-      <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-5 py-10">
-        <div className="grid w-full max-w-5xl overflow-hidden rounded-[2rem] border border-border/50 bg-card/90 shadow-[0_40px_100px_rgba(0,0,0,0.28)] lg:grid-cols-[1.05fr_0.95fr]">
-          <section className="relative hidden border-r border-border/40 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] p-10 lg:block">
+    <div className="admin-theme-shell min-h-screen text-foreground">
+      <div className="mx-auto relative flex min-h-screen max-w-6xl items-center justify-center px-5 py-10">
+        <div className="absolute right-5 top-5 sm:right-8 sm:top-8">
+          <AdminThemeToggle />
+        </div>
+        <div className="grid w-full max-w-5xl overflow-hidden rounded-[2rem] border border-border/50 bg-card/90 shadow-[0_40px_100px_rgba(41,28,20,0.14)] dark:shadow-[0_40px_100px_rgba(0,0,0,0.28)] lg:grid-cols-[1.05fr_0.95fr]">
+          <section className="admin-theme-hero-panel relative hidden border-r border-border/40 p-10 lg:block">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
                 <ShieldCheck size={18} className="text-primary" />
@@ -73,7 +77,7 @@ const AdminLogin = () => {
                 "Review content issues before anything goes live",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-[1.25rem] border border-border/50 bg-secondary/20 px-4 py-4">
-                  <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/10 text-emerald-200">
+                  <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200">
                     <CheckCircle2 size={15} />
                   </div>
                   <p className="font-body text-sm leading-6 text-foreground">{item}</p>

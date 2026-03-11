@@ -105,7 +105,7 @@ const AdminDashboard = () => {
           const Icon = item.icon;
           const iconToneClassName =
             item.tone === "success"
-              ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-200"
+              ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200"
               : item.tone === "warning"
                 ? "border-primary/30 bg-primary/10 text-primary"
                 : "border-border/60 bg-secondary/40 text-foreground";

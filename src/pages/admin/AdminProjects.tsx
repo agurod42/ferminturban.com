@@ -191,7 +191,7 @@ const AdminProjects = () => {
                   }`}
                 >
                   <span>{item.label}</span>
-                  <span className={`rounded-full px-2.5 py-1 text-xs ${active ? "bg-black/20 text-primary-foreground" : "bg-background/60 text-muted-foreground"}`}>
+                  <span className={`rounded-full px-2.5 py-1 text-xs ${active ? "bg-primary-foreground/15 text-primary-foreground" : "bg-background/60 text-muted-foreground"}`}>
                     {item.count}
                   </span>
                 </button>
@@ -350,7 +350,7 @@ const AdminProjects = () => {
                             ))}
                           </div>
                         ) : (
-                          <div className="mt-4 inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-200">
+                          <div className="mt-4 inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-700 dark:text-emerald-200">
                             Ready for editorial review
                           </div>
                         )}

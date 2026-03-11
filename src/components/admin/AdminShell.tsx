@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
+import AdminThemeToggle from "@/components/admin/AdminThemeToggle";
 import { useAdminSession } from "@/hooks/useAdminSession";
 
 const navItems = [
@@ -97,9 +98,9 @@ const AdminShell = ({
   );
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.08),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] text-foreground">
+    <div className="admin-theme-shell min-h-screen text-foreground">
       <div className="mx-auto flex min-h-screen max-w-[1600px]">
-        <aside className="hidden w-[290px] shrink-0 border-r border-border/50 bg-black/15 px-5 py-6 lg:flex lg:flex-col">
+        <aside className="hidden w-[290px] shrink-0 border-r border-border/50 bg-secondary/35 px-5 py-6 lg:flex lg:flex-col">
           <Link
             to="/admin"
             onClick={(event) => handleInternalNavigation(event, "/admin")}
@@ -133,16 +134,20 @@ const AdminShell = ({
                   {session.email || "Admin"}
                 </p>
               </div>
-              <span className="inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-200">
+              <span className="inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-700 dark:text-emerald-200">
                 Active
               </span>
+            </div>
+
+            <div className="mt-5">
+              <AdminThemeToggle className="w-full justify-center" />
             </div>
 
             <button
               type="button"
               onClick={handleLogout}
               disabled={isLoggingOut}
-              className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary disabled:opacity-60"
+              className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary disabled:opacity-60"
             >
               <LogOut size={16} />
               <span>{isLoggingOut ? "Signing out..." : "Sign out"}</span>
@@ -161,6 +166,7 @@ const AdminShell = ({
               </div>
 
               <div className="flex items-center gap-2">
+                <AdminThemeToggle compact />
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(true)}
@@ -211,11 +217,14 @@ const AdminShell = ({
                   <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
                     You are editing live portfolio content in the same runtime environment as the public site.
                   </p>
+                  <div className="mt-5">
+                    <AdminThemeToggle className="w-full justify-center" />
+                  </div>
                   <button
                     type="button"
                     onClick={handleLogout}
                     disabled={isLoggingOut}
-                    className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground"
+                    className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground"
                   >
                     <LogOut size={16} />
                     <span>{isLoggingOut ? "Signing out..." : "Sign out"}</span>
@@ -264,11 +273,10 @@ const AdminShell = ({
                 </div>
               </div>
 
-              {headerActions ? (
-                <div className="flex flex-wrap items-center gap-3 xl:justify-end">
-                  {headerActions}
-                </div>
-              ) : null}
+              <div className="flex flex-wrap items-center gap-3 xl:justify-end">
+                <AdminThemeToggle />
+                {headerActions}
+              </div>
             </div>
           </div>
 

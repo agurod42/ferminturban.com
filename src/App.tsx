@@ -3,6 +3,7 @@ import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router-
 import { AnimatePresence } from "framer-motion";
 import AdminRoute from "./components/admin/AdminRoute";
 import AdminSessionProvider from "./components/admin/AdminSessionProvider";
+import AdminThemeProvider from "./components/admin/AdminThemeProvider";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageRedirect from "./components/LanguageRedirect";
@@ -20,12 +21,35 @@ const SobreMi = lazyRoute(() => import("./pages/SobreMi"));
 const ProjectDetail = lazyRoute(() => import("./pages/ProjectDetail"));
 const NotFound = lazyRoute(() => import("./pages/NotFound"));
 
-const RouteFallback = () => <div className="min-h-screen bg-background" />;
+const RouteFallback = () => {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+  const adminTheme =
+    typeof window !== "undefined" && window.localStorage.getItem("admin-theme") === "dark"
+      ? "dark"
+      : "light";
+
+  if (isAdminRoute) {
+    return (
+      <div
+        className="min-h-screen"
+        style={{
+          background:
+            adminTheme === "dark" ? "hsl(0 0% 4%)" : "hsl(40 43% 97%)",
+        }}
+      />
+    );
+  }
+
+  return <div className="min-h-screen bg-background" />;
+};
 
 const AdminProviderLayout = () => (
-  <AdminSessionProvider>
-    <Outlet />
-  </AdminSessionProvider>
+  <AdminThemeProvider>
+    <AdminSessionProvider>
+      <Outlet />
+    </AdminSessionProvider>
+  </AdminThemeProvider>
 );
 
 const AnimatedRoutes = () => {

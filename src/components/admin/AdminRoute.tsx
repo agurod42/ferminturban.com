@@ -7,9 +7,9 @@ const AdminRoute = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.08),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] text-foreground">
+      <div className="admin-theme-shell min-h-screen text-foreground">
         <div className="mx-auto flex min-h-screen max-w-4xl items-center justify-center px-6">
-          <div className="w-full max-w-xl rounded-[2rem] border border-border/50 bg-card/80 px-8 py-10 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
+          <div className="w-full max-w-xl rounded-[2rem] border border-border/50 bg-card/80 px-8 py-10 shadow-[0_24px_80px_rgba(41,28,20,0.12)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
             <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-primary">
               Admin session
             </p>

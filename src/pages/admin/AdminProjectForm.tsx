@@ -586,7 +586,7 @@ const AdminProjectForm = () => {
           <div
             className={`rounded-[1.5rem] border px-4 py-3 font-body text-sm ${
               notice.tone === "success"
-                ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-200"
+                ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200"
                 : notice.tone === "warning"
                   ? "border-primary/30 bg-primary/10 text-primary"
                   : "border-border/60 bg-card/80 text-foreground"
@@ -1058,7 +1058,7 @@ const AdminProjectForm = () => {
                                 Alt text missing
                               </span>
                             ) : (
-                              <span className="inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5 font-body text-xs font-medium text-emerald-200">
+                              <span className="inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5 font-body text-xs font-medium text-emerald-700 dark:text-emerald-200">
                                 Alt text added
                               </span>
                             )}
@@ -1228,7 +1228,7 @@ const AdminProjectForm = () => {
                       <div
                         className={`flex h-8 w-8 items-center justify-center rounded-full border ${
                           item.complete
-                            ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-200"
+                            ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200"
                             : "border-border/60 bg-background/40 text-muted-foreground"
                         }`}
                       >
@@ -1344,7 +1344,7 @@ const AdminProjectForm = () => {
               <p className="font-body text-lg font-semibold text-foreground">Issues and notes</p>
               <div className="mt-4 space-y-3">
                 {publishIssues.length === 0 && warnings.length === 0 ? (
-                  <div className="rounded-[1.25rem] border border-emerald-500/25 bg-emerald-500/10 px-4 py-4 font-body text-sm text-emerald-200">
+                  <div className="rounded-[1.25rem] border border-emerald-500/25 bg-emerald-500/10 px-4 py-4 font-body text-sm text-emerald-700 dark:text-emerald-200">
                     No blockers or editorial warnings right now.
                   </div>
                 ) : (
