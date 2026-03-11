@@ -3,6 +3,7 @@ import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router-
 import { AnimatePresence } from "framer-motion";
 import AdminRoute from "./components/admin/AdminRoute";
 import AdminSessionProvider from "./components/admin/AdminSessionProvider";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import ScrollToTop from "./components/ScrollToTop";
 import LanguageRedirect from "./components/LanguageRedirect";
 import LangLayout from "./components/LangLayout";
@@ -70,6 +71,7 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <BrowserRouter>
+    <GoogleAnalytics />
     <ScrollToTop />
     <AnimatedRoutes />
   </BrowserRouter>

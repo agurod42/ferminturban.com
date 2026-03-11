@@ -13,6 +13,51 @@ const appendQuery = (url: URL, query?: ApiFetchOptions["query"]) => {
   });
 };
 
+const parseJsonSafely = (text: string) => {
+  if (!text) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return null;
+  }
+};
+
+const getNonJsonApiError = (
+  requestUrl: string,
+  contentType: string,
+  text: string,
+) => {
+  const pathname = (() => {
+    try {
+      return new URL(requestUrl, window.location.origin).pathname;
+    } catch {
+      return String(requestUrl);
+    }
+  })();
+
+  const trimmed = text.trim();
+  const snippet = trimmed.slice(0, 120);
+
+  if (
+    pathname.startsWith("/api/") &&
+    (contentType.includes("javascript") ||
+      trimmed.startsWith("import ") ||
+      trimmed.startsWith("export ") ||
+      trimmed.startsWith("async function"))
+  ) {
+    return `The API is not running. Use "npx vercel dev" for admin/API routes instead of "npm run dev".`;
+  }
+
+  if (pathname.startsWith("/api/") && contentType.includes("text/html")) {
+    return `The API returned HTML instead of JSON for ${pathname}. Use "npx vercel dev" locally or check your Vercel routing.`;
+  }
+
+  return `Expected JSON from ${pathname}, received ${contentType || "unknown content"}${snippet ? `: ${snippet}` : ""}`;
+};
+
 export async function apiJson<T>(
   input: RequestInfo | URL,
   init?: RequestInit,
@@ -27,7 +72,13 @@ export async function apiJson<T>(
   });
 
   const text = await response.text();
-  const payload = text ? JSON.parse(text) : null;
+  const requestUrl = typeof input === "string" ? input : input.toString();
+  const contentType = response.headers.get("content-type") || "";
+  const payload = parseJsonSafely(text);
+
+  if (text && payload === null) {
+    throw new Error(getNonJsonApiError(requestUrl, contentType, text));
+  }
 
   if (!response.ok) {
     const message =

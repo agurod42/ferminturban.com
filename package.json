@@ -10,6 +10,7 @@
     "admin:hash": "node scripts/generate-admin-password.mjs",
     "admin:seed": "tsx scripts/seed-admin-content.ts",
     "dev": "vite",
+    "dev:full": "npx vercel dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
