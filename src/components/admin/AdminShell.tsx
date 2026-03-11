@@ -48,6 +48,13 @@ const AdminShell = ({
 
     return activeItem?.label || title;
   }, [location.pathname, title]);
+  const showBreadcrumbs = useMemo(
+    () =>
+      breadcrumbs.length > 0 &&
+      !(breadcrumbs.length === 1 && breadcrumbs[0]?.label === title && !breadcrumbs[0]?.to),
+    [breadcrumbs, title],
+  );
+  const isMobileTopLevelView = !showBreadcrumbs && activeNavLabel === title;
   const mobileShowsContextLabel = activeNavLabel !== title;
 
   const handleLogout = async () => {
@@ -131,7 +138,9 @@ const AdminShell = ({
           <div className="sticky top-0 z-40 -mx-4 border-b border-border/35 bg-background/92 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:px-6 lg:hidden">
             <div className="flex items-center justify-between gap-3">
               <div>
-                {mobileShowsContextLabel ? (
+                {isMobileTopLevelView ? (
+                  <p className="font-body text-base font-semibold text-foreground">Admin Workspace</p>
+                ) : mobileShowsContextLabel ? (
                   <>
                     <p className="font-body text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                       {activeNavLabel}
@@ -193,7 +202,7 @@ const AdminShell = ({
           <div className="border-b border-border/35 pb-6">
             <div className="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
               <div className="min-w-0">
-                {breadcrumbs.length > 0 ? (
+                {showBreadcrumbs ? (
                   <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                     {breadcrumbs.map((item, index) => (
                       <div key={`${item.label}-${index}`} className="flex items-center gap-2">
