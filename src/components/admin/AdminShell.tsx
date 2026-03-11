@@ -238,9 +238,11 @@ const AdminShell = ({
 
               <div className="flex flex-wrap items-center gap-3 xl:justify-end">
                 {headerActions ? (
-                  <div className="flex flex-wrap items-center gap-3 xl:justify-end">{headerActions}</div>
+                  <div className="relative z-0 flex flex-wrap items-center gap-3 xl:justify-end">
+                    {headerActions}
+                  </div>
                 ) : null}
-                <div className="hidden lg:block">
+                <div className="relative z-20 hidden lg:block">
                   <AdminUserMenu
                     email={session.email}
                     isLoggingOut={isLoggingOut}
