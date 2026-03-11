@@ -8,6 +8,7 @@ import { useAdminProjects } from "@/hooks/useAdminProjects";
 import { usePublicContent } from "@/hooks/usePublicContent";
 import { featuredProjectsEnabled } from "@/lib/admin/features";
 import {
+  categoryBadgeClassNames,
   categoryLabels,
   formatRelativeTimestamp,
   formatSyncTimestamp,
@@ -331,6 +332,11 @@ const AdminProjects = () => {
                               {project.titleEs || "Untitled project"}
                             </Link>
                             <span
+                              className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${categoryBadgeClassNames[project.category]}`}
+                            >
+                              {categoryLabels[project.category]}
+                            </span>
+                            <span
                               className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${statusBadgeClassNames[project.status]}`}
                             >
                               {statusLabels[project.status]}
@@ -342,9 +348,7 @@ const AdminProjects = () => {
                             ) : null}
                           </div>
 
-                          <p className="mt-2 font-body text-sm text-muted-foreground">
-                            {categoryLabels[project.category]} · {project.client || "No client set"}
-                          </p>
+                          <p className="mt-2 font-body text-sm text-muted-foreground">{project.client || "No client set"}</p>
                           <p className="mt-1 font-body text-sm text-muted-foreground">
                             /{project.slugEs || "missing-slug"}
                             {project.slugEn ? ` · /${project.slugEn}` : ""}

@@ -6,6 +6,11 @@ export const categoryLabels: Record<ProjectCategory, string> = {
   documental: "Documentary",
 };
 
+export const categoryBadgeClassNames: Record<ProjectCategory, string> = {
+  publicidad: "border-amber-500/30 bg-amber-500/12 text-amber-800 dark:text-amber-200",
+  documental: "border-sky-500/30 bg-sky-500/12 text-sky-800 dark:text-sky-200",
+};
+
 export const statusLabels: Record<ProjectStatus, string> = {
   draft: "Draft",
   published: "Published",
