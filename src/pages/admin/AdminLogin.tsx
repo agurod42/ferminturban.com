@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { CheckCircle2, ShieldCheck } from "lucide-react";
-import AdminThemeToggle from "@/components/admin/AdminThemeToggle";
 import { useAdminSession } from "@/hooks/useAdminSession";
 
 const AdminLogin = () => {
@@ -42,10 +41,7 @@ const AdminLogin = () => {
 
   return (
     <div className="admin-theme-shell min-h-screen text-foreground">
-      <div className="mx-auto relative flex min-h-screen max-w-6xl items-center justify-center px-5 py-10">
-        <div className="absolute right-5 top-5 sm:right-8 sm:top-8">
-          <AdminThemeToggle />
-        </div>
+      <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-5 py-10">
         <div className="grid w-full max-w-5xl overflow-hidden rounded-[2rem] border border-border/50 bg-card/90 shadow-[0_40px_100px_rgba(41,28,20,0.14)] dark:shadow-[0_40px_100px_rgba(0,0,0,0.28)] lg:grid-cols-[1.05fr_0.95fr]">
           <section className="admin-theme-hero-panel relative hidden border-r border-border/40 p-10 lg:block">
             <div className="flex items-center gap-3">
