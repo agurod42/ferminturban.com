@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useBlocker, useBeforeUnload, useNavigate, useParams } from "react-router-dom";
+import { Link, useBeforeUnload, useNavigate, useParams } from "react-router-dom";
 import {
   Archive,
   CheckCircle2,
@@ -117,6 +117,7 @@ const AdminProjectForm = () => {
   const [activeDialog, setActiveDialog] = useState<DialogType>(null);
   const [draggingGalleryIndex, setDraggingGalleryIndex] = useState<number | null>(null);
   const [hasUnsavedUploads, setHasUnsavedUploads] = useState(false);
+  const [pendingNavigationPath, setPendingNavigationPath] = useState<string | null>(null);
   const galleryUploadRef = useRef<HTMLInputElement | null>(null);
   const thumbnailUploadRef = useRef<HTMLInputElement | null>(null);
   const backgroundUploadRef = useRef<HTMLInputElement | null>(null);
@@ -210,16 +211,6 @@ const AdminProjectForm = () => {
   const completionRatio = readinessChecklist.filter((item) => item.complete).length / readinessChecklist.length;
   const completionPercentage = Math.round(completionRatio * 100);
 
-  const blocker = useBlocker(({ currentLocation, nextLocation }) =>
-    isDirty && currentLocation.pathname !== nextLocation.pathname,
-  );
-
-  useEffect(() => {
-    if (blocker.state === "blocked") {
-      setActiveDialog("leave");
-    }
-  }, [blocker.state]);
-
   useBeforeUnload((event) => {
     if (!isDirty) {
       return;
@@ -259,6 +250,16 @@ const AdminProjectForm = () => {
       ...current,
       [key]: value,
     }));
+  };
+
+  const requestNavigation = (to: string) => {
+    if (!isDirty) {
+      return true;
+    }
+
+    setPendingNavigationPath(to);
+    setActiveDialog("leave");
+    return false;
   };
 
   const setTrackedField = <K extends keyof AdminProject>(
@@ -532,10 +533,16 @@ const AdminProjectForm = () => {
         { label: "Projects", to: "/admin/projects" },
         { label: isNew ? "New project" : project.titleEs || "Project editor" },
       ]}
+      onBeforeNavigate={requestNavigation}
       headerActions={
         <>
           <Link
             to="/admin/projects"
+            onClick={(event) => {
+              if (!requestNavigation("/admin/projects")) {
+                event.preventDefault();
+              }
+            }}
             className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary"
           >
             Back to library
@@ -1477,12 +1484,16 @@ const AdminProjectForm = () => {
         cancelLabel="Stay here"
         tone="warning"
         onCancel={() => {
-          blocker.reset?.();
+          setPendingNavigationPath(null);
           setActiveDialog(null);
         }}
         onConfirm={() => {
+          if (pendingNavigationPath) {
+            navigate(pendingNavigationPath);
+          }
+
+          setPendingNavigationPath(null);
           setActiveDialog(null);
-          blocker.proceed?.();
         }}
       />
     </AdminShell>

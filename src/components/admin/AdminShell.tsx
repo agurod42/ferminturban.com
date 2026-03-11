@@ -27,12 +27,14 @@ const AdminShell = ({
   children,
   headerActions,
   breadcrumbs = [],
+  onBeforeNavigate,
 }: {
   title: string;
   subtitle?: string;
   children: ReactNode;
   headerActions?: ReactNode;
   breadcrumbs?: AdminBreadcrumb[];
+  onBeforeNavigate?: (to: string) => boolean;
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -59,6 +61,14 @@ const AdminShell = ({
     }
   };
 
+  const handleInternalNavigation = (event: React.MouseEvent<HTMLAnchorElement>, to: string) => {
+    if (onBeforeNavigate?.(to) === false) {
+      event.preventDefault();
+    }
+
+    setMobileMenuOpen(false);
+  };
+
   const renderNavigation = (compact = false) => (
     <nav className={compact ? "space-y-2" : "space-y-1.5"}>
       {navItems.map((item) => {
@@ -71,7 +81,7 @@ const AdminShell = ({
           <Link
             key={item.to}
             to={item.to}
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={(event) => handleInternalNavigation(event, item.to)}
             className={`flex min-h-11 items-center gap-3 rounded-2xl px-4 py-3 font-body text-sm font-medium transition-colors ${
               active
                 ? "bg-primary text-primary-foreground shadow-[0_12px_30px_rgba(0,0,0,0.18)]"
@@ -90,7 +100,11 @@ const AdminShell = ({
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.08),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] text-foreground">
       <div className="mx-auto flex min-h-screen max-w-[1600px]">
         <aside className="hidden w-[290px] shrink-0 border-r border-border/50 bg-black/15 px-5 py-6 lg:flex lg:flex-col">
-          <Link to="/admin" className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
+          <Link
+            to="/admin"
+            onClick={(event) => handleInternalNavigation(event, "/admin")}
+            className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]"
+          >
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
                 <ShieldCheck size={18} className="text-primary" />
@@ -220,7 +234,11 @@ const AdminShell = ({
                       <div key={`${item.label}-${index}`} className="flex items-center gap-2">
                         {index > 0 ? <ChevronRight size={14} className="text-muted-foreground/70" /> : null}
                         {item.to ? (
-                          <Link to={item.to} className="font-body transition-colors hover:text-foreground">
+                          <Link
+                            to={item.to}
+                            onClick={(event) => handleInternalNavigation(event, item.to!)}
+                            className="font-body transition-colors hover:text-foreground"
+                          >
                             {item.label}
                           </Link>
                         ) : (
