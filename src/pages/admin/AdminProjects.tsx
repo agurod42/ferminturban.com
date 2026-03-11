@@ -275,26 +275,38 @@ const AdminProjects = () => {
                   key={project.id}
                   className={`${index > 0 ? "border-t border-border/35" : ""}`}
                 >
-                  <div className="grid gap-0 xl:grid-cols-[220px_minmax(0,1fr)]">
-                    <div className="border-b border-border/30 bg-secondary/20 xl:border-b-0 xl:border-r xl:border-border/30">
+                  <div className="grid gap-0 xl:grid-cols-[280px_minmax(0,1fr)] 2xl:grid-cols-[340px_minmax(0,1fr)]">
+                    <div className="border-b border-border/30 bg-secondary/20 xl:min-h-[220px] xl:border-b-0 xl:border-r xl:border-border/30 2xl:min-h-[244px]">
                       {thumbnail ? (
-                        <img
-                          src={thumbnail}
-                          alt={project.thumbnailAltEs || project.titleEs || "Project thumbnail"}
-                          className="w-full object-cover"
-                          style={{
-                            aspectRatio: sharedThumbnailAspectRatio,
-                          }}
-                        />
+                        <>
+                          <img
+                            src={thumbnail}
+                            alt={project.thumbnailAltEs || project.titleEs || "Project thumbnail"}
+                            className="w-full object-cover xl:hidden"
+                            style={{
+                              aspectRatio: sharedThumbnailAspectRatio,
+                            }}
+                          />
+                          <img
+                            src={thumbnail}
+                            alt={project.thumbnailAltEs || project.titleEs || "Project thumbnail"}
+                            className="hidden h-full w-full object-cover xl:block"
+                          />
+                        </>
                       ) : (
-                        <div
-                          className="flex items-center justify-center px-6 text-center font-body text-sm text-muted-foreground"
-                          style={{
-                            aspectRatio: sharedThumbnailAspectRatio,
-                          }}
-                        >
-                          Thumbnail missing
-                        </div>
+                        <>
+                          <div
+                            className="flex items-center justify-center px-6 text-center font-body text-sm text-muted-foreground xl:hidden"
+                            style={{
+                              aspectRatio: sharedThumbnailAspectRatio,
+                            }}
+                          >
+                            Thumbnail missing
+                          </div>
+                          <div className="hidden h-full items-center justify-center px-6 text-center font-body text-sm text-muted-foreground xl:flex">
+                            Thumbnail missing
+                          </div>
+                        </>
                       )}
                     </div>
 

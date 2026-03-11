@@ -12,8 +12,8 @@ export const statusLabels: Record<ProjectStatus, string> = {
 };
 
 export const statusBadgeClassNames: Record<ProjectStatus, string> = {
-  draft: "border-amber-500/25 bg-amber-500/10 text-amber-200",
-  published: "border-emerald-500/25 bg-emerald-500/10 text-emerald-200",
+  draft: "border-amber-500/30 bg-amber-500/12 text-amber-800 dark:text-amber-200",
+  published: "border-emerald-500/30 bg-emerald-500/14 text-emerald-800 dark:text-emerald-200",
   archived: "border-border/60 bg-secondary/40 text-muted-foreground",
 };
 
