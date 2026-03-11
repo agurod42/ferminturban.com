@@ -7,15 +7,21 @@ const AdminRoute = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.08),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] text-foreground">
         <div className="mx-auto flex min-h-screen max-w-4xl items-center justify-center px-6">
-          <div className="rounded-3xl border border-border/50 bg-card/70 px-8 py-10 text-center shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
-            <p className="font-body text-[10px] uppercase tracking-[0.35em] text-primary">
-              Admin
+          <div className="w-full max-w-xl rounded-[2rem] border border-border/50 bg-card/80 px-8 py-10 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
+            <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              Admin session
             </p>
-            <p className="mt-4 font-display text-2xl tracking-[0.16em] text-foreground">
-              LOADING SESSION
+            <p className="mt-4 font-body text-2xl font-semibold tracking-tight text-foreground">
+              Checking access
             </p>
+            <p className="mt-3 font-body text-sm leading-7 text-muted-foreground">
+              Verifying the signed-in session before loading the editorial workspace.
+            </p>
+            <div className="mt-6 h-2 overflow-hidden rounded-full bg-secondary/50">
+              <div className="h-full w-1/2 animate-pulse rounded-full bg-primary" />
+            </div>
           </div>
         </div>
       </div>

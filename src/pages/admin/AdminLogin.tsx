@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { ShieldCheck } from "lucide-react";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 import { useAdminSession } from "@/hooks/useAdminSession";
 
 const AdminLogin = () => {
@@ -40,78 +40,81 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-10">
-        <div className="grid w-full max-w-5xl overflow-hidden rounded-[2rem] border border-border/50 bg-card shadow-[0_40px_100px_rgba(0,0,0,0.28)] lg:grid-cols-[1.1fr_0.9fr]">
-          <section className="relative hidden overflow-hidden border-r border-border/40 bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.16),transparent_40%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0))] p-10 lg:block">
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent,rgba(255,255,255,0.03))]" />
-            <div className="relative">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10">
-                  <ShieldCheck size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="font-display text-2xl tracking-[0.2em] text-foreground">CMS</p>
-                  <p className="font-body text-xs uppercase tracking-[0.34em] text-muted-foreground">
-                    Portfolio Control
-                  </p>
-                </div>
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(230,184,74,0.08),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] text-foreground">
+      <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-5 py-10">
+        <div className="grid w-full max-w-5xl overflow-hidden rounded-[2rem] border border-border/50 bg-card/90 shadow-[0_40px_100px_rgba(0,0,0,0.28)] lg:grid-cols-[1.05fr_0.95fr]">
+          <section className="relative hidden border-r border-border/40 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))] p-10 lg:block">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
+                <ShieldCheck size={18} className="text-primary" />
               </div>
+              <div>
+                <p className="font-body text-xl font-semibold text-foreground">Admin Workspace</p>
+                <p className="font-body text-sm text-muted-foreground">Fermin Turban portfolio CMS</p>
+              </div>
+            </div>
 
-              <div className="mt-16 space-y-6">
-                <p className="font-body text-[10px] uppercase tracking-[0.34em] text-primary">
-                  Runtime Publishing
-                </p>
-                <h1 className="font-display text-5xl leading-none tracking-[0.16em] text-foreground">
-                  EDIT THE SITE
-                  <br />
-                  WITHOUT REDEPLOYING
-                </h1>
-                <p className="max-w-lg font-body text-base leading-relaxed text-muted-foreground">
-                  This panel writes portfolio content to runtime storage and serves it through the
-                  same Vercel deployment. Changes go live on the public pages after save.
-                </p>
-              </div>
+            <div className="mt-14">
+              <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                Editorial control
+              </p>
+              <h1 className="mt-4 font-body text-5xl font-semibold leading-tight tracking-tight text-foreground">
+                Update portfolio content without leaving the live runtime flow.
+              </h1>
+              <p className="mt-5 max-w-xl font-body text-base leading-8 text-muted-foreground">
+                Sign in to create drafts, publish finished work, update media, and keep the live site aligned with the latest editorial changes.
+              </p>
+            </div>
+
+            <div className="mt-12 space-y-4">
+              {[
+                "Draft and publish projects with explicit status changes",
+                "Upload images directly into the runtime media flow",
+                "Review content issues before anything goes live",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-[1.25rem] border border-border/50 bg-secondary/20 px-4 py-4">
+                  <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/10 text-emerald-200">
+                    <CheckCircle2 size={15} />
+                  </div>
+                  <p className="font-body text-sm leading-6 text-foreground">{item}</p>
+                </div>
+              ))}
             </div>
           </section>
 
           <section className="p-8 sm:p-10">
-            <p className="font-body text-[10px] uppercase tracking-[0.34em] text-primary">
-              Admin Access
+            <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+              Admin sign in
             </p>
-            <h1 className="mt-4 font-display text-4xl tracking-[0.14em] text-foreground">
-              SIGN IN
+            <h1 className="mt-4 font-body text-4xl font-semibold tracking-tight text-foreground">
+              Access the content workspace
             </h1>
-            <p className="mt-4 max-w-md font-body text-sm leading-relaxed text-muted-foreground">
-              Use the owner credentials configured in Vercel environment variables.
+            <p className="mt-4 max-w-md font-body text-sm leading-7 text-muted-foreground">
+              Use the admin credentials for this site to continue editing the portfolio.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-10 space-y-5">
               <label className="block">
-                <span className="mb-2 block font-body text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                  Email
-                </span>
+                <span className="font-body text-sm font-medium text-foreground">Email</span>
                 <input
                   type="email"
                   autoComplete="username"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="w-full rounded-2xl border border-border/60 bg-secondary/40 px-4 py-3 font-body text-sm text-foreground outline-none transition-colors focus:border-primary"
+                  className="mt-2 min-h-11 w-full rounded-2xl border border-border/60 bg-secondary/30 px-4 py-3 font-body text-sm text-foreground outline-none transition-colors focus:border-primary"
                   placeholder="owner@example.com"
                   required
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block font-body text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                  Password
-                </span>
+                <span className="font-body text-sm font-medium text-foreground">Password</span>
                 <input
                   type="password"
                   autoComplete="current-password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className="w-full rounded-2xl border border-border/60 bg-secondary/40 px-4 py-3 font-body text-sm text-foreground outline-none transition-colors focus:border-primary"
+                  className="mt-2 min-h-11 w-full rounded-2xl border border-border/60 bg-secondary/30 px-4 py-3 font-body text-sm text-foreground outline-none transition-colors focus:border-primary"
                   placeholder="••••••••••"
                   required
                 />
@@ -126,9 +129,9 @@ const AdminLogin = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full rounded-2xl bg-primary px-5 py-3 font-body text-xs uppercase tracking-[0.28em] text-primary-foreground transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-2xl bg-primary px-5 py-3 font-body text-sm font-medium text-primary-foreground transition-transform hover:translate-y-[-1px] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {submitting ? "Signing In..." : "Enter Admin"}
+                {submitting ? "Signing in..." : "Enter workspace"}
               </button>
             </form>
           </section>
