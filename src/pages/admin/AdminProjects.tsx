@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ExternalLink, PlusSquare, Search, SlidersHorizontal } from "lucide-react";
 import AdminSelect from "@/components/admin/AdminSelect";
 import AdminShell from "@/components/admin/AdminShell";
+import { AdminInset, AdminPanel, AdminSectionHeading } from "@/components/admin/AdminSurface";
 import { useAdminProjects } from "@/hooks/useAdminProjects";
 import { usePublicContent } from "@/hooks/usePublicContent";
 import {
@@ -164,17 +165,17 @@ const AdminProjects = () => {
         </Link>
       }
     >
-      <section className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-6">
+      <AdminPanel className="p-5 sm:p-6">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-            <div>
-              <p className="font-body text-sm font-semibold text-foreground">Library overview</p>
-              <p className="mt-2 font-body text-sm leading-6 text-muted-foreground">
-                {isLoading
+            <AdminSectionHeading
+              title="Library overview"
+              description={
+                isLoading
                   ? "Loading runtime entries..."
-                  : `${filteredProjects.length} of ${projects.length} projects shown · source ${(source || "unknown").toUpperCase()} · synced ${formatSyncTimestamp(syncedAt || undefined)}`}
-              </p>
-            </div>
+                  : `${filteredProjects.length} of ${projects.length} projects shown · source ${(source || "unknown").toUpperCase()} · synced ${formatSyncTimestamp(syncedAt || undefined)}`
+              }
+            />
           </div>
 
           <div className="flex gap-3 overflow-x-auto pb-1">
@@ -240,19 +241,17 @@ const AdminProjects = () => {
             </label>
           </div>
         </div>
-      </section>
+      </AdminPanel>
 
-      <section className="mt-6 space-y-4">
+      <section className="mt-6">
         {isLoading ? (
-          <div className="rounded-[1.75rem] border border-border/50 bg-card/80 px-5 py-10 font-body text-sm text-muted-foreground shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
-            Loading projects...
-          </div>
+          <AdminPanel className="px-5 py-10 font-body text-sm text-muted-foreground">Loading projects...</AdminPanel>
         ) : error ? (
-          <div className="rounded-[1.75rem] border border-destructive/40 bg-destructive/10 px-5 py-4 font-body text-sm text-destructive">
+          <AdminInset className="border-destructive/30 bg-destructive/8 px-5 py-4 text-destructive">
             {error}
-          </div>
+          </AdminInset>
         ) : filteredProjects.length === 0 ? (
-          <div className="rounded-[1.75rem] border border-dashed border-border/60 bg-card/60 px-5 py-10 text-center shadow-[0_18px_50px_rgba(0,0,0,0.12)]">
+          <AdminPanel className="border-dashed bg-card/56 px-5 py-10 text-center shadow-none">
             <p className="font-body text-lg font-semibold text-foreground">No projects match this view</p>
             <p className="mt-2 font-body text-sm leading-6 text-muted-foreground">
               Adjust filters or create a new project to start the next editorial cycle.
@@ -263,127 +262,129 @@ const AdminProjects = () => {
             >
               Create project
             </Link>
-          </div>
+          </AdminPanel>
         ) : (
-          filteredProjects.map((project) => {
-            const previewHref = project.status === "published" ? getProjectPreviewHref(project) : null;
-            const issues = getAdminProjectIssues(project);
-            const thumbnail = project.thumbnailUrl || project.backgroundUrl || project.galleryItems?.[0]?.imageUrl;
+          <AdminPanel className="overflow-hidden">
+            {filteredProjects.map((project, index) => {
+              const previewHref = project.status === "published" ? getProjectPreviewHref(project) : null;
+              const issues = getAdminProjectIssues(project);
+              const thumbnail = project.thumbnailUrl || project.backgroundUrl || project.galleryItems?.[0]?.imageUrl;
 
-            return (
-              <article
-                key={project.id}
-                className="overflow-hidden rounded-[1.75rem] border border-border/50 bg-card/80 shadow-[0_18px_50px_rgba(0,0,0,0.16)]"
-              >
-                <div className="grid gap-0 xl:grid-cols-[220px_minmax(0,1fr)]">
-                  <div className="border-b border-border/40 bg-secondary/30 xl:border-b-0 xl:border-r xl:border-border/40">
-                    {thumbnail ? (
-                      <img
-                        src={thumbnail}
-                        alt={project.thumbnailAltEs || project.titleEs || "Project thumbnail"}
-                        className="w-full object-cover"
-                        style={{
-                          aspectRatio: sharedThumbnailAspectRatio,
-                        }}
-                      />
-                    ) : (
-                      <div
-                        className="flex items-center justify-center px-6 text-center font-body text-sm text-muted-foreground"
-                        style={{
-                          aspectRatio: sharedThumbnailAspectRatio,
-                        }}
-                      >
-                        Thumbnail missing
-                      </div>
-                    )}
-                  </div>
+              return (
+                <article
+                  key={project.id}
+                  className={`${index > 0 ? "border-t border-border/35" : ""}`}
+                >
+                  <div className="grid gap-0 xl:grid-cols-[220px_minmax(0,1fr)]">
+                    <div className="border-b border-border/30 bg-secondary/20 xl:border-b-0 xl:border-r xl:border-border/30">
+                      {thumbnail ? (
+                        <img
+                          src={thumbnail}
+                          alt={project.thumbnailAltEs || project.titleEs || "Project thumbnail"}
+                          className="w-full object-cover"
+                          style={{
+                            aspectRatio: sharedThumbnailAspectRatio,
+                          }}
+                        />
+                      ) : (
+                        <div
+                          className="flex items-center justify-center px-6 text-center font-body text-sm text-muted-foreground"
+                          style={{
+                            aspectRatio: sharedThumbnailAspectRatio,
+                          }}
+                        >
+                          Thumbnail missing
+                        </div>
+                      )}
+                    </div>
 
-                  <div className="p-5 sm:p-6">
-                    <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-2">
+                    <div className="p-5 sm:p-6">
+                      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Link
+                              to={`/admin/projects/${project.id}`}
+                              className="font-body text-xl font-semibold text-foreground transition-colors hover:text-primary"
+                            >
+                              {project.titleEs || "Untitled project"}
+                            </Link>
+                            <span
+                              className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${statusBadgeClassNames[project.status]}`}
+                            >
+                              {statusLabels[project.status]}
+                            </span>
+                            {project.featured ? (
+                              <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-body text-xs font-medium text-primary">
+                                Featured
+                              </span>
+                            ) : null}
+                          </div>
+
+                          <p className="mt-2 font-body text-sm text-muted-foreground">
+                            {categoryLabels[project.category]} · {project.client || "No client set"}
+                          </p>
+                          <p className="mt-1 font-body text-sm text-muted-foreground">
+                            /{project.slugEs || "missing-slug"}
+                            {project.slugEn ? ` · /${project.slugEn}` : ""}
+                          </p>
+                          <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted-foreground">
+                            <span>Updated {formatRelativeTimestamp(getProjectTimestamp(project))}</span>
+                            <span>Order {project.sortOrder}</span>
+                            <span>{previewHref ? "Live on site" : "Not live yet"}</span>
+                          </div>
+
+                          {issues.length > 0 ? (
+                            <div className="mt-4 flex flex-wrap gap-2">
+                              {issues.slice(0, 3).map((issue) => (
+                                <span
+                                  key={issue.id}
+                                  className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${
+                                    issue.severity === "critical"
+                                      ? "border-destructive/30 bg-destructive/10 text-destructive"
+                                      : "border-primary/30 bg-primary/10 text-primary"
+                                  }`}
+                                >
+                                  {issue.label}
+                                </span>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="mt-4 inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-700 dark:text-emerald-200">
+                              Ready for editorial review
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 lg:justify-end">
                           <Link
                             to={`/admin/projects/${project.id}`}
-                            className="font-body text-xl font-semibold text-foreground transition-colors hover:text-primary"
+                            className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-primary px-4 py-3 font-body text-sm font-medium text-primary-foreground"
                           >
-                            {project.titleEs || "Untitled project"}
+                            Edit project
                           </Link>
-                          <span
-                            className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${statusBadgeClassNames[project.status]}`}
-                          >
-                            {statusLabels[project.status]}
-                          </span>
-                          {project.featured ? (
-                            <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-body text-xs font-medium text-primary">
-                              Featured
+                          {previewHref ? (
+                            <Link
+                              to={previewHref}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary"
+                            >
+                              <ExternalLink size={15} />
+                              <span>Preview live page</span>
+                            </Link>
+                          ) : (
+                            <span className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-border/50 px-4 py-3 font-body text-sm text-muted-foreground">
+                              Publish to preview
                             </span>
-                          ) : null}
+                          )}
                         </div>
-
-                        <p className="mt-2 font-body text-sm text-muted-foreground">
-                          {categoryLabels[project.category]} · {project.client || "No client set"}
-                        </p>
-                        <p className="mt-1 font-body text-sm text-muted-foreground">
-                          /{project.slugEs || "missing-slug"}
-                          {project.slugEn ? ` · /${project.slugEn}` : ""}
-                        </p>
-                        <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted-foreground">
-                          <span>Updated {formatRelativeTimestamp(getProjectTimestamp(project))}</span>
-                          <span>Order {project.sortOrder}</span>
-                          <span>{previewHref ? "Live on site" : "Not live yet"}</span>
-                        </div>
-
-                        {issues.length > 0 ? (
-                          <div className="mt-4 flex flex-wrap gap-2">
-                            {issues.slice(0, 3).map((issue) => (
-                              <span
-                                key={issue.id}
-                                className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${
-                                  issue.severity === "critical"
-                                    ? "border-destructive/30 bg-destructive/10 text-destructive"
-                                    : "border-primary/30 bg-primary/10 text-primary"
-                                }`}
-                              >
-                                {issue.label}
-                              </span>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="mt-4 inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-700 dark:text-emerald-200">
-                            Ready for editorial review
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex flex-wrap gap-2 lg:justify-end">
-                        <Link
-                          to={`/admin/projects/${project.id}`}
-                          className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-primary px-4 py-3 font-body text-sm font-medium text-primary-foreground"
-                        >
-                          Edit project
-                        </Link>
-                        {previewHref ? (
-                          <Link
-                            to={previewHref}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary"
-                          >
-                            <ExternalLink size={15} />
-                            <span>Preview live page</span>
-                          </Link>
-                        ) : (
-                          <span className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-border/50 px-4 py-3 font-body text-sm text-muted-foreground">
-                            Publish to preview
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>
-                </div>
-              </article>
-            );
-          })
+                </article>
+              );
+            })}
+          </AdminPanel>
         )}
       </section>
     </AdminShell>

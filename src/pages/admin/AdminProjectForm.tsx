@@ -14,6 +14,12 @@ import {
 import AdminDialog from "@/components/admin/AdminDialog";
 import AdminSelect from "@/components/admin/AdminSelect";
 import AdminShell from "@/components/admin/AdminShell";
+import {
+  AdminDivider,
+  AdminInset,
+  AdminPanel,
+  AdminSectionHeading,
+} from "@/components/admin/AdminSurface";
 import { usePublicContent } from "@/hooks/usePublicContent";
 import { apiJson } from "@/lib/api";
 import {
@@ -517,9 +523,9 @@ const AdminProjectForm = () => {
         subtitle="Loading project details from runtime storage."
         breadcrumbs={[{ label: "Projects", to: "/admin/projects" }, { label: "Project editor" }]}
       >
-        <div className="rounded-[1.75rem] border border-border/50 bg-card/80 p-8 font-body text-sm text-muted-foreground shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
+        <AdminPanel className="p-8 font-body text-sm text-muted-foreground">
           Loading project...
-        </div>
+        </AdminPanel>
       </AdminShell>
     );
   }
@@ -567,7 +573,7 @@ const AdminProjectForm = () => {
         }}
         className="space-y-6 pb-28 lg:pb-8"
       >
-        <nav className="overflow-x-auto rounded-[1.5rem] border border-border/50 bg-card/70 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.12)]">
+        <AdminInset className="overflow-x-auto p-3 shadow-none">
           <div className="flex min-w-max gap-2">
             {sectionLinks.map((item) => (
               <a
@@ -579,10 +585,10 @@ const AdminProjectForm = () => {
               </a>
             ))}
           </div>
-        </nav>
+        </AdminInset>
 
         {notice ? (
-          <div
+          <AdminInset
             className={`rounded-[1.5rem] border px-4 py-3 font-body text-sm ${
               notice.tone === "success"
                 ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200"
@@ -592,27 +598,25 @@ const AdminProjectForm = () => {
             }`}
           >
             {notice.message}
-          </div>
+          </AdminInset>
         ) : null}
 
         {error ? (
-          <div className="rounded-[1.5rem] border border-destructive/40 bg-destructive/10 px-4 py-3 font-body text-sm text-destructive">
+          <AdminInset className="border-destructive/40 bg-destructive/10 px-4 py-3 font-body text-sm text-destructive">
             {error}
-          </div>
+          </AdminInset>
         ) : null}
 
         <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-          <div className="space-y-6">
+          <AdminPanel className="p-5 sm:p-6 lg:p-8">
             <section
               id="basics"
-              className="scroll-mt-24 rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-6"
+              className="scroll-mt-24 pb-8"
             >
-              <div className="flex flex-col gap-2">
-                <p className="font-body text-lg font-semibold text-foreground">Basics</p>
-                <p className="font-body text-sm leading-6 text-muted-foreground">
-                  Start with the information that anchors the project in the library and on the public site.
-                </p>
-              </div>
+              <AdminSectionHeading
+                title="Basics"
+                description="Start with the information that anchors the project in the library and on the public site."
+              />
 
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 <label className="block">
@@ -629,7 +633,7 @@ const AdminProjectForm = () => {
                   <FieldMessage helper="This controls where the project appears in the public experience." />
                 </label>
 
-                <div className="rounded-2xl border border-border/50 bg-secondary/20 px-4 py-3">
+                <AdminInset className="px-4 py-3">
                   <p className="font-body text-sm font-medium text-foreground">Current status</p>
                   <div className="mt-3 flex flex-wrap items-center gap-2">
                     <span
@@ -641,7 +645,7 @@ const AdminProjectForm = () => {
                       Use the action buttons to move between draft, published, and archived states.
                     </span>
                   </div>
-                </div>
+                </AdminInset>
 
                 <label className="block">
                   <span className="font-body text-sm font-medium text-foreground">Title (Spanish)</span>
@@ -704,16 +708,16 @@ const AdminProjectForm = () => {
               </div>
             </section>
 
+            <AdminDivider />
+
             <section
               id="media"
-              className="scroll-mt-24 rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-6"
+              className="scroll-mt-24 py-8"
             >
-              <div className="flex flex-col gap-2">
-                <p className="font-body text-lg font-semibold text-foreground">Media and credits</p>
-                <p className="font-body text-sm leading-6 text-muted-foreground">
-                  Connect the playable asset, set who is credited, and keep the structured fields clean for future filtering.
-                </p>
-              </div>
+              <AdminSectionHeading
+                title="Media and credits"
+                description="Connect the playable asset, set who is credited, and keep the structured fields clean for future filtering."
+              />
 
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 {[
@@ -788,16 +792,16 @@ const AdminProjectForm = () => {
               </div>
             </section>
 
+            <AdminDivider />
+
             <section
               id="assets"
-              className="scroll-mt-24 rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-6"
+              className="scroll-mt-24 py-8"
             >
-              <div className="flex flex-col gap-2">
-                <p className="font-body text-lg font-semibold text-foreground">Assets</p>
-                <p className="font-body text-sm leading-6 text-muted-foreground">
-                  Upload imagery directly or paste URLs. Uploaded assets are immediate, but they do not become part of the project until you save.
-                </p>
-              </div>
+              <AdminSectionHeading
+                title="Assets"
+                description="Upload imagery directly or paste URLs. Uploaded assets are immediate, but they do not become part of the project until you save."
+              />
 
               <div className="mt-6 space-y-5">
                 {[
@@ -814,7 +818,7 @@ const AdminProjectForm = () => {
                     helper: "Optional supporting image for the detail page.",
                   },
                 ].map((asset) => (
-                  <div key={asset.key} className="rounded-[1.5rem] border border-border/50 bg-secondary/20 p-4">
+                  <AdminInset key={asset.key} className="p-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <p className="font-body text-base font-semibold text-foreground">{asset.label}</p>
@@ -896,7 +900,7 @@ const AdminProjectForm = () => {
                         }}
                       />
                     ) : null}
-                  </div>
+                  </AdminInset>
                 ))}
 
                 <div className="grid gap-5 md:grid-cols-2">
@@ -962,17 +966,17 @@ const AdminProjectForm = () => {
               </div>
             </section>
 
+            <AdminDivider />
+
             <section
               id="gallery"
-              className="scroll-mt-24 rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-6"
+              className="scroll-mt-24 py-8"
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <p className="font-body text-lg font-semibold text-foreground">Gallery</p>
-                  <p className="mt-2 font-body text-sm leading-6 text-muted-foreground">
-                    Drag in new stills, reorder them directly, and add alt text so the gallery is publish-ready.
-                  </p>
-                </div>
+                <AdminSectionHeading
+                  title="Gallery"
+                  description="Drag in new stills, reorder them directly, and add alt text so the gallery is publish-ready."
+                />
                 <div>
                   <input
                     ref={galleryUploadRef}
@@ -1111,19 +1115,19 @@ const AdminProjectForm = () => {
               </div>
             </section>
 
+            <AdminDivider />
+
             <section
               id="publishing"
-              className="scroll-mt-24 rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-6"
+              className="scroll-mt-24 pt-8"
             >
-              <div className="flex flex-col gap-2">
-                <p className="font-body text-lg font-semibold text-foreground">Publishing and metadata</p>
-                <p className="font-body text-sm leading-6 text-muted-foreground">
-                  Control editorial prominence, URL metadata, and ordering without mixing that up with the actual status transitions.
-                </p>
-              </div>
+              <AdminSectionHeading
+                title="Publishing and metadata"
+                description="Control editorial prominence, URL metadata, and ordering without mixing that up with the actual status transitions."
+              />
 
               <div className="mt-6 grid gap-5">
-                <label className="flex items-center gap-3 rounded-[1.25rem] border border-border/60 bg-secondary/20 px-4 py-4">
+                <label className="flex items-center gap-3 rounded-[1.25rem] border border-border/35 bg-secondary/18 px-4 py-4">
                   <input
                     type="checkbox"
                     checked={project.featured}
@@ -1146,14 +1150,14 @@ const AdminProjectForm = () => {
                     <FieldMessage helper="Lower numbers appear first in manual ordering views." />
                   </label>
 
-                  <div className="rounded-[1.25rem] border border-border/50 bg-secondary/20 px-4 py-4">
+                  <AdminInset className="px-4 py-4">
                     <p className="font-body text-sm font-medium text-foreground">Editorial health</p>
                     <p className="mt-2 font-body text-sm text-muted-foreground">
                       {projectIsReadyToPublish(project)
                         ? "This draft is ready to publish."
                         : `${publishIssues.length} publishing blocker${publishIssues.length === 1 ? "" : "s"} remaining.`}
                     </p>
-                  </div>
+                  </AdminInset>
                 </div>
 
                 <div className="grid gap-5 md:grid-cols-2">
@@ -1189,19 +1193,19 @@ const AdminProjectForm = () => {
                 </div>
               </div>
             </section>
-          </div>
+          </AdminPanel>
 
-          <aside className="space-y-6 xl:sticky xl:top-6 xl:self-start">
-            <section className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
+          <aside className="xl:sticky xl:top-6 xl:self-start">
+            <AdminPanel className="p-5">
               <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-body text-lg font-semibold text-foreground">Publishing status</p>
-                  <p className="mt-2 font-body text-sm leading-6 text-muted-foreground">
-                    {project.status === "published"
+                <AdminSectionHeading
+                  title="Publishing status"
+                  description={
+                    project.status === "published"
                       ? "This version is live. Saving changes keeps it live."
-                      : "This project is not live yet. Publish only after the checklist is clean."}
-                  </p>
-                </div>
+                      : "This project is not live yet. Publish only after the checklist is clean."
+                  }
+                />
                 <span
                   className={`inline-flex rounded-full border px-2.5 py-1 font-body text-xs font-medium ${statusBadgeClassNames[project.status]}`}
                 >
@@ -1209,7 +1213,7 @@ const AdminProjectForm = () => {
                 </span>
               </div>
 
-              <div className="mt-5 rounded-[1.25rem] border border-border/50 bg-secondary/20 p-4">
+              <AdminInset className="mt-5 p-4">
                 <div className="flex items-center justify-between gap-4">
                   <p className="font-body text-sm font-medium text-foreground">Readiness</p>
                   <p className="font-body text-sm font-semibold text-foreground">{completionPercentage}%</p>
@@ -1237,7 +1241,7 @@ const AdminProjectForm = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </AdminInset>
 
               <div className="mt-5 space-y-3">
                 <button
@@ -1305,45 +1309,54 @@ const AdminProjectForm = () => {
                 ) : null}
               </div>
 
-              <div className="mt-5 rounded-[1.25rem] border border-border/50 bg-secondary/20 p-4">
-                <p className="font-body text-sm font-medium text-foreground">Save state</p>
-                <p className="mt-2 font-body text-sm text-muted-foreground">
-                  {isDirty
-                    ? hasUnsavedUploads
-                      ? "You have unsaved field changes and uploaded assets waiting to be committed."
-                      : "You have unsaved changes."
-                    : "All changes saved."}
-                </p>
-                <p className="mt-2 font-body text-sm text-muted-foreground">
-                  Last updated {formatRelativeTimestamp(project.updatedAt || project.createdAt)}
-                </p>
+              <div className="mt-6 border-t border-border/35 pt-6">
+                <AdminSectionHeading
+                  title="Support"
+                  description="Keep save state, preview access, warnings, and metadata in one quieter support rail."
+                />
               </div>
 
-              <div className="mt-5 rounded-[1.25rem] border border-border/50 bg-secondary/20 p-4">
-                <p className="font-body text-sm font-medium text-foreground">Preview</p>
-                {previewHref ? (
-                  <Link
-                    to={previewHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Open live page</span>
-                  </Link>
-                ) : (
-                  <p className="mt-2 font-body text-sm leading-6 text-muted-foreground">
-                    Preview becomes available once the project is published and has a Spanish slug.
+              <div className="mt-4 space-y-3">
+                <AdminInset className="p-4">
+                  <p className="font-body text-sm font-medium text-foreground">Save state</p>
+                  <p className="mt-2 font-body text-sm text-muted-foreground">
+                    {isDirty
+                      ? hasUnsavedUploads
+                        ? "You have unsaved field changes and uploaded assets waiting to be committed."
+                        : "You have unsaved changes."
+                      : "All changes saved."}
                   </p>
-                )}
-              </div>
-            </section>
+                  <p className="mt-2 font-body text-sm text-muted-foreground">
+                    Last updated {formatRelativeTimestamp(project.updatedAt || project.createdAt)}
+                  </p>
+                </AdminInset>
 
-            <section className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
-              <p className="font-body text-lg font-semibold text-foreground">Issues and notes</p>
+                <AdminInset className="p-4">
+                  <p className="font-body text-sm font-medium text-foreground">Preview</p>
+                  {previewHref ? (
+                    <Link
+                      to={previewHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary"
+                    >
+                      <ExternalLink size={16} />
+                      <span>Open live page</span>
+                    </Link>
+                  ) : (
+                    <p className="mt-2 font-body text-sm leading-6 text-muted-foreground">
+                      Preview becomes available once the project is published and has a Spanish slug.
+                    </p>
+                  )}
+                </AdminInset>
+              </div>
+
+              <div className="mt-6 border-t border-border/35 pt-6">
+                <AdminSectionHeading title="Issues and notes" />
+              </div>
               <div className="mt-4 space-y-3">
                 {publishIssues.length === 0 && warnings.length === 0 ? (
-                  <div className="rounded-[1.25rem] border border-emerald-500/25 bg-emerald-500/10 px-4 py-4 font-body text-sm text-emerald-700 dark:text-emerald-200">
+                  <div className="rounded-[1rem] border border-emerald-500/25 bg-emerald-500/10 px-4 py-4 font-body text-sm text-emerald-700 dark:text-emerald-200">
                     No blockers or editorial warnings right now.
                   </div>
                 ) : (
@@ -1373,10 +1386,10 @@ const AdminProjectForm = () => {
                   </>
                 )}
               </div>
-            </section>
 
-            <section className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
-              <p className="font-body text-lg font-semibold text-foreground">Metadata</p>
+              <div className="mt-6 border-t border-border/35 pt-6">
+                <AdminSectionHeading title="Metadata" />
+              </div>
               <div className="mt-4 space-y-3">
                 {[
                   ["Project ID", project.id || "Generated after first save"],
@@ -1386,14 +1399,14 @@ const AdminProjectForm = () => {
                 ].map(([label, value]) => (
                   <div
                     key={label}
-                    className="flex items-center justify-between gap-4 rounded-[1.25rem] border border-border/50 bg-secondary/20 px-4 py-3"
+                    className="flex items-center justify-between gap-4 rounded-[1rem] border border-border/35 bg-secondary/18 px-4 py-3"
                   >
                     <span className="font-body text-sm text-muted-foreground">{label}</span>
                     <span className="font-body text-sm font-medium text-foreground">{value}</span>
                   </div>
                 ))}
               </div>
-            </section>
+            </AdminPanel>
           </aside>
         </div>
       </form>

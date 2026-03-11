@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
+import { AdminInset, AdminPanel } from "@/components/admin/AdminSurface";
 import AdminUserMenu, { AdminSessionPanel } from "@/components/admin/AdminUserMenu";
 import { useAdminSession } from "@/hooks/useAdminSession";
 
@@ -99,11 +100,11 @@ const AdminShell = ({
   return (
     <div className="admin-theme-shell min-h-screen text-foreground">
       <div className="mx-auto flex min-h-screen max-w-[1600px]">
-        <aside className="hidden w-[290px] shrink-0 border-r border-border/50 bg-secondary/35 px-5 py-6 lg:flex lg:flex-col">
+        <aside className="hidden w-[282px] shrink-0 border-r border-border/35 bg-secondary/18 px-5 py-6 lg:flex lg:flex-col">
           <Link
             to="/admin"
             onClick={(event) => handleInternalNavigation(event, "/admin")}
-            className="rounded-[1.75rem] border border-border/50 bg-card/80 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]"
+            className="border-b border-border/35 pb-6"
           >
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
@@ -116,17 +117,20 @@ const AdminShell = ({
             </div>
           </Link>
 
-          <div className="mt-6 rounded-[1.75rem] border border-border/50 bg-card/70 p-4 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+          <div className="mt-6">
             <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Navigation
             </p>
-            <div className="mt-4">{renderNavigation()}</div>
+            <div className="mt-3">{renderNavigation()}</div>
           </div>
 
+          <p className="mt-auto pt-6 font-body text-sm leading-6 text-muted-foreground">
+            Editorial workspace connected to the same runtime APIs as the public site.
+          </p>
         </aside>
 
         <main className="min-w-0 flex-1 px-4 pb-8 pt-4 sm:px-6 lg:px-8 lg:pt-6">
-          <div className="sticky top-0 z-40 -mx-4 border-b border-border/50 bg-background/90 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:px-6 lg:hidden">
+          <div className="sticky top-0 z-40 -mx-4 border-b border-border/35 bg-background/92 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:px-6 lg:hidden">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="font-body text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -156,7 +160,7 @@ const AdminShell = ({
                 aria-label="Close admin navigation"
                 onClick={() => setMobileMenuOpen(false)}
               />
-              <div className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-border/50 bg-background px-5 py-5 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+              <div className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-border/35 bg-background px-5 py-5 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="font-body text-base font-semibold text-foreground">Admin Workspace</p>
@@ -172,24 +176,24 @@ const AdminShell = ({
                   </button>
                 </div>
 
-                <div className="mt-6 rounded-[1.5rem] border border-border/50 bg-card/70 p-4">
+                <AdminPanel className="mt-6 p-4 shadow-none">
                   <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                     Navigation
                   </p>
                   <div className="mt-4">{renderNavigation(true)}</div>
-                </div>
+                </AdminPanel>
 
                 <AdminSessionPanel
                   email={session.email}
                   isLoggingOut={isLoggingOut}
                   onLogout={handleLogout}
-                  className="mt-4 bg-card/70 shadow-none"
+                  className="mt-4 bg-card/68 shadow-none"
                 />
               </div>
             </div>
           ) : null}
 
-          <div className="rounded-[2rem] border border-border/50 bg-card/80 p-5 shadow-[0_28px_120px_rgba(0,0,0,0.22)] sm:p-6">
+          <div className="border-b border-border/35 pb-6">
             <div className="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
               <div className="min-w-0">
                 {breadcrumbs.length > 0 ? (
@@ -229,7 +233,9 @@ const AdminShell = ({
               </div>
 
               <div className="flex flex-wrap items-center gap-3 xl:justify-end">
-                {headerActions ? <div className="flex flex-wrap items-center gap-3 xl:justify-end">{headerActions}</div> : null}
+                {headerActions ? (
+                  <div className="flex flex-wrap items-center gap-3 xl:justify-end">{headerActions}</div>
+                ) : null}
                 <div className="hidden lg:block">
                   <AdminUserMenu
                     email={session.email}
@@ -242,9 +248,9 @@ const AdminShell = ({
           </div>
 
           {error ? (
-            <div className="mt-4 rounded-[1.5rem] border border-destructive/40 bg-destructive/10 px-4 py-3 font-body text-sm text-destructive">
+            <AdminInset className="mt-4 border-destructive/30 bg-destructive/8 px-4 py-3 text-destructive">
               Session sync issue: {error}
-            </div>
+            </AdminInset>
           ) : null}
 
           <div className="mt-6">{children}</div>
