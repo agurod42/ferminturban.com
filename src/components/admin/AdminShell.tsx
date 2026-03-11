@@ -2,7 +2,6 @@ import { useMemo, useState, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ChevronRight,
-  LayoutDashboard,
   Menu,
   Rows3,
   ShieldCheck,
@@ -13,7 +12,6 @@ import AdminUserMenu, { AdminSessionPanel } from "@/components/admin/AdminUserMe
 import { useAdminSession } from "@/hooks/useAdminSession";
 
 const navItems = [
-  { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { to: "/admin/projects", label: "Projects", icon: Rows3 },
 ];
 
@@ -45,7 +43,7 @@ const AdminShell = ({
 
   const activeNavLabel = useMemo(() => {
     const activeItem = navItems.find((item) =>
-      location.pathname === item.to || (item.to !== "/admin" && location.pathname.startsWith(item.to)),
+      location.pathname === item.to || location.pathname.startsWith(`${item.to}/`),
     );
 
     return activeItem?.label || title;
@@ -75,8 +73,7 @@ const AdminShell = ({
       {navItems.map((item) => {
         const Icon = item.icon;
         const active =
-          location.pathname === item.to ||
-          (item.to !== "/admin" && location.pathname.startsWith(item.to));
+          location.pathname === item.to || location.pathname.startsWith(`${item.to}/`);
 
         return (
           <Link
@@ -102,8 +99,8 @@ const AdminShell = ({
       <div className="mx-auto flex min-h-screen max-w-[1600px]">
         <aside className="hidden w-[282px] shrink-0 border-r border-border/35 bg-secondary/18 px-5 py-6 lg:flex lg:flex-col">
           <Link
-            to="/admin"
-            onClick={(event) => handleInternalNavigation(event, "/admin")}
+            to="/admin/projects"
+            onClick={(event) => handleInternalNavigation(event, "/admin/projects")}
             className="border-b border-border/35 pb-6"
           >
             <div className="flex items-center gap-3">

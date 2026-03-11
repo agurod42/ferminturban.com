@@ -192,13 +192,11 @@
 }
 
 .admin-theme-shell {
-  background-image:
-    radial-gradient(circle at top left, hsl(var(--primary) / 0.14), transparent 28%),
-    linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)) 42%, hsl(var(--secondary) / 0.55));
+  background-color: hsl(var(--background));
 }
 
 .admin-theme-hero-panel {
-  background-image: linear-gradient(180deg, hsl(var(--card)), hsl(var(--secondary) / 0.82));
+  background-color: hsl(var(--card));
 }
 
 /* Video embed responsive */

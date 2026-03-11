@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import AdminRoute from "./components/admin/AdminRoute";
 import AdminSessionProvider from "./components/admin/AdminSessionProvider";
@@ -12,7 +12,6 @@ import { lazyRoute } from "./lib/lazyRoute";
 import Index from "./pages/Index";
 
 const AdminLogin = lazyRoute(() => import("./pages/admin/AdminLogin"));
-const AdminDashboard = lazyRoute(() => import("./pages/admin/AdminDashboard"));
 const AdminProjects = lazyRoute(() => import("./pages/admin/AdminProjects"));
 const AdminProjectForm = lazyRoute(() => import("./pages/admin/AdminProjectForm"));
 const Publicidad = lazyRoute(() => import("./pages/Publicidad"));
@@ -65,7 +64,7 @@ const AnimatedRoutes = () => {
           <Route path="/admin" element={<AdminProviderLayout />}>
             <Route path="login" element={<AdminLogin />} />
             <Route element={<AdminRoute />}>
-              <Route index element={<AdminDashboard />} />
+              <Route index element={<Navigate to="projects" replace />} />
               <Route path="projects" element={<AdminProjects />} />
               <Route path="projects/new" element={<AdminProjectForm />} />
               <Route path="projects/:id" element={<AdminProjectForm />} />
