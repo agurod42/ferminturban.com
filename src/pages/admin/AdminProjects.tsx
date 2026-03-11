@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ExternalLink, PlusSquare, Search, SlidersHorizontal } from "lucide-react";
+import AdminSelect from "@/components/admin/AdminSelect";
 import AdminShell from "@/components/admin/AdminShell";
 import { useAdminProjects } from "@/hooks/useAdminProjects";
 import { usePublicContent } from "@/hooks/usePublicContent";
@@ -213,31 +214,29 @@ const AdminProjects = () => {
 
             <label className="block">
               <span className="sr-only">Category</span>
-              <select
+              <AdminSelect
                 value={category}
                 onChange={(event) => updateFilters({ category: event.target.value })}
-                className="min-h-11 w-full rounded-2xl border border-border/60 bg-secondary/30 px-4 py-3 font-body text-sm text-foreground outline-none transition-colors focus:border-primary"
+                className="bg-secondary/30"
               >
                 <option value="all">All categories</option>
                 <option value="publicidad">Advertising</option>
                 <option value="documental">Documentary</option>
-              </select>
+              </AdminSelect>
             </label>
 
             <label className="block">
               <span className="sr-only">Sort</span>
-              <div className="relative">
-                <SlidersHorizontal size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <select
-                  value={sort}
-                  onChange={(event) => updateFilters({ sort: event.target.value })}
-                  className="min-h-11 w-full rounded-2xl border border-border/60 bg-secondary/30 py-3 pl-11 pr-4 font-body text-sm text-foreground outline-none transition-colors focus:border-primary"
-                >
-                  <option value="recent">Recently updated</option>
-                  <option value="manual">Sort order</option>
-                  <option value="title">Alphabetical</option>
-                </select>
-              </div>
+              <AdminSelect
+                value={sort}
+                onChange={(event) => updateFilters({ sort: event.target.value })}
+                className="bg-secondary/30"
+                leading={<SlidersHorizontal size={16} />}
+              >
+                <option value="recent">Recently updated</option>
+                <option value="manual">Sort order</option>
+                <option value="title">Alphabetical</option>
+              </AdminSelect>
             </label>
           </div>
         </div>

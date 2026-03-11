@@ -12,6 +12,7 @@ import {
   UploadCloud,
 } from "lucide-react";
 import AdminDialog from "@/components/admin/AdminDialog";
+import AdminSelect from "@/components/admin/AdminSelect";
 import AdminShell from "@/components/admin/AdminShell";
 import { useAdminSession } from "@/hooks/useAdminSession";
 import { usePublicContent } from "@/hooks/usePublicContent";
@@ -618,15 +619,15 @@ const AdminProjectForm = () => {
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 <label className="block">
                   <span className="font-body text-sm font-medium text-foreground">Category</span>
-                  <select
+                  <AdminSelect
                     id="field-category"
                     value={project.category}
                     onChange={(event) => setField("category", event.target.value as AdminProject["category"])}
-                    className={`${fieldBaseClass} border-border/60 bg-secondary/20 focus:border-primary mt-2`}
+                    className="mt-2"
                   >
                     <option value="publicidad">Advertising</option>
                     <option value="documental">Documentary</option>
-                  </select>
+                  </AdminSelect>
                   <FieldMessage helper="This controls where the project appears in the public experience." />
                 </label>
 
@@ -736,15 +737,15 @@ const AdminProjectForm = () => {
 
                 <label className="block">
                   <span className="font-body text-sm font-medium text-foreground">Media type</span>
-                  <select
+                  <AdminSelect
                     value={project.mediaType || ""}
                     onChange={(event) => setField("mediaType", (event.target.value || undefined) as never)}
-                    className={`${fieldBaseClass} border-border/60 bg-secondary/20 focus:border-primary mt-2`}
+                    className="mt-2"
                   >
                     <option value="">No primary media</option>
                     <option value="video">Video</option>
                     <option value="image">Image</option>
-                  </select>
+                  </AdminSelect>
                   <FieldMessage helper="Set this to video when the public page should embed a playable video." />
                 </label>
 
