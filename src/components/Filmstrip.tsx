@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/types/project";
 import ProjectCard from "./ProjectCard";
 
 interface FilmstripProps {

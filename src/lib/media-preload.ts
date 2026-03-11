@@ -1,5 +1,6 @@
-import { sharedThumbnailAspectRatio, type Project } from "@/data/projects";
+import type { Project } from "@/types/project";
 import { getOptimizedImageUrl } from "@/lib/imgproxy";
+import { DEFAULT_ASPECT_RATIO } from "@/lib/project-utils";
 
 type FetchPriority = "high" | "low" | "auto";
 
@@ -123,7 +124,7 @@ export const scheduleIdle = (task: () => void) => {
     return;
   }
 
-  window.setTimeout(task, 350);
+  globalThis.setTimeout(task, 350);
 };
 
 export const warmVideoProvider = (
@@ -164,8 +165,8 @@ export const preloadProjectMedia = (
 
   const includeGallery = options.includeGallery ?? false;
   const priority = options.priority ?? "low";
-  const thumbnailAspectRatio = sharedThumbnailAspectRatio;
-  const backgroundAspectRatio = project.thumbnailAspectRatio ?? sharedThumbnailAspectRatio;
+  const thumbnailAspectRatio = project.thumbnailAspectRatio ?? DEFAULT_ASPECT_RATIO;
+  const backgroundAspectRatio = project.thumbnailAspectRatio ?? DEFAULT_ASPECT_RATIO;
   const galleryAspectRatio = project.galleryAspectRatio ?? backgroundAspectRatio;
 
   preconnectOrigins([

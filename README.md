@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Fermin Turban Website
 
-## Project info
+Vite/React portfolio site with a Vercel-native admin CMS. Public pages read runtime project data from Vercel Functions, and the `/admin` area lets the site owner create, edit, publish, archive, and upload project content without redeploying.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack
 
-## How can I edit this code?
+- Vite + React + TypeScript
+- Vercel Functions in `api/`
+- Vercel Postgres-compatible `DATABASE_URL` for persistent content
+- Vercel Blob for media uploads
+- Local file fallback in `.data/admin-projects.json` and `public/uploads/` when `DATABASE_URL` or `BLOB_READ_WRITE_TOKEN` are absent
 
-There are several ways of editing your application.
+## Local development
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Install dependencies:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Frontend-only development:
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+That mode serves the SPA only. Public pages fall back to static seed content if `/api/*` is unavailable.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Full-stack local development with admin/API routes:
 
-**Use GitHub Codespaces**
+```sh
+npx vercel dev
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Run this from `website/` so Vercel serves both `dist` and the `api/` functions locally.
 
-## What technologies are used for this project?
+## Admin setup
 
-This project is built with:
+1. Copy values from `.env.example`.
+2. Generate an admin password hash:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```sh
+npm run admin:hash -- "your-password"
+```
 
-## How can I deploy this project?
+3. Set `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `SESSION_SECRET`.
+4. Optional: set `DATABASE_URL` for Postgres-backed content storage.
+5. Optional: set `BLOB_READ_WRITE_TOKEN` for Blob uploads.
+6. Seed the runtime content store from the current static portfolio:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```sh
+npm run admin:seed
+```
 
-## Can I connect a custom domain to my Lovable project?
+Reset the runtime store back to the static seed set:
 
-Yes, you can!
+```sh
+npm run admin:seed -- --reset
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Verification
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```sh
+npm run typecheck
+npm run lint
+npm test
+npm run build
+```
+
+## Vercel deployment
+
+- Connect this repo or set `Root Directory = website` if deploying from the parent repo.
+- Keep Node on `20.x`.
+- Configure:
+  - `ADMIN_EMAIL`
+  - `ADMIN_PASSWORD_HASH`
+  - `SESSION_SECRET`
+  - `DATABASE_URL`
+  - `BLOB_READ_WRITE_TOKEN`
+  - `IMGPROXY_BASE`
+  - `IMGPROXY_KEY`
+  - `IMGPROXY_SALT`
+  - `IMGPROXY_SIGNATURE_SIZE`
+
+Public SPA routing is handled by `vercel.json`, and API routes under `api/` are deployed as Vercel Functions.

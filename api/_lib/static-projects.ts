@@ -1,17 +1,6 @@
-import publicidadSource from "./scraped/publicidad_enriched.json";
-import documentalSource from "./scraped/documental_enriched.json";
-import type { Lang } from "../types/language";
-import {
-  getDominantAspectRatio,
-  getProjectByLocalizedSlug as findProjectByLocalizedSlug,
-  getProjectBySlug as findProjectBySlug,
-  getProjectSlug,
-  getProjectsByCategory as filterProjectsByCategory,
-  getSharedThumbnailAspectRatio,
-} from "@/lib/project-utils";
-import type { Project, ProjectCategory } from "@/types/project";
-
-const DEFAULT_ASPECT_RATIO = 16 / 9;
+import publicidadSource from "../../src/data/scraped/publicidad_enriched.json";
+import documentalSource from "../../src/data/scraped/documental_enriched.json";
+import type { Project, ProjectCategory, ProjectGalleryItem } from "../../src/types/project";
 
 type RawRenderedSize = {
   aspect_ratio?: number | null;
@@ -76,6 +65,12 @@ type RawSource = {
   items: RawItem[];
 };
 
+const projectCollator = new Intl.Collator("es", {
+  sensitivity: "base",
+  numeric: true,
+});
+const ASPECT_RATIO_BUCKET_SIZE = 0.05;
+
 const advertisingFeatured = new Set([
   "audi",
   "natalia-oreiro",
@@ -97,13 +92,6 @@ const englishSlugMap: Record<string, string> = {
   "el-desafio-imposible": "the-impossible-challenge",
 };
 
-const publicidadData = publicidadSource as RawSource;
-const documentalData = documentalSource as RawSource;
-const projectCollator = new Intl.Collator("es", {
-  sensitivity: "base",
-  numeric: true,
-});
-
 const pickFirst = (...values: Array<string | null | undefined>): string | undefined =>
   values.find((value): value is string => typeof value === "string" && value.trim().length > 0);
 
@@ -112,6 +100,36 @@ const isValidAspectRatio = (value: number | null | undefined): value is number =
 
 const pickAspectRatio = (...values: Array<number | null | undefined>) =>
   values.find(isValidAspectRatio);
+
+const bucketAspectRatio = (value: number) =>
+  Number(
+    (Math.round(value / ASPECT_RATIO_BUCKET_SIZE) * ASPECT_RATIO_BUCKET_SIZE).toFixed(4),
+  );
+
+const getDominantAspectRatio = (values: Array<number | null | undefined>) => {
+  const ratios = values.filter(isValidAspectRatio);
+
+  if (!ratios.length) {
+    return undefined;
+  }
+
+  const counts = new Map<number, number>();
+  let bestBucket: number | undefined;
+  let bestCount = -1;
+
+  ratios.forEach((ratio) => {
+    const bucket = bucketAspectRatio(ratio);
+    const count = (counts.get(bucket) || 0) + 1;
+    counts.set(bucket, count);
+
+    if (count > bestCount) {
+      bestBucket = bucket;
+      bestCount = count;
+    }
+  });
+
+  return bestBucket;
+};
 
 const buildPlayableVideoUrl = (
   provider: string | null | undefined,
@@ -137,14 +155,32 @@ const buildPlayableVideoUrl = (
   }
 };
 
+const toGalleryItems = (rawGalleryImages: RawGalleryImage[]) =>
+  rawGalleryImages
+    .map((image, index): ProjectGalleryItem | null => {
+      if (!image.url) {
+        return null;
+      }
+
+      return {
+        id: `seed-gallery-${index}-${image.url}`,
+        imageUrl: image.url,
+        aspectRatio: pickAspectRatio(
+          image.full_resolution_aspect_ratio,
+          image.rendered_size?.desktop?.aspect_ratio,
+          image.rendered_size?.mobile?.aspect_ratio,
+        ),
+        position: index,
+      };
+    })
+    .filter((item): item is ProjectGalleryItem => Boolean(item));
+
 const normalizeProject = (item: RawItem, category: ProjectCategory): Project => {
   const detail = item.detail ?? {};
   const credits = detail.credits ?? {};
   const media = detail.media ?? {};
   const rawGalleryImages = detail.gallery_images ?? [];
-  const galleryImages = rawGalleryImages
-    .map((image) => image.url || undefined)
-    .filter((url): url is string => Boolean(url));
+  const galleryItems = toGalleryItems(rawGalleryImages);
   const galleryAspectRatio = getDominantAspectRatio(
     rawGalleryImages.map((image) => pickAspectRatio(
       image.full_resolution_aspect_ratio,
@@ -163,6 +199,7 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
     slug: item.slug,
     slugEn: englishSlugMap[item.slug],
     title: pickFirst(detail.campaign_title, item.name, item.slug) ?? item.slug,
+    titleEn: pickFirst(detail.campaign_title, item.name, item.slug) ?? item.slug,
     category,
     client: pickFirst(credits.cliente),
     productora: pickFirst(credits.productora),
@@ -176,7 +213,8 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
     featured: category === "publicidad"
       ? advertisingFeatured.has(item.slug)
       : documentaryFeatured.has(item.slug),
-    gallery: galleryImages,
+    gallery: galleryItems.map((galleryItem) => galleryItem.imageUrl),
+    galleryItems,
     galleryAspectRatio,
     thumbnailUrl: pickFirst(
       item.gallery?.thumbnail_url,
@@ -184,6 +222,7 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
       detail.detail_page_background?.url,
     ),
     thumbnailAlt: pickFirst(item.gallery?.thumbnail_alt, detail.campaign_title, item.name),
+    thumbnailAltEn: pickFirst(item.gallery?.thumbnail_alt, detail.campaign_title, item.name),
     thumbnailAspectRatio,
     backgroundUrl: pickFirst(detail.detail_page_background?.url),
     canonicalUrl: pickFirst(detail.canonical),
@@ -192,36 +231,15 @@ const normalizeProject = (item: RawItem, category: ProjectCategory): Project => 
   };
 };
 
-const sortProjectsAlphabetically = (items: Project[]) =>
-  [...items].sort((left, right) => projectCollator.compare(left.title, right.title));
+export const buildStaticProjects = () => {
+  const publicidadData = publicidadSource as RawSource;
+  const documentalData = documentalSource as RawSource;
+  const advertisingProjects = publicidadData.items
+    .map((item) => normalizeProject(item, "publicidad"))
+    .sort((left, right) => projectCollator.compare(left.title, right.title));
+  const documentaryProjects = documentalData.items
+    .map((item) => normalizeProject(item, "documental"))
+    .sort((left, right) => projectCollator.compare(left.title, right.title));
 
-const advertisingProjects = sortProjectsAlphabetically(
-  publicidadData.items.map((item) => normalizeProject(item, "publicidad")),
-);
-
-const documentaryProjects = sortProjectsAlphabetically(
-  documentalData.items.map((item) => normalizeProject(item, "documental")),
-);
-
-export const projects: Project[] = [...advertisingProjects, ...documentaryProjects];
-export const sharedThumbnailAspectRatio =
-  getSharedThumbnailAspectRatio(projects) ?? DEFAULT_ASPECT_RATIO;
-
-export const getProjectsByCategory = (category: ProjectCategory) =>
-  filterProjectsByCategory(projects, category);
-
-export const getProjectBySlug = (slug: string) =>
-  findProjectBySlug(projects, slug);
-
-export const getProjectByLocalizedSlug = (slug: string, lang: Lang) => {
-  return findProjectByLocalizedSlug(projects, slug, lang);
-};
-
-export default {
-  projects,
-  sharedThumbnailAspectRatio,
-  getProjectsByCategory,
-  getProjectBySlug,
-  getProjectSlug,
-  getProjectByLocalizedSlug,
+  return [...advertisingProjects, ...documentaryProjects];
 };

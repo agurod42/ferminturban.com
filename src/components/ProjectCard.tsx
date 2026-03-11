@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { sharedThumbnailAspectRatio, type Project } from "@/data/projects";
-import { getThumbnail } from "@/data/thumbnails";
+import type { Project } from "@/types/project";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getResponsiveImageSet } from "@/lib/imgproxy";
 import { preloadProjectMedia } from "@/lib/media-preload";
+import { usePublicContent } from "@/hooks/usePublicContent";
 
 interface ProjectCardProps {
   project: Project;
@@ -13,12 +13,12 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) => {
-  const thumbnail = getThumbnail(project.slug);
   const { t, projectPath } = useLanguage();
+  const { sharedThumbnailAspectRatio } = usePublicContent();
   const isFilmstrip = variant === "filmstrip";
   const aspectRatio = sharedThumbnailAspectRatio;
   const prioritizeImage = isFilmstrip ? index < 2 : index < 6;
-  const image = getResponsiveImageSet(thumbnail, {
+  const image = getResponsiveImageSet(project.thumbnailUrl, {
     aspectRatio,
     widths: isFilmstrip ? [480, 720, 960, 1280] : [480, 720, 960, 1280, 1600],
     sizes: isFilmstrip
@@ -56,7 +56,7 @@ const ProjectCard = ({ project, index, variant = "default" }: ProjectCardProps) 
           className="relative overflow-hidden rounded bg-secondary mb-3 gpu-layer paint-contain"
           style={{ aspectRatio }}
         >
-          {thumbnail && image ? (
+          {project.thumbnailUrl && image ? (
             <>
               <img
                 src={image.src}

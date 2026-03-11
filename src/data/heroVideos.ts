@@ -1,7 +1,10 @@
+import { getProjectBySlug as getStaticProjectBySlug } from "@/data/projects";
+
 type HeroVideo = {
   id: string;
   projectSlug: string;
   startAtSeconds: number;
+  posterUrl?: string;
 };
 
 // Hero background videos by device type.
@@ -23,6 +26,7 @@ const createHeroVideo = (
     0,
     Math.min(HERO_TARGET_START_SECONDS, durationSeconds - HERO_MIN_REMAINING_SECONDS)
   ),
+  posterUrl: getStaticProjectBySlug(projectSlug)?.thumbnailUrl,
 });
 
 const heroVideosMobile: HeroVideo[] = [

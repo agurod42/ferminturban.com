@@ -1,13 +1,14 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
 import ProjectCard from "@/components/ProjectCard";
-import { getProjectsByCategory } from "@/data/projects";
 import { useLanguage } from "@/hooks/useLanguage";
 import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
+import { usePublicContent } from "@/hooks/usePublicContent";
 
 const Documental = () => {
-  const projects = useMemo(() => getProjectsByCategory("documental"), []);
   const { t } = useLanguage();
+  const { getProjectsByCategory } = usePublicContent();
+  const projects = getProjectsByCategory("documental");
 
   useEffect(() => {
     scheduleIdle(() => {

@@ -6,11 +6,11 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PageTransition from "@/components/PageTransition";
 import Filmstrip from "@/components/Filmstrip";
-import { getProjectBySlug, getProjectsByCategory } from "@/data/projects";
 import { getHeroVideoPool, getRandomHeroVideo } from "@/data/heroVideos";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getResponsiveImageSet } from "@/lib/imgproxy";
+import { usePublicContent } from "@/hooks/usePublicContent";
 import {
   canAggressivelyPreload,
   preconnectOrigins,
@@ -24,14 +24,21 @@ const Index = () => {
   const isMobile = useIsMobile();
   const isTablet = typeof window !== "undefined" && window.innerWidth >= 768 && window.innerWidth < 1024;
   const { t, categoryPath } = useLanguage();
+  const { getProjectBySlug, getProjectsByCategory } = usePublicContent();
   const [heroVideoReady, setHeroVideoReady] = useState(false);
   const deviceType = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
 
   const heroVideo = useMemo(() => getRandomHeroVideo(deviceType), [deviceType]);
-  const commercialProjects = useMemo(() => getProjectsByCategory("publicidad"), []);
-  const docProjects = useMemo(() => getProjectsByCategory("documental"), []);
+  const commercialProjects = useMemo(
+    () => getProjectsByCategory("publicidad"),
+    [getProjectsByCategory],
+  );
+  const docProjects = useMemo(
+    () => getProjectsByCategory("documental"),
+    [getProjectsByCategory],
+  );
   const heroProject = getProjectBySlug(heroVideo.projectSlug);
-  const heroPoster = heroProject?.thumbnailUrl;
+  const heroPoster = heroProject?.thumbnailUrl || heroVideo.posterUrl;
   const heroVideoStartFragment = heroVideo.startAtSeconds > 0 ? `#t=${heroVideo.startAtSeconds}s` : "";
   const heroVideoUrl = `https://player.vimeo.com/video/${heroVideo.id}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1${heroVideoStartFragment}`;
   const heroPosterImage = getResponsiveImageSet(heroPoster, {
@@ -66,7 +73,7 @@ const Index = () => {
           sizes: "100vw",
           mode: "fill",
         });
-        preloadImage(candidatePoster?.src ?? project?.thumbnailUrl, "low");
+        preloadImage(candidatePoster?.src ?? project?.thumbnailUrl ?? candidate.posterUrl, "low");
       });
 
       const visibleProjects = [...commercialProjects.slice(0, 5), ...docProjects.slice(0, 4)];
@@ -83,7 +90,17 @@ const Index = () => {
         });
       }
     });
-  }, [commercialProjects, deviceType, docProjects, heroPoster, heroPosterImage?.src, heroVideo.projectSlug, heroVideoUrl, isMobile]);
+  }, [
+    commercialProjects,
+    deviceType,
+    docProjects,
+    getProjectBySlug,
+    heroPoster,
+    heroPosterImage?.src,
+    heroVideo.projectSlug,
+    heroVideoUrl,
+    isMobile,
+  ]);
 
   return (
     <PageTransition>

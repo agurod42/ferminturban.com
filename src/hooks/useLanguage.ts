@@ -1,10 +1,10 @@
 import { useParams, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCallback, useEffect } from "react";
-import type { Project } from "@/data/projects";
-import { getProjectSlug, getProjectByLocalizedSlug } from "@/data/projects";
-
-export type Lang = "es" | "en";
+import type { Project } from "@/types/project";
+import type { Lang } from "@/types/language";
+import { getProjectSlug } from "@/lib/project-utils";
+import { usePublicContent } from "@/hooks/usePublicContent";
 
 // Route segment translations per language
 const routeMap: Record<Lang, Record<string, string>> = {
@@ -41,6 +41,7 @@ export const useLanguage = () => {
   const lang: Lang = langParam === "en" ? "en" : "es";
   const { i18n, t } = useTranslation();
   const location = useLocation();
+  const { getProjectByLocalizedSlug } = usePublicContent();
 
   useEffect(() => {
     if (i18n.language !== lang) {
@@ -99,7 +100,7 @@ export const useLanguage = () => {
     }
 
     return `/${targetLang}/${newSegment}/${parts.slice(2).join("/")}`;
-  }, [lang, location.pathname]);
+  }, [getProjectByLocalizedSlug, lang, location.pathname]);
 
   /** Category path helper */
   const categoryPath = useCallback(

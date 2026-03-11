@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
-import { getProjectByLocalizedSlug, projects, sharedThumbnailAspectRatio } from "@/data/projects";
-import { getThumbnail } from "@/data/thumbnails";
 import { useLanguage } from "@/hooks/useLanguage";
 import { getResponsiveImageSet } from "@/lib/imgproxy";
 import { preloadProjectMedia, scheduleIdle } from "@/lib/media-preload";
+import { usePublicContent } from "@/hooks/usePublicContent";
 import pageTexture from "@/assets/page-texture.jpg";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, lang, projectPath, categoryPath } = useLanguage();
+  const { getProjectByLocalizedSlug, projects, sharedThumbnailAspectRatio } = usePublicContent();
   const project = getProjectByLocalizedSlug(slug || "", lang);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const siblings = project ? projects.filter((p) => p.category === project.category) : [];
@@ -59,8 +59,7 @@ const ProjectDetail = () => {
 
   const backPath = categoryPath(project.category);
   const categoryLabel = project.category === "publicidad" ? t("project.advertising") : t("project.documentary");
-  const thumbnail = getThumbnail(project.slug);
-  const heroBackground = thumbnail || project.backgroundUrl || pageTexture;
+  const heroBackground = project.thumbnailUrl || project.backgroundUrl || pageTexture;
   const canPlayVideo = project.mediaType === "video" && Boolean(project.videoUrl);
   const heroAspectRatio = project.thumbnailAspectRatio ?? sharedThumbnailAspectRatio;
   const galleryAspectRatio = project.galleryAspectRatio ?? heroAspectRatio;
