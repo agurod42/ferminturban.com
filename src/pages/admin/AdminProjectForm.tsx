@@ -40,6 +40,7 @@ import {
   uploadFolderForProject,
   type AdminProjectFieldKey,
 } from "@/lib/admin/projects";
+import { featuredProjectsEnabled } from "@/lib/admin/features";
 import { uploadAdminImage } from "@/lib/admin/uploads";
 import type { AdminProject, AdminProjectApiResponse, ProjectGalleryItem } from "@/types/project";
 
@@ -1127,16 +1128,18 @@ const AdminProjectForm = () => {
               />
 
               <div className="mt-6 grid gap-5">
-                <label className="flex items-center gap-3 rounded-[1.25rem] border border-border/35 bg-secondary/18 px-4 py-4">
-                  <input
-                    type="checkbox"
-                    checked={project.featured}
-                    onChange={(event) => setField("featured", event.target.checked)}
-                  />
-                  <span className="font-body text-sm text-foreground">
-                    Feature this project in the editorially promoted set
-                  </span>
-                </label>
+                {featuredProjectsEnabled ? (
+                  <label className="flex items-center gap-3 rounded-[1.25rem] border border-border/35 bg-secondary/18 px-4 py-4">
+                    <input
+                      type="checkbox"
+                      checked={project.featured}
+                      onChange={(event) => setField("featured", event.target.checked)}
+                    />
+                    <span className="font-body text-sm text-foreground">
+                      Feature this project in the editorially promoted set
+                    </span>
+                  </label>
+                ) : null}
 
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className="block">

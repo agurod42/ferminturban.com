@@ -1,3 +1,4 @@
+import { featuredProjectsEnabled } from "@/lib/admin/features";
 import type { AdminProject, AdminProjectInput, ProjectCategory, ProjectStatus } from "@/types/project";
 
 export const categoryLabels: Record<ProjectCategory, string> = {
@@ -254,7 +255,7 @@ export const getAdminProjectIssues = (project: AdminProject): AdminProjectIssue[
     });
   }
 
-  if (project.featured && project.status !== "published") {
+  if (featuredProjectsEnabled && project.featured && project.status !== "published") {
     issues.push({
       id: "featured-not-live",
       label: "Featured projects are not visible on the public site until they are published.",

@@ -6,6 +6,7 @@ import AdminShell from "@/components/admin/AdminShell";
 import { AdminInset, AdminPanel, AdminSectionHeading } from "@/components/admin/AdminSurface";
 import { useAdminProjects } from "@/hooks/useAdminProjects";
 import { usePublicContent } from "@/hooks/usePublicContent";
+import { featuredProjectsEnabled } from "@/lib/admin/features";
 import {
   categoryLabels,
   formatRelativeTimestamp,
@@ -37,7 +38,8 @@ const AdminProjects = () => {
   const { sharedThumbnailAspectRatio } = usePublicContent();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const view = (searchParams.get("view") as LibraryView | null) || "all";
+  const requestedView = (searchParams.get("view") as LibraryView | null) || "all";
+  const view = !featuredProjectsEnabled && requestedView === "featured" ? "all" : requestedView;
   const category = searchParams.get("category") || "all";
   const sort = (searchParams.get("sort") as LibrarySort | null) || "recent";
   const query = searchParams.get("q") || "";
@@ -145,7 +147,9 @@ const AdminProjects = () => {
     { key: "all", label: "All", count: projects.length },
     { key: "draft", label: "Drafts", count: projects.filter((project) => project.status === "draft").length },
     { key: "published", label: "Published", count: projects.filter((project) => project.status === "published").length },
-    { key: "featured", label: "Featured", count: projects.filter((project) => project.featured).length },
+    ...(featuredProjectsEnabled
+      ? [{ key: "featured", label: "Featured", count: projects.filter((project) => project.featured).length }]
+      : []),
     { key: "attention", label: "Needs attention", count: projects.filter(projectNeedsAttention).length },
     { key: "ready", label: "Ready to publish", count: projects.filter(projectIsReadyToPublish).length },
   ] as const;
@@ -331,7 +335,7 @@ const AdminProjects = () => {
                             >
                               {statusLabels[project.status]}
                             </span>
-                            {project.featured ? (
+                            {featuredProjectsEnabled && project.featured ? (
                               <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-body text-xs font-medium text-primary">
                                 Featured
                               </span>
