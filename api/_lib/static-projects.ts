@@ -1,5 +1,5 @@
-import publicidadSource from "../../src/data/scraped/publicidad_enriched.json";
-import documentalSource from "../../src/data/scraped/documental_enriched.json";
+import publicidadSource from "../../src/data/scraped/publicidad_enriched.json" with { type: "json" };
+import documentalSource from "../../src/data/scraped/documental_enriched.json" with { type: "json" };
 import type { Project, ProjectCategory, ProjectGalleryItem } from "../../src/types/project.js";
 
 type RawRenderedSize = {

@@ -14,7 +14,7 @@ import {
   type ApiRequest,
   type ApiResponse,
 } from "../_lib/http.js";
-import { adminProjectInputSchema } from "../_lib/validation.js";
+import { parseAdminProjectInput } from "../_lib/validation.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);
@@ -57,7 +57,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   if (req.method === "PATCH") {
     try {
-      const payload = adminProjectInputSchema.parse(getJsonBody(req));
+      const payload = parseAdminProjectInput(getJsonBody(req));
       const response = await saveAdminProject(payload, id);
       json(res, 200, {
         project: response.data,

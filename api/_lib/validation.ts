@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { AdminProjectInput } from "../../src/types/project.js";
 
 const slugSchema = z
   .string()
@@ -87,6 +88,17 @@ export const adminProjectInputSchema = z.object({
   creditsText: optionalText,
   galleryItems: z.array(galleryItemSchema).default([]),
 });
+
+export const parseAdminProjectInput = (value: unknown): AdminProjectInput => {
+  const payload = adminProjectInputSchema.parse(value);
+
+  return {
+    ...payload,
+    featured: payload.featured ?? false,
+    sortOrder: payload.sortOrder ?? 0,
+    galleryItems: payload.galleryItems ?? [],
+  };
+};
 
 export const uploadSchema = z.object({
   filename: z.string().trim().min(1),
