@@ -14,7 +14,6 @@ import {
 import AdminDialog from "@/components/admin/AdminDialog";
 import AdminSelect from "@/components/admin/AdminSelect";
 import AdminShell from "@/components/admin/AdminShell";
-import { useAdminSession } from "@/hooks/useAdminSession";
 import { usePublicContent } from "@/hooks/usePublicContent";
 import { apiJson } from "@/lib/api";
 import {
@@ -100,7 +99,6 @@ const toPersistedSnapshot = (project: AdminProject) => JSON.stringify(toProjectI
 
 const AdminProjectForm = () => {
   const navigate = useNavigate();
-  const { session } = useAdminSession();
   const { sharedThumbnailAspectRatio } = usePublicContent();
   const { id } = useParams<{ id: string }>();
   const isNew = !id;
@@ -1385,7 +1383,6 @@ const AdminProjectForm = () => {
                   ["Created", formatSyncTimestamp(project.createdAt)],
                   ["Updated", formatSyncTimestamp(project.updatedAt)],
                   ["Published", formatSyncTimestamp(project.publishedAt)],
-                  ["Signed in as", session.email || "Admin"],
                 ].map(([label, value]) => (
                   <div
                     key={label}

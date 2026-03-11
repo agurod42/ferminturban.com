@@ -3,13 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ChevronRight,
   LayoutDashboard,
-  LogOut,
   Menu,
   Rows3,
   ShieldCheck,
   X,
 } from "lucide-react";
-import AdminThemeToggle from "@/components/admin/AdminThemeToggle";
+import AdminUserMenu, { AdminSessionPanel } from "@/components/admin/AdminUserMenu";
 import { useAdminSession } from "@/hooks/useAdminSession";
 
 const navItems = [
@@ -124,35 +123,6 @@ const AdminShell = ({
             <div className="mt-4">{renderNavigation()}</div>
           </div>
 
-          <div className="mt-auto rounded-[1.75rem] border border-border/50 bg-card/70 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Signed in
-                </p>
-                <p className="mt-2 break-all font-body text-sm font-medium text-foreground">
-                  {session.email || "Admin"}
-                </p>
-              </div>
-              <span className="inline-flex rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 font-body text-xs font-medium text-emerald-700 dark:text-emerald-200">
-                Active
-              </span>
-            </div>
-
-            <div className="mt-5">
-              <AdminThemeToggle className="w-full justify-center" />
-            </div>
-
-            <button
-              type="button"
-              onClick={handleLogout}
-              disabled={isLoggingOut}
-              className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground transition-colors hover:border-primary disabled:opacity-60"
-            >
-              <LogOut size={16} />
-              <span>{isLoggingOut ? "Signing out..." : "Sign out"}</span>
-            </button>
-          </div>
         </aside>
 
         <main className="min-w-0 flex-1 px-4 pb-8 pt-4 sm:px-6 lg:px-8 lg:pt-6">
@@ -166,7 +136,6 @@ const AdminShell = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <AdminThemeToggle compact />
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(true)}
@@ -191,7 +160,7 @@ const AdminShell = ({
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="font-body text-base font-semibold text-foreground">Admin Workspace</p>
-                    <p className="font-body text-sm text-muted-foreground">{session.email || "Admin"}</p>
+                    <p className="font-body text-sm text-muted-foreground">Navigation and session controls</p>
                   </div>
                   <button
                     type="button"
@@ -210,26 +179,12 @@ const AdminShell = ({
                   <div className="mt-4">{renderNavigation(true)}</div>
                 </div>
 
-                <div className="mt-4 rounded-[1.5rem] border border-border/50 bg-card/70 p-4">
-                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Session
-                  </p>
-                  <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
-                    You are editing live portfolio content in the same runtime environment as the public site.
-                  </p>
-                  <div className="mt-5">
-                    <AdminThemeToggle className="w-full justify-center" />
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleLogout}
-                    disabled={isLoggingOut}
-                    className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-2xl border border-border/60 px-4 py-3 font-body text-sm font-medium text-foreground"
-                  >
-                    <LogOut size={16} />
-                    <span>{isLoggingOut ? "Signing out..." : "Sign out"}</span>
-                  </button>
-                </div>
+                <AdminSessionPanel
+                  email={session.email}
+                  isLoggingOut={isLoggingOut}
+                  onLogout={handleLogout}
+                  className="mt-4 bg-card/70 shadow-none"
+                />
               </div>
             </div>
           ) : null}
@@ -274,8 +229,14 @@ const AdminShell = ({
               </div>
 
               <div className="flex flex-wrap items-center gap-3 xl:justify-end">
-                <AdminThemeToggle />
-                {headerActions}
+                {headerActions ? <div className="flex flex-wrap items-center gap-3 xl:justify-end">{headerActions}</div> : null}
+                <div className="hidden lg:block">
+                  <AdminUserMenu
+                    email={session.email}
+                    isLoggingOut={isLoggingOut}
+                    onLogout={handleLogout}
+                  />
+                </div>
               </div>
             </div>
           </div>
