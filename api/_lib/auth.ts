@@ -5,9 +5,9 @@ import {
   timingSafeEqual,
 } from "node:crypto";
 import { promisify } from "node:util";
-import { ConfigurationError } from "./errors";
-import type { ApiRequest, ApiResponse } from "./http";
-import { json } from "./http";
+import { ConfigurationError } from "./errors.js";
+import type { ApiRequest, ApiResponse } from "./http.js";
+import { json } from "./http.js";
 
 const scrypt = promisify(nodeScrypt);
 const SESSION_COOKIE_NAME = "ft_admin_session";

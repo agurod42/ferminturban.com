@@ -1,5 +1,5 @@
-import { requireAdminSession } from "../_lib/auth";
-import { getErrorMessage, getErrorStatus } from "../_lib/errors";
+import { requireAdminSession } from "../_lib/auth.js";
+import { getErrorMessage, getErrorStatus } from "../_lib/errors.js";
 import {
   getJsonBody,
   json,
@@ -7,9 +7,9 @@ import {
   setNoStore,
   type ApiRequest,
   type ApiResponse,
-} from "../_lib/http";
-import { uploadAsset } from "../_lib/storage";
-import { uploadSchema } from "../_lib/validation";
+} from "../_lib/http.js";
+import { uploadAsset } from "../_lib/storage.js";
+import { uploadSchema } from "../_lib/validation.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);

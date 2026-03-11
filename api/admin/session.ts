@@ -1,6 +1,6 @@
-import { getSessionExpiry, readSession } from "../_lib/auth";
-import { getErrorMessage, getErrorStatus } from "../_lib/errors";
-import { json, methodNotAllowed, setNoStore, type ApiRequest, type ApiResponse } from "../_lib/http";
+import { getSessionExpiry, readSession } from "../_lib/auth.js";
+import { getErrorMessage, getErrorStatus } from "../_lib/errors.js";
+import { json, methodNotAllowed, setNoStore, type ApiRequest, type ApiResponse } from "../_lib/http.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);

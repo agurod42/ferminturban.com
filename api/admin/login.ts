@@ -3,8 +3,8 @@ import {
   getConfiguredAdminHash,
   setSessionCookie,
   verifyPassword,
-} from "../_lib/auth";
-import { getErrorMessage, getErrorStatus } from "../_lib/errors";
+} from "../_lib/auth.js";
+import { getErrorMessage, getErrorStatus } from "../_lib/errors.js";
 import {
   getJsonBody,
   json,
@@ -12,8 +12,8 @@ import {
   setNoStore,
   type ApiRequest,
   type ApiResponse,
-} from "../_lib/http";
-import { loginSchema } from "../_lib/validation";
+} from "../_lib/http.js";
+import { loginSchema } from "../_lib/validation.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);

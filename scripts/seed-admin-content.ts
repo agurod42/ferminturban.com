@@ -1,4 +1,4 @@
-import { seedContentStore } from "../api/_lib/content-store";
+import { seedContentStore } from "../api/_lib/content-store.js";
 
 const reset = process.argv.includes("--reset");
 

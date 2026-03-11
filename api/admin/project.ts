@@ -1,10 +1,10 @@
-import { requireAdminSession } from "../_lib/auth";
+import { requireAdminSession } from "../_lib/auth.js";
 import {
   deleteAdminProject,
   getAdminProject,
   saveAdminProject,
-} from "../_lib/content-store";
-import { getErrorMessage, getErrorStatus } from "../_lib/errors";
+} from "../_lib/content-store.js";
+import { getErrorMessage, getErrorStatus } from "../_lib/errors.js";
 import {
   getJsonBody,
   getQueryValue,
@@ -13,8 +13,8 @@ import {
   setNoStore,
   type ApiRequest,
   type ApiResponse,
-} from "../_lib/http";
-import { adminProjectInputSchema } from "../_lib/validation";
+} from "../_lib/http.js";
+import { adminProjectInputSchema } from "../_lib/validation.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);

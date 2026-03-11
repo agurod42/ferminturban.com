@@ -1,5 +1,5 @@
-import type { Lang, ProjectCategory } from "../src/types/project";
-import { listPublicProjects } from "./_lib/content-store";
+import type { Lang, ProjectCategory } from "../src/types/project.js";
+import { listPublicProjects } from "./_lib/content-store.js";
 import {
   getQueryValue,
   json,
@@ -7,7 +7,7 @@ import {
   setPublicApiCache,
   type ApiRequest,
   type ApiResponse,
-} from "./_lib/http";
+} from "./_lib/http.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== "GET") {

@@ -1,5 +1,5 @@
-import { clearSessionCookie } from "../_lib/auth";
-import { json, methodNotAllowed, setNoStore, type ApiRequest, type ApiResponse } from "../_lib/http";
+import { clearSessionCookie } from "../_lib/auth.js";
+import { json, methodNotAllowed, setNoStore, type ApiRequest, type ApiResponse } from "../_lib/http.js";
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   setNoStore(res);

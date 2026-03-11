@@ -3,7 +3,7 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import postgres from "postgres";
-import { ConflictError, NotFoundError } from "./errors";
+import { ConfigurationError, ConflictError, NotFoundError } from "./errors.js";
 import type {
   AdminProject,
   AdminProjectInput,
@@ -11,8 +11,8 @@ import type {
   Project,
   ProjectCategory,
   ProjectGalleryItem,
-} from "../../src/types/project";
-import { buildStaticProjects } from "./static-projects";
+} from "../../src/types/project.js";
+import { buildStaticProjects } from "./static-projects.js";
 
 type StoreSource = "database" | "file";
 
@@ -121,6 +121,16 @@ const buildSeedPayload = (): FileStorePayload => ({
   syncedAt: getSyncedAt(),
 });
 
+const isReadOnlyFileStoreError = (error: unknown) => {
+  const code = (error as NodeJS.ErrnoException).code;
+  return code === "EROFS" || code === "EACCES" || code === "EPERM";
+};
+
+const toReadOnlyFileStoreError = () =>
+  new ConfigurationError(
+    "DATABASE_URL is required for project edits in this deployment",
+  );
+
 const toPublicProject = (project: AdminProject, lang: Lang): Project => ({
   id: project.id,
   slug: project.slugEs,
@@ -227,7 +237,13 @@ const readJsonFileStore = async (): Promise<FileStorePayload> => {
     }
 
     const initial = buildSeedPayload();
-    await writeJsonFileStore(initial);
+    try {
+      await writeJsonFileStore(initial);
+    } catch (writeError) {
+      if (!isReadOnlyFileStoreError(writeError)) {
+        throw writeError;
+      }
+    }
     return initial;
   }
 };
@@ -288,7 +304,14 @@ const fileStore = {
       syncedAt: getSyncedAt(),
     };
 
-    await writeJsonFileStore(nextPayload);
+    try {
+      await writeJsonFileStore(nextPayload);
+    } catch (error) {
+      if (isReadOnlyFileStoreError(error)) {
+        throw toReadOnlyFileStoreError();
+      }
+      throw error;
+    }
     return {
       data: nextProject,
       source: "file",
@@ -304,7 +327,14 @@ const fileStore = {
       projects: nextProjects,
       syncedAt: getSyncedAt(),
     };
-    await writeJsonFileStore(nextPayload);
+    try {
+      await writeJsonFileStore(nextPayload);
+    } catch (error) {
+      if (isReadOnlyFileStoreError(error)) {
+        throw toReadOnlyFileStoreError();
+      }
+      throw error;
+    }
 
     return {
       data: deleted,
@@ -319,7 +349,14 @@ const fileStore = {
     }
 
     const payload = buildSeedPayload();
-    await writeJsonFileStore(payload);
+    try {
+      await writeJsonFileStore(payload);
+    } catch (error) {
+      if (isReadOnlyFileStoreError(error)) {
+        throw toReadOnlyFileStoreError();
+      }
+      throw error;
+    }
 
     return {
       data: payload.projects,
