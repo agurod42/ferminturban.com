@@ -8,6 +8,14 @@
       "handle": "filesystem"
     },
     {
+      "src": "^/api(?:/.*)?$",
+      "status": 404
+    },
+    {
+      "src": "^/.*\\.(?:avif|css|gif|ico|jpe?g|js|json|map|mjs|png|svg|txt|webmanifest|webp|woff2?|xml)$",
+      "status": 404
+    },
+    {
       "src": "/.*",
       "dest": "/index.html"
     }
