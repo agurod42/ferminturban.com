@@ -46,6 +46,8 @@ export const getErrorStatus = (error: unknown, fallbackStatus = 500) => {
 };
 
 export const getErrorMessage = (error: unknown, fallbackMessage: string) => {
+  console.error("[API ERROR]", fallbackMessage, error);
+
   if (error instanceof ApiError) {
     return error.expose ? error.message : fallbackMessage;
   }
