@@ -596,17 +596,22 @@ const databaseStore = {
     }
     const next = toStoredProject(input, existing || undefined);
 
-    const duplicateRows = await sql<Record<string, unknown>[]>`
-      SELECT id
-      FROM projects
-      WHERE (
-        slug_es = ${next.slugEs}
-        OR (${next.slugEn ?? null} IS NOT NULL AND slug_en = ${next.slugEn ?? null})
-      )
-      AND id <> ${next.id}
-      LIMIT 1
-    `;
-
+    const duplicateRows = next.slugEn
+      ? await sql<Record<string, unknown>[]>`
+          SELECT id
+          FROM projects
+          WHERE (slug_es = ${next.slugEs} OR slug_en = ${next.slugEn})
+            AND id <> ${next.id}
+          LIMIT 1
+        `
+      : await sql<Record<string, unknown>[]>`
+          SELECT id
+          FROM projects
+          WHERE slug_es = ${next.slugEs}
+            AND id <> ${next.id}
+          LIMIT 1
+        `;
+    
     if (duplicateRows.length > 0) {
       throw new ConflictError("Slug already exists");
     }
